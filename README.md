@@ -1,1 +1,5 @@
-# team_1_earth_quake_detector
+- Alicia Hamann [741182]
+- Karina Hasler [738211]
+- Gabriel Sacher [862446]
+
+# 001 - Earth Quake Detector
