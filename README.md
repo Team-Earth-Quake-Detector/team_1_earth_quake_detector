@@ -1,0 +1,1 @@
+# team_1_earth_quake_detector
