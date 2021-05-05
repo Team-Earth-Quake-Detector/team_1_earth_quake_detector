@@ -3,9 +3,9 @@
 - Gabriel Sacher [862446]
 
 # 001 - Earth Quake Detector
-*Realtime detection and visualization of earth quake occurrences in predefined region (map segment) over a certain time.*
+### *Realtime detection and visualization of earth quake occurrences in predefined region (map segment) over a certain time.*
 
-_This document needs to contain at least 10.000 characters, but not more than 100.000 characters._
+This document needs to contain at least 10.000 characters, but not more than 100.000 characters.
 
 1. What was the task to be accomplished? What was intended to achieve? Sometime analytics projects fail or end up with the insight that the user problem can not be solved. This is also a valid and valuable result.
 
