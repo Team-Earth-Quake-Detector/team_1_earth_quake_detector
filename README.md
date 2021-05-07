@@ -29,7 +29,7 @@ A detailed description of your:
 - work
 - findings
 - concrete achievements
-- 
+
 Here you should accumulate the largest part of your writing.
 
 ## 5. Summary 
