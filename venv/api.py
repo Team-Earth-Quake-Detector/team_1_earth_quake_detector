@@ -55,6 +55,6 @@ folium.GeoJson(
 # Add layer control
 folium.LayerControl().add_to(map_osm)
 
-file_path = r"templates/webserver.html"
+file_path = r"/Users/aliciahamann/Library/Mobile Documents/com~apple~CloudDocs/MBA/2. Semester/IT Business Analytics/BusinessAnalyticsA/BusinessAnalyticsA/BusinessAnalyticsA/team_1_earth_quake_detector/templates/webserver.html"
 map_osm.save(file_path) # Save as html file
 webbrowser.open(file_path) # Default browser open
