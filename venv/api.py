@@ -5,10 +5,11 @@ import requests
 from datetime import datetime
 import geocoder
 
+#integrated in data_collector
 response = requests.get("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_day.geojson")
-
 earthquakes = response.json()['features']
 
+#integrated in data_collector
 earthquake_data = []
 for element in earthquakes:
     time = str(datetime.fromtimestamp(element["properties"]["time"] / 1000))
@@ -20,7 +21,7 @@ for element in earthquakes:
             }
     earthquake_data.append(dict)
 
-# Set up basic OpenStreetMap
+# Set up basic OpenStreetMap #integrated in map
 current_location = geocoder.ip('me')
 map_osm = folium.Map(location=[(current_location.latlng[0]), (current_location.latlng[1])],
                      zoom_start=5,

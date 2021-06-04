@@ -14,7 +14,7 @@ import folium
 my_map1 = folium.Map(location=my_adress,
                      zoom_start = 12)
 #Add Circle
-folium.CircleMarker(location=my_adress, radius=50, popup = "Köln").add_to(my_map1)
+folium.CircleMarker(location=my_adress, radius=100, popup = "Köln").add_to(my_map1)
 #Add Marker
 folium.Marker(my_adress, popup = "Köln").add_to(my_map1)
 

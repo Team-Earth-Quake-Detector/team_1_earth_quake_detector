@@ -9,3 +9,11 @@ class Monitor:
         self.data_collector = DataCollector()
         self.data_collector.data
 
+    def relocate(self, long: float, lat:float, radius:float ):
+        self.long = input()
+        self.lat = input()
+        self.radius = input()
+        # get new coordinates
+        # input/search fields
+
+
