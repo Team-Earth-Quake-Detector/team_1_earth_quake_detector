@@ -11,7 +11,7 @@ app.config['UPLOAD_FOLDER'] = picFolder
 @app.route("/")
 def index():
     logo_hsd = os.path.join(app.config['UPLOAD_FOLDER'], 'HSD_Logo.png')
-    return render_template("test_4.html", user_image=logo_hsd)
+    return render_template("index.html", user_image=logo_hsd)
 
 
 @app.route("/index")
