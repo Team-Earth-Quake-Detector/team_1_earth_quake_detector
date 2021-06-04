@@ -68,10 +68,13 @@ For analytical uses cases it is wise to follow a structured approach like Micros
 
 ## 4. Details
 
-*Most important*
-
-A detailed description of your: 
-- approach 
+- Approach:
+  - Pursuing an approach of object-oriented programming and creation of classes
+    
+        - Webserver: Initiate webserver
+        - Map: Get current location, set up basic OpenStreetMap with default zoom to current location
+        - Earthquake data: Create API to access earthquake data, extract relevant data, visualize earthquake data, add tectonic plates, save html file
+        - Website / search parameters: Get location, get radius, get update frequency
 - work
   1. Processing of real-time data 
   2. Geo data calculations and visualization with OpenStreetMaps
