@@ -27,8 +27,14 @@ class DataCollector:
 
     def filter_radius(self):
         """ Filter data from API by radius"""
-        #
-        pass
+        earthquake_data_clean = []
+        for earthquake in earthquake_data:
+            starting_point = (self.lat, self.long)
+            location = (earthquake["latitude"], earthquake["longitude"])
+            distance = geopy.distance.distance(starting_point, location).km
+            if distance <= self.radius:
+                earthquake_data_clean.append(earthquake)
+
 
     def refresh(self):
         # read data from earthquake data source
