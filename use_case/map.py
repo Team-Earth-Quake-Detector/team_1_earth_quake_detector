@@ -2,9 +2,6 @@ class Map:
     def __init__(self):
         pass
 
-    def get_overlay(self):
-        pass
-
     def set_up_map(self):
         """ Customizes OpenStreetMap """
         # Set up basic OpenStreetMap
@@ -13,3 +10,5 @@ class Map:
                              zoom_start=5,
                              tiles='StamenTerrain',
                              control_scale=True)
+        # save our map to an interactive html file
+        #m.save('earthquakes.html')
