@@ -10,7 +10,7 @@ class Monitor:
         self.data_collector.data
 
     def relocate(self, long: float, lat:float, radius:float ):
-        self.long = input()
+        self.long = input("long")
         self.lat = input()
         self.radius = input()
         # get new coordinates

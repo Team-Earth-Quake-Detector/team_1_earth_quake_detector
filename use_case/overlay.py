@@ -16,16 +16,15 @@ class Overlay: #Basisklasse für alle overlays
     def add_to_layer_control(self, map):
         pass
 
-
 class EarthquakeOverlay(Overlay):
 
-    def __init__(self, earthquake_data):
-        self.earthquake_data = earthquake_data
+    def __init__(self, earthquake_data_clean):
+        self.earthquake_data_clean = earthquake_data_clean
 
     def apply_overlay(self, map):
         colormap = cm.LinearColormap(colors=['orange', 'red'], index=[0, 10], vmin=0, vmax=10)
 
-        for earthquake in self.earthquake_data:
+        for earthquake in self.earthquake_data_clean:
             location = (earthquake["latitude"], earthquake["longitude"])
             tooltip_text = f"Time: {earthquake['time']}\n Magnitude: {earthquake['magnitude']}"
             radius = earthquake['magnitude'] * 50000

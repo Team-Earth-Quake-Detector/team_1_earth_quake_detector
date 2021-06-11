@@ -9,8 +9,9 @@ class Earthquake:
         self.id = data["id"]
         self.time = data["time"]
 
-    def get_map(self):
+    def get_map(self, map):
         self.map = Map()
+        self.map.set_up_map()
         self.map.add_overlay(EarthquakeOverlay())
         self.map.add_overlay(TectonicOverlay())
         self.map.save('earthquakes.html')
