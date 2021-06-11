@@ -8,14 +8,14 @@ class DataCollector:
     def load_data(self):
         """ Get data from API"""
         response = requests.get("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson")
-        global earthquakes = response.json()['features']
-    # QUESTION? Is global the right connection?
+        self.earthquakes = response.json()['features']
+
 
     def prep_data(self):
         """ Extract relevant features: id, longitude, latitude, time, magnitude"""
         self.load_data()
-        earthquake_data = []
-        for element in earthquakes:
+        self.earthquake_data = []
+        for element in self.earthquakes:
             time = str(datetime.fromtimestamp(element["properties"]["time"] / 1000))
             dict = {"id": element["id"],
                     "longitude": element["geometry"]["coordinates"][0],
@@ -23,19 +23,19 @@ class DataCollector:
                     "time": time,
                     "magnitude": element["properties"]["mag"]
                     }
-            earthquake_data.append(dict)
+            self.earthquake_data.append(dict)
 
     def filter_radius(self):
         """ Filter data from API by radius"""
-        earthquake_data_clean = []
-        for earthquake in earthquake_data:
+        self.earthquake_data_clean = []
+        for earthquake in self.earthquake_data:
             starting_point = (self.lat, self.long)
             location = (earthquake["latitude"], earthquake["longitude"])
             distance = geopy.distance.distance(starting_point, location).km
             if distance <= self.radius:
-                earthquake_data_clean.append(earthquake)
+                self.earthquake_data_clean.append(earthquake)
 
-
+"""
     def refresh(self):
         # read data from earthquake data source
         self.prep_data()
@@ -43,6 +43,6 @@ class DataCollector:
         self.filter_radius()
         # prepare pandas data frame or dictionary with relevant data
         self.data = {}
-
+"""
 
 # Data Collector und Earthquake verbinden

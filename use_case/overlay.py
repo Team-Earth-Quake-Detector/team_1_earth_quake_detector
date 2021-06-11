@@ -1,13 +1,31 @@
-from map.py import Map()
+import folium
+import webbrowser
+import branca.colormap as cm
+import requests
+from datetime import datetime
+import geocoder
+import geopy.distance
 
-class Overlay:
-    pass
+class Overlay: #Basisklasse für alle overlays
+    def __init__(self):
+        pass
 
-    def get_earthquake_overlay(self):
-        """Visualize earthquake data"""
+    def apply_overlay(self,map):
+        pass
+
+    def add_to_layer_control(self, map):
+        pass
+
+
+class EarthquakeOverlay(Overlay):
+
+    def __init__(self, earthquake_data):
+        self.earthquake_data = earthquake_data
+
+    def apply_overlay(self, map):
         colormap = cm.LinearColormap(colors=['orange', 'red'], index=[0, 10], vmin=0, vmax=10)
 
-        for earthquake in earthquake_data:
+        for earthquake in self.earthquake_data:
             location = (earthquake["latitude"], earthquake["longitude"])
             tooltip_text = f"Time: {earthquake['time']}\n Magnitude: {earthquake['magnitude']}"
             radius = earthquake['magnitude'] * 50000
@@ -19,21 +37,18 @@ class Overlay:
                 color=colormap(earthquake['magnitude']),
                 weight=1,
                 fill_opacity=0.5
-            ).add_to(map_osm)
+            ).add_to(map)
 
-    def get_tectonic_plates_overlay(self):
+class TectonicOverlay(Overlay):
+
+    def apply_overlay(self, map):
         """Add tectonic plates"""
         url = 'https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/PB2002_boundaries.json'
 
         folium.GeoJson(
             url,
             name='Tectonic plates'
-        ).add_to(map_osm)
+        ).add_to(map)
 
-    def get_layer_control_overlay(self):
-        """Add layer control"""
-        folium.LayerControl().add_to(map_osm)
-
-        file_path = r"/templates/earthquake_map.html"
-        map_osm.save(file_path)  # Save as html file
-        webbrowser.open(file_path)  # Default browser open
+    def add_to_layer_control(self, map):
+        folium.LayerControl().add_to(map)
