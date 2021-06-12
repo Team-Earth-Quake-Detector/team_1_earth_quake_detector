@@ -5,16 +5,17 @@ import requests
 
 
 class DataCollector:
-    def __init__(self, long: float = 51.2, lat: float = 6.7, radius: float = 1000): #Düsseldorf default -later current location
+    def __init__(self, long: float = 51.2, lat: float = 6.7, radius: float = 15000): #Düsseldorf default -later current location
         self.long = long
         self.lat = lat
         self.radius = radius
-        self.refresh()
+        #self.refresh()
 
     def load_data(self):
         """ Get data from API"""
         response = requests.get("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson")
         self.earthquakes = response.json()['features']
+
 
     def prep_data(self):
         """ Extract relevant features: id, longitude, latitude, time, magnitude"""
@@ -39,5 +40,4 @@ class DataCollector:
             distance = geopy.distance.distance(starting_point, location).km
             if distance <= self.radius:
                 self.earthquake_data_clean.append(earthquake)
-
 

@@ -1,5 +1,6 @@
 from use_case.map import Map
-from overlay import Overlay, EarthquakeOverlay , TectonicOverlay
+from overlay import Overlay, EarthquakeOverlay, TectonicOverlay
+
 
 class Earthquake:
     def __init__(self, data):
@@ -14,7 +15,7 @@ class Earthquake:
         self.map.set_up_map()
         self.map.add_overlay(EarthquakeOverlay())
         self.map.add_overlay(TectonicOverlay())
-        self.map.save('earthquakes.html')
+        self.map.save_map('earthquakes.html')
 
     def render(self, map):
         """ Show map on Monitor """
