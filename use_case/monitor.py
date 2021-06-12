@@ -1,4 +1,4 @@
-from use_case.data_collector import DataCollector
+from use_case.research.karinahasler.data_collector_test import DataCollector
 
 
 class Monitor:
@@ -9,7 +9,7 @@ class Monitor:
         self.data_collector = DataCollector()
         self.data_collector.data
 
-    def relocate(self, long: float, lat:float, radius:float ):
+    def relocate(self, long: float, lat: float, radius: float):
         self.long = input("long")
         self.lat = input()
         self.radius = input()

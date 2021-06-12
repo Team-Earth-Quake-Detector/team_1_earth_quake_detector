@@ -16,6 +16,7 @@ class Overlay: #Basisklasse für alle overlays
 class EarthquakeOverlay(Overlay):
 
     def __init__(self, earthquake_data_clean):
+        super().__init__()
         self.earthquake_data_clean = earthquake_data_clean
 
     def apply_overlay(self, map):

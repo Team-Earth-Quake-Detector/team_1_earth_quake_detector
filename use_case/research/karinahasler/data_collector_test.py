@@ -16,7 +16,6 @@ class DataCollector:
         response = requests.get("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson")
         self.earthquakes = response.json()['features']
 
-
     def prep_data(self):
         """ Extract relevant features: id, longitude, latitude, time, magnitude"""
         self.load_data()
@@ -32,6 +31,7 @@ class DataCollector:
             self.earthquake_data.append(dict)
 
     def filter_radius(self):
+        self.prep_data()
         """ Filter data from API by radius"""
         self.earthquake_data_clean = []
         for earthquake in self.earthquake_data:

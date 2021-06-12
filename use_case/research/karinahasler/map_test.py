@@ -1,6 +1,8 @@
 from folium import folium
 import geocoder
 
+from use_case.research.karinahasler.overlay_test import Overlay
+
 
 class Map:
     def __init__(self):
@@ -20,6 +22,3 @@ class Map:
 
     def save_map(self, file_name):
         self.map.save(file_name)
-
-
-
