@@ -1,5 +1,6 @@
 import folium
 import branca.colormap as cm
+import geocoder
 
 
 class Overlay: #Basisklasse für alle overlays
@@ -16,9 +17,11 @@ class Overlay: #Basisklasse für alle overlays
 class EarthquakeOverlay(Overlay):
 
     def __init__(self, earthquake_data_clean):
+        super().__init__()
         self.earthquake_data_clean = earthquake_data_clean
 
     def apply_overlay(self, map):
+        current_location = [(geocoder.ip('me').latlng[0]), (geocoder.ip('me').latlng[1])]
         colormap = cm.LinearColormap(colors=['orange', 'red'], index=[0, 10], vmin=0, vmax=10)
 
         for earthquake in self.earthquake_data_clean:
@@ -33,6 +36,16 @@ class EarthquakeOverlay(Overlay):
                 color=colormap(earthquake['magnitude']),
                 weight=1,
                 fill_opacity=0.5
+            ).add_to(map)
+
+            lines = []
+            lines.append(current_location)
+            lines.append(location)
+            folium.PolyLine(
+                lines,
+                color="grey",
+                dash_array=10,
+                popup=f"{round(earthquake['distance'], 2)} km"
             ).add_to(map)
 
 

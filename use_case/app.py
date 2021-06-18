@@ -1,26 +1,27 @@
-from flask import Flask, render_template
 import os
 
-from use_case.data_collector import DataCollector
-from use_case.earthquake import Earthquake
+from flask import Flask, render_template
+
+from data_collector import DataCollector
+from map import Map
+from overlay import EarthquakeOverlay, TectonicOverlay
 
 app = Flask(__name__)
 
 
-@app.route("/map")
-def draw_map():
-    dc = DataCollector()
-    eq = Earthquake(dc.earthquake_data_clean)
-    eq.get_map()
-    return render_template("earthquakes.html")
-
-
 @app.route("/")
 def index():
+    my_map = Map()
     dc = DataCollector()
-    eq = Earthquake(dc.earthquake_data_clean)
-    eq.get_map()
-    return render_template("earthquakes.html")
+    dc.filter_radius()
+    eqov = EarthquakeOverlay(dc.earthquake_data_clean)
+    eqov.apply_overlay(my_map.map)
+    tcov = TectonicOverlay()
+    tcov.apply_overlay(my_map.map)
+    tcov.add_to_layer_control(my_map.map)
+    my_map.save_map(os.path.join(app.root_path, "templates", "my_map.html"))
+    return render_template("my_map.html") # render html
+    #return my_map._repr_html_() # Extract map only -> Beautiful Soap
 
 
 if __name__ == "__main__":

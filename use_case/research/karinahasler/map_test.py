@@ -1,4 +1,4 @@
-from folium import folium
+import folium
 import geocoder
 
 from use_case.research.karinahasler.overlay_test import Overlay
@@ -12,13 +12,12 @@ class Map:
     def set_up_map(self):
         """ Customizes OpenStreetMap """
         # Set up basic OpenStreetMap
-        current_location = geocoder.ip('me')
-        self.map = folium.Map(location=[(current_location.latlng[0]), (current_location.latlng[1])],
+        current_location = [(geocoder.ip('me').latlng[0]), (geocoder.ip('me').latlng[1])]
+        self.map = folium.Map(location=current_location,
                              zoom_start=5,
                              tiles='StamenTerrain',
                              control_scale=True)
-        # save our map to an interactive html file
-        #m.save('earthquakes.html')
+        folium.Marker(current_location).add_to(self.map)
 
     def save_map(self, file_name):
-        self.map.save(file_name)
+        self.map.save(file_name) # don't save
