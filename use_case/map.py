@@ -1,3 +1,5 @@
+import os
+
 import folium
 import geocoder
 
@@ -19,3 +21,4 @@ class Map:
 
     def save_map(self, file_name):
         self.map.save(file_name) # don't save
+

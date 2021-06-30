@@ -2,23 +2,15 @@ import os
 
 from flask import Flask, render_template
 
-from data_collector import DataCollector
-from map import Map
-from overlay import EarthquakeOverlay, TectonicOverlay
+from monitor import Monitor
 
 app = Flask(__name__)
 
 
 @app.route("/")
 def index():
-    my_map = Map()
-    dc = DataCollector()
-    dc.filter_radius()
-    eqov = EarthquakeOverlay(dc.earthquake_data_clean)
-    eqov.apply_overlay(my_map.map)
-    tcov = TectonicOverlay()
-    tcov.apply_overlay(my_map.map)
-    tcov.add_to_layer_control(my_map.map)
+    input = Monitor()
+    my_map = input.build_map()
     my_map.save_map(os.path.join(app.root_path, "templates", "my_map.html"))
     return render_template("my_map.html") # render html
     #return my_map._repr_html_() # Extract map only -> Beautiful Soap
