@@ -64,15 +64,34 @@ Description and your understanding of the business question or problem, analytic
 ## 3. Methodological approach
 
 The methodological approach chosen to process and implement the use case.
-For analytical uses cases it is wise to follow a structured approach like Microsoft's Team Database Science Process, which is the legitimate successor of the CrispDM methodology.
+For analytical uses cases it is wise to follow a structured approach like Microsoft's Team Database Science Process (TDSP), which is the legitimate successor of the CrispDM methodology.
+___
+######Key Components of the TDSP:
+1. **Data Science lifecycle definition**
+    - Business Understanding
+    - Data Acquisition and Understanding (Data Source, Pipeline, Exploration and Cleaning)
+    - Modeling (Feature Engineering: Feature selection, Transforming and Binding)
+    - Deployment (Performance, Monitoring)
+2. **Standardized project structure**
+    - Template for folder structure 
+   ![img.png](img.png)
+3. **Infrastructure  and resources recommended for the project**
+4. **Tools and utilities recommended for project execution**
+___
+
 
 ## 4. Details
 
 *Most important*
 
-A detailed description of your: 
-- approach 
-- work
+A detailed description of your:
+
+**- Approach:**
+   
+  ![img_7.png](img_7.png)
+  ![img_5.png](img_5.png)  
+
+**- Work:**
   1. Processing of real-time data 
   2. Geo data calculations and visualization with OpenStreetMaps
   3. Web frontend development & Web-service backend development
