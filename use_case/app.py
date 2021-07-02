@@ -13,7 +13,7 @@ def index():
     my_map = input.build_map()
     my_map.save_map(os.path.join(app.root_path, "templates", "my_map.html"))
     return render_template("my_map.html") # render html
-    #return my_map._repr_html_() # Extract map only -> Beautiful Soap
+    # return my_map._repr_html_() # Extract map only -> Beautiful Soap
 
 
 if __name__ == "__main__":
