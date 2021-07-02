@@ -15,7 +15,8 @@ class DataCollector:
 
     def load_data(self):
         """ Get data from API"""
-        response = requests.get("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson")
+        url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson"
+        response = requests.get(url)
         self.earthquakes = response.json()['features']
 
     def prep_data(self):
