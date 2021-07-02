@@ -66,7 +66,7 @@ Description and your understanding of the business question or problem, analytic
 The methodological approach chosen to process and implement the use case.
 For analytical uses cases it is wise to follow a structured approach like Microsoft's Team Database Science Process (TDSP), which is the legitimate successor of the CrispDM methodology.
 ___
-######Key Components of the TDSP:
+###Key Components of the TDSP:
 1. **Data Science lifecycle definition**
     - Business Understanding
     - Data Acquisition and Understanding (Data Source, Pipeline, Exploration and Cleaning)
