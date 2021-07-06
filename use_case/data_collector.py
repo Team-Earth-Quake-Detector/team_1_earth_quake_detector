@@ -2,15 +2,14 @@ from datetime import datetime
 
 import geopy.distance
 import requests
+import geocoder
 
 from earthquake import EarthquakeList
 
 
 class DataCollector:
-    def __init__(self, long: float = 51.2, lat: float = 6.7, radius: float = 15000): #Düsseldorf default -later current location
-        self.long = long
-        self.lat = lat
-        self.radius = radius
+    def __init__(self):
+        self.current_location = [(geocoder.ip('me').latlng[0]), (geocoder.ip('me').latlng[1])]
         #self.refresh()
 
     def load_data(self):
@@ -35,15 +34,17 @@ class DataCollector:
             self.earthquake_data.append(dict)
         eql = EarthquakeList(self.earthquakes)
 
-    def filter_radius(self):
+    def filter_radius(self, location=None, radius: int = 15000):
         self.prep_data()
         """ Filter data from API by radius"""
+        if location is None:
+            location = self.current_location
         self.earthquake_data_clean = []
         for earthquake in self.earthquake_data:
-            starting_point = (self.lat, self.long)
-            location = (earthquake["latitude"], earthquake["longitude"])
-            distance = geopy.distance.distance(starting_point, location).km
+            starting_point = location
+            earthquake_location = (earthquake["latitude"], earthquake["longitude"])
+            distance = geopy.distance.distance(starting_point, earthquake_location).km
             earthquake["distance"] = distance
-            if distance <= self.radius:
+            if distance <= radius:
                 self.earthquake_data_clean.append(earthquake)
-
+        return self.earthquake_data_clean
