@@ -15,6 +15,7 @@ class Monitor:
     def build_default_map(self):
         self.collect_default_data()
         self.map = Map()
+        self.map.set_up_map()
         earthquake_overlay = EarthquakeOverlay(self.data_collector.earthquake_data_clean)
         earthquake_overlay.apply_overlay(self.map.map)
         tectonic_overlay = TectonicOverlay()
@@ -29,19 +30,18 @@ class Monitor:
             location_latitude = geolocator.geocode(location).latitude
             location_longitude = geolocator.geocode(location).longitude
             location_coordinates = (location_latitude, location_longitude)
-            return self.new_location.filter_radius(location_coordinates, radius)
+            self.new_location.filter_radius(location_coordinates, radius)
 
         if coordinates is not None:
-            return self.new_location.filter_radius(coordinates, radius)
+            self.new_location.filter_radius(coordinates, radius)
 
         # get new coordinates
         # input/search fields
 
-    def build_new_map(self):
-        self.relocate()
         self.map = Map()
+        self.map.set_up_map(location=coordinates)
         earthquake_overlay = EarthquakeOverlay(self.new_location.earthquake_data_clean)
-        earthquake_overlay.apply_overlay(self.map.map)
+        earthquake_overlay.apply_overlay(self.map.map, coordinates)
         tectonic_overlay = TectonicOverlay()
         tectonic_overlay.apply_overlay(self.map.map)
         tectonic_overlay.add_to_layer_control(self.map.map)

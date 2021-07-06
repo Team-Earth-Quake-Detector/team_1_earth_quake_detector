@@ -5,7 +5,7 @@ import geocoder
 
 class Overlay: #Basisklasse für alle overlays
     def __init__(self):
-        pass
+        self.current_location = [(geocoder.ip('me').latlng[0]), (geocoder.ip('me').latlng[1])]
 
     def apply_overlay(self, map):
         pass
@@ -20,16 +20,17 @@ class EarthquakeOverlay(Overlay):
         super().__init__()
         self.earthquake_data_clean = earthquake_data_clean
 
-    def apply_overlay(self, map):
-        current_location = [(geocoder.ip('me').latlng[0]), (geocoder.ip('me').latlng[1])]
+    def apply_overlay(self, map, location=None):
+        if location is None:
+            location = self.current_location
         colormap = cm.LinearColormap(colors=['orange', 'red'], index=[0, 10], vmin=0, vmax=10)
 
         for earthquake in self.earthquake_data_clean:
-            location = (earthquake["latitude"], earthquake["longitude"])
+            earthquake_location = (earthquake["latitude"], earthquake["longitude"])
             tooltip_text = f"Time: {earthquake['time']}\n Magnitude: {earthquake['magnitude']}"
             radius = earthquake['magnitude'] * 50000
             folium.Circle(
-                location=location,
+                location=earthquake_location,
                 tooltip=tooltip_text,
                 radius=radius,
                 fill=True,
@@ -39,8 +40,8 @@ class EarthquakeOverlay(Overlay):
             ).add_to(map)
 
             lines = []
-            lines.append(current_location)
             lines.append(location)
+            lines.append(earthquake_location)
             folium.PolyLine(
                 lines,
                 color="grey",
