@@ -1,4 +1,4 @@
-from use_case.research.karinahasler.data_collector_test import DataCollector
+from use_case_code.research.karinahasler.data_collector_test import DataCollector
 
 
 class Monitor:

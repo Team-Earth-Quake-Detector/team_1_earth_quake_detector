@@ -2,9 +2,9 @@ import os
 
 from flask import Flask, render_template
 
-from use_case.research.karinahasler.data_collector_test import DataCollector
-from use_case.research.karinahasler.map_test import Map
-from use_case.research.karinahasler.overlay_test import EarthquakeOverlay, TectonicOverlay
+from use_case_code.research.karinahasler.data_collector_test import DataCollector
+from use_case_code.research.karinahasler.map_test import Map
+from use_case_code.research.karinahasler.overlay_test import EarthquakeOverlay, TectonicOverlay
 
 app = Flask(__name__)
 

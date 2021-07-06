@@ -74,7 +74,7 @@ ___
     - Deployment (Performance, Monitoring)
 2. **Standardized project structure**
     - Template for folder structure 
-   ![img.png](img.png)
+   ![img.png](static/images/file_structure.png)
 3. **Infrastructure  and resources recommended for the project**
 4. **Tools and utilities recommended for project execution**
 ___
@@ -87,9 +87,13 @@ ___
 A detailed description of your:
 
 **- Approach:**
-   
-  ![img_7.png](img_7.png)
-  ![img_5.png](img_5.png)  
+
+As we mentioned earlier, we followed the Team Database Science Process (TDSP). 
+Therefore we created a project management board to ensure a structured approach 
+to process and implement our Earthquake-Monitor project:
+
+![static/images/ProjectBoard_EarthquakeMonitor.png](static/images/ProjectBoard_EarthquakeMonitor.png)
+![static/images/Legend_ProjectBord.png](static/images/Legend_ProjectBord.png)
 
 **- Work:**
   1. Processing of real-time data 

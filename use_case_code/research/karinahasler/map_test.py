@@ -1,7 +1,7 @@
 import folium
 import geocoder
 
-from use_case.research.karinahasler.overlay_test import Overlay
+from use_case_code.research.karinahasler.overlay_test import Overlay
 
 
 class Map:
