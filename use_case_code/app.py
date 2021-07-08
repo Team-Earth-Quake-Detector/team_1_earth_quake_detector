@@ -14,8 +14,7 @@ def index():
     # my_map.save_map(os.path.join(app.root_path, "templates", "my_map.html"))
     my_new_map = input.relocate(coordinates=(34.052234, -118.243685), radius=250)
     my_new_map.save_map(os.path.join(app.root_path, "templates", "my_new_map.html"))
-    return render_template("index.html") # render html
-    # return my_map._repr_html_() # Extract map only -> Beautiful Soap
+    return render_template("index.html", location="TBD", radius="TBD",)
 
 @app.route('/map')
 def map():
