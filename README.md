@@ -65,6 +65,7 @@ Description and your understanding of the business question or problem, analytic
 
 The methodological approach chosen to process and implement the use case.
 For analytical uses cases it is wise to follow a structured approach like Microsoft's Team Database Science Process (TDSP), which is the legitimate successor of the CrispDM methodology.
+Team Data Science Process (TDSP) is an agile, iterative, data science methodology to improve collaboration and team learning. It is supported through a lifecycle definition, standard project structure, artifact templates, and tools for productive data science.
 ___
 ###Key Components of the TDSP:
 1. **Data Science lifecycle definition**
@@ -75,6 +76,8 @@ ___
 2. **Standardized project structure**
     - Template for folder structure 
    ![img.png](static/images/file_structure.png)
+      - This is the general project directory structure for Team Data Science Process developed by Microsoft. 
+      - It also contains templates for various documents that are recommended as part of executing a data science project when using TDSP.
 3. **Infrastructure  and resources recommended for the project**
 4. **Tools and utilities recommended for project execution**
 ___
