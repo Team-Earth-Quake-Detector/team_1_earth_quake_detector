@@ -108,7 +108,12 @@ to process and implement our Earthquake-Monitor project:
 
 **- Class Definition**
 
-Here you should accumulate the largest part of your writing.
+  1. App()
+  2. Monitor()
+  3. DataCollector()
+  4. Earthquake()
+  5. Map()
+  6. Overlay()
 ___
 ## 5. Summary 
 A summary if the targets have been achieved, and if not - and whatever the reason is - why it wasn't achieved.
