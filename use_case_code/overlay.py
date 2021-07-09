@@ -1,4 +1,5 @@
 import folium
+from folium.features import DivIcon
 import branca.colormap as cm
 import geocoder
 
@@ -38,6 +39,13 @@ class EarthquakeOverlay(Overlay):
                 weight=1,
                 fill_opacity=0.5
             ).add_to(map)
+
+            folium.Marker(earthquake_location,
+                          icon=DivIcon(
+                              icon_size=(150, 36),
+                              icon_anchor=(0, 0),
+                              html='<div style="font-size: 10pt; color: grey">%s</div>' % earthquake['magnitude'])
+                          ).add_to(map)
 
             lines = []
             lines.append(location)

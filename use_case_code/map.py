@@ -14,7 +14,7 @@ class Map:
             location = self.current_location
         self.map = folium.Map(location=location,
                              zoom_start=5,
-                             tiles='StamenTerrain',
+                             tiles='OpenStreetMap',
                              control_scale=True)
         folium.Marker(location).add_to(self.map)
 
