@@ -44,23 +44,20 @@
     <p style="font-family:Helvetica;color:black;font-size:25px;margin-left:0.8em;">Hey Coding Party People, we are Team 1</p>
     <p style="font-family:Helvetica;color:black;font-size:15px;margin-left:1.5em;">Have Fun using our great and intuitive Earthquake Detector.</p>
     <br />
-      <div class="field half">
-        <label for="location"
-               style="font-family:Helvetica;color:black;font-size:15px;margin-left:1.4em;">Location
-        </label>
-        <input type="text" name="location" id="location" />
-        <label for="radius"
+        <form class="query" action="/">
+            <label for="location"
+                   style="font-family:Helvetica;color:black;font-size:15px;margin-left:1.4em;">Location
+            </label>
+            <input type="text" id="location" name="location" size="30" value="{{ location }}">
+            <label for="radius"
                style="font-family:Helvetica;color:black;font-size:15px;margin-left:1.4em;">Radius
-        </label>
-        <input type="text" name="radius" id="radius" />
-        <label for="frequency"
-               style="font-family:Helvetica;color:black;font-size:15px;margin-left:1.4em;">Update Frequency
-        </label>
-        <input type="text" name="frequency" id="frequency" />
-          <button class="button button1">Search</button>
+            </label>
+            <input type="range" name="radius" id="radius" min="100" max="1000" step="50" value="{{ radius }}" oninput="this.nextElementSibling.value = this.value">
+            <output>{{ radius }}</output>
+            <input type="submit" class="button button1" value="Submit">
+        </form>
           <br />
           <br />
-    </div>
     <iframe class="map", src="/map" width=100% height="600"></iframe>
 </body>
 </html>
