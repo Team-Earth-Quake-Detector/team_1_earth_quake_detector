@@ -49,3 +49,4 @@ class Monitor:
             tectonic_overlay.apply_overlay(self.map.map)
             tectonic_overlay.add_to_layer_control(self.map.map)
             return self.map
+
