@@ -30,14 +30,17 @@ Description and your understanding of the business question or problem, analytic
   - Set up an API for the automatic download of data
   - Data preparation : extract relevant data & transform it into a usable structure
   
-- #### 2. Geo data calculations and visualization with OpenStreetMaps
-  - Visualize the earthquakes on a map 
-      - Adapt circle radius and color depending on the magnitude
-      - Show the current location on a map
-      - Popup with timestamp, magnitude and distance
+- #### 2. Geo data calculations
   - Calculate the distance from current location to selected earthquake
   
-- #### 3. Web frontend development & web-service backend development
+- #### 3. Geo data visualization with OpenStreetMaps
+  - Visualize the earthquakes on a map
+      
+        - Adapt circle radius and color depending on the magnitude
+        - Show the current location on a map
+        - Popup with timestamp, magnitude and distance
+
+- #### 4. Web frontend development & web-service backend development
   - Starts a web server, opens a web page in the default browser that provides the following features:
     
         - A nice logo and layout. Use the HSD logo or create your own. 
@@ -46,7 +49,7 @@ Description and your understanding of the business question or problem, analytic
         - On overlay that draws the location of all earthquakes of the last 24 hours into the actual map, represented by a circle contains the strength (Richter scala) of the earth quake and a label with the timestamp of the earth quake.
           the web page should be update evers
   
-- #### 4. Searchbar for different user defined configurations 
+- #### 5. Searchbar for different user defined configurations 
   - Three arguments for configuration: 
   
         - A location either as an address or a city, region or country name or longitude and latitude positioning (default value: Current location of the computer)
@@ -89,8 +92,7 @@ ___
 
 A detailed description of your:
 
-**- Approach:**
-
+### Approach:
 As we mentioned earlier, we followed the Team Database Science Process (TDSP). 
 Therefore we created a project management board to ensure a structured approach 
 to process and implement our Earthquake-Monitor project:
@@ -98,25 +100,103 @@ to process and implement our Earthquake-Monitor project:
 ![static/images/ProjectBoard_EarthquakeMonitor.png](static/images/ProjectBoard_EarthquakeMonitor.png)
 ![static/images/Legend_ProjectBord.png](static/images/Legend_ProjectBord.png)
 
-**- Work:**
-  1. Processing of real-time data 
-  2. Geo data calculations and visualization with OpenStreetMaps
-  3. Web frontend development & Web-service backend development
-  4. Searchbar for different user defined configurations 
-- findings
-- concrete achievements
+###Work:
+  **1. Processing of real-time data** 
+- In order to develop a real-time updating map, we needed to included an API from the United States 
+       Geological Surves (USGS) website.
+- The API delivers our data, which contains all Earthquakes all over the world which took place in the last 24 hours.  
+  
+    > If you want to get further information about the USGS, click here:
+        https://www.usgs.gov/
+  > 
+  > If you want to take a look at the data of the API, click here: 
+        https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson
+- Data Preparation:
+  
+    For Data Preparation, we extract relevant data from the USGS API & transform it into a usable structure.
+    The relevant data contains different features,which are represented in the table below:
+  
+    | Earthquake ID |  Longitude  | Latitude | Time | Magnitude |   
+    | ---:| ---: | ---: | ---: | ---:
+    | 00811746 | -119.4843 | 38.5368,1 | 1625824908214 | 2,0
+    | ... | ... | ... | ... | ...
 
-**- Class Definition**
 
-  1. App()
-  2. Monitor()
-  3. DataCollector()
-  4. Earthquake()
-  5. Map()
-  6. Overlay()
+  **2. Geo data calculations**
+  
+- With the help of the location (longitude & latitude) of each earthquake and the current or inserted location from the user,
+    we were able to append some geo data calculations:
+  > ***Filter radius:***
+  > With this method, we can only show earthquaked wich are in the given/inserted radius of the user. 
+  > If the user does not filter by the radius, we set a default value of ???
+  > 
+  > ***Distance:***
+  > With this method, we can calculate the distance between the given location of the user and each earthquake in kilometer
+  >
+  > ***Number of earthquakes:***
+  > With this method, we can count the number of earthquakes in the given radius and represent the amount of earthquakes on our website
+  > 
+  > ***Closest Earthquake***
+  > Whit this method, we can represent the closed earthquake to the user on our website.
+
+
+  **3. Geo data visualization with OpenStreetMaps**
+- We created a map with the folium package, to visualize the earthquakes and someother cool features and add-ons.
+    > 
+    > ***Earthquake Overlay:***
+    > - This overlay adds the earthquakes from the API to the folium map and represents them though circles in different sizes and colours, depending on the magnitude of each earthquake.
+    > - It sets a marker to the current location of the user as default or to the inserted location of the user.
+    > - It also draws a line from the current location to the earthquakes in the radius, to make it  user friendlier to find the nearest earthquakes.
+    > - If the user hovers over a earthquake, some detailled information about the earthquake, like timestamp, magnitude and distance pop up.
+  > 
+    > ***Tectonic Overlay:***
+    > - This overlay adds the tectonic plates to the map. The user can enable or disable the tectonic plates by ticking or unticking the box in the layer control on the top right of the map.
+  
+
+  **4. Web frontend development & Web-service backend development**
+- To setup a interactive and intuitive website, we used the flask package.
+
+
+  **5. Searchbar for different user defined configurations** 
+- In Order to make our website even more interactive and andvanced, we included inputfields.
+> **Location:**
+> Text
+> 
+> **Radius**
+> Text
+
+
+### Class Definition**
+
+  **1. App**
+- Text
+
+
+  **2. Monitor**
+- Text
+
+
+  **3. DataCollector**
+- Text
+
+
+ **4. Earthquake**
+- Text
+
+
+  **5. Map**
+- Text
+
+
+  **6. Overlay**
+- Text
+
+
 ___
 ## 5. Summary 
 A summary if the targets have been achieved, and if not - and whatever the reason is - why it wasn't achieved.
+- findings
+- concrete achievements
 ___ 
 ## 6. Future Development
 What are the next steps that could be done in order to keep process in the project.

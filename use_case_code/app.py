@@ -10,10 +10,10 @@ app = Flask(__name__)
 @app.route("/")
 def index():
     input = Monitor()
-    # my_map = input.build_map()
-    # my_map.save_map(os.path.join(app.root_path, "templates", "my_map.html"))
-    my_map = input.build_map(coordinates=(34.052234, -118.243685), radius=250)
+    my_map = input.build_map()
     my_map.save_map(os.path.join(app.root_path, "templates", "my_map.html"))
+    #my_map = input.build_map(coordinates=(34.052234, -118.243685), radius=250)
+    #my_map.save_map(os.path.join(app.root_path, "templates", "my_map.html"))
     return render_template("index.html") # render html
     # return my_map._repr_html_() # Extract map only -> Beautiful Soap
 
