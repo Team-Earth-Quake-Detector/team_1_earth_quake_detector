@@ -110,4 +110,6 @@ Here you should accumulate the largest part of your writing.
 ___
 ## 5. Summary 
 A summary if the targets have been achieved, and if not - and whatever the reason is - why it wasn't achieved.
+___ 
+## 6. Future Development
 What are the next steps that could be done in order to keep process in the project.
