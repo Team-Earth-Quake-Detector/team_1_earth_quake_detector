@@ -10,16 +10,16 @@ app = Flask(__name__)
 @app.route("/")
 def index():
     input = Monitor()
-    # my_map = input.build_default_map()
+    my_map = input.build_map()
+    my_map.save_map(os.path.join(app.root_path, "templates", "my_map.html"))
+    # my_map = input.build_map(coordinates=(34.052234, -118.243685), radius=250)
     # my_map.save_map(os.path.join(app.root_path, "templates", "my_map.html"))
-    my_new_map = input.relocate(coordinates=(34.052234, -118.243685), radius=250)
-    my_new_map.save_map(os.path.join(app.root_path, "templates", "my_new_map.html"))
     return render_template("index.html") # render html
     # return my_map._repr_html_() # Extract map only -> Beautiful Soap
 
 @app.route('/map')
 def map():
-    return render_template('my_new_map.html')
+    return render_template('my_map.html')
 
 if __name__ == "__main__":
     app.run(debug=True)
