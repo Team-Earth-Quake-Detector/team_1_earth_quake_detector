@@ -106,6 +106,8 @@ to process and implement our Earthquake-Monitor project:
 - findings
 - concrete achievements
 
+**- Class Definition**
+
 Here you should accumulate the largest part of your writing.
 ___
 ## 5. Summary 
