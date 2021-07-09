@@ -1,7 +1,7 @@
 - Alicia Hamann [741182]
 - Karina Hasler [738211]
 - Gabriel Sacher [862446]
-
+___
 
 # 001 - Earthquake Detector
 ### *Realtime detection and visualization of earthquake occurrences in predefined region (map segment) over a certain time.*
@@ -60,14 +60,15 @@ Description and your understanding of the business question or problem, analytic
         - quakemonitor.py --location "Silicon Valley" --radius 500  
         - quakemonitor.py --location "Düsseldorf" --radius 100 --update 10
         - quakemonitor.py --long 51.246839 --lat 6.7916647 --radius 100
+___
 
 ## 3. Methodological approach
 
 The methodological approach chosen to process and implement the use case.
 For analytical uses cases it is wise to follow a structured approach like Microsoft's Team Database Science Process (TDSP), which is the legitimate successor of the CrispDM methodology.
 Team Data Science Process (TDSP) is an agile, iterative, data science methodology to improve collaboration and team learning. It is supported through a lifecycle definition, standard project structure, artifact templates, and tools for productive data science.
-___
-###Key Components of the TDSP:
+
+#### Key Components of the TDSP:
 1. **Data Science lifecycle definition**
     - Business Understanding
     - Data Acquisition and Understanding (Data Source, Pipeline, Exploration and Cleaning)
@@ -81,7 +82,6 @@ ___
 3. **Infrastructure  and resources recommended for the project**
 4. **Tools and utilities recommended for project execution**
 ___
-
 
 ## 4. Details
 
@@ -107,6 +107,7 @@ to process and implement our Earthquake-Monitor project:
 - concrete achievements
 
 Here you should accumulate the largest part of your writing.
-
+___
 ## 5. Summary 
 A summary if the targets have been achieved, and if not - and whatever the reason is - why it wasn't achieved.
+What are the next steps that could be done in order to keep process in the project.
