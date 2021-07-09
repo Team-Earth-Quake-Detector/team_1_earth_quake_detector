@@ -148,9 +148,10 @@ to process and implement our Earthquake-Monitor project:
     > - It sets a marker to the current location of the user as default or to the inserted location of the user.
     > - It also draws a line from the current location to the earthquakes in the radius, to make it  user friendlier to find the nearest earthquakes.
     > - If the user hovers over a earthquake, some detailled information about the earthquake, like timestamp, magnitude and distance pop up.
-  > 
+
+
     > ***Tectonic Overlay:***
-    > - This overlay adds the tectonic plates to the map. The user can enable or disable the tectonic plates by ticking or unticking the box in the layer control on the top right of the map.
+    > - This overlay adds the tectonic plates to the map. The user can enable or disable the tectonic plates by ticking or unticking the box in the layer control     > on the top right of the map.
   
 
   **4. Web frontend development & Web-service backend development**
