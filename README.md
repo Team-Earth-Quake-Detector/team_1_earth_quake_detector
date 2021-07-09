@@ -100,7 +100,7 @@ to process and implement our Earthquake-Monitor project:
 ![static/images/ProjectBoard_EarthquakeMonitor.png](static/images/ProjectBoard_EarthquakeMonitor.png)
 ![static/images/Legend_ProjectBord.png](static/images/Legend_ProjectBord.png)
 
-###Work:
+### Work:
   **1. Processing of real-time data** 
 - In order to develop a real-time updating map, we needed to included an API from the United States 
        Geological Surves (USGS) website.
