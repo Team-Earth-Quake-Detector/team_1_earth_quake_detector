@@ -34,7 +34,7 @@ class DataCollector:
             self.earthquake_data.append(dict)
         eql = EarthquakeList(self.earthquakes)
 
-    def filter_radius(self, location=None, radius: int = 15000):
+    def filter_radius(self, location=None, radius: int = 15000): # change radius to 250 later
         self.prep_data()
         """ Filter data from API by radius"""
         if location is None:
@@ -48,3 +48,8 @@ class DataCollector:
             if distance <= radius:
                 self.earthquake_data_clean.append(earthquake)
         return self.earthquake_data_clean
+
+    def earthquake_analytics(self):
+        number_of_earthquakes = len(self.earthquake_data_clean)
+        closest_earthquake = min(earthquake['distance'] for earthquake in self.earthquake_data_clean)
+        return number_of_earthquakes, closest_earthquake
