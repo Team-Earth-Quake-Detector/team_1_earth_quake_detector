@@ -1,7 +1,7 @@
 import os
 
-from flask import Flask, render_template
-
+from flask import Flask, render_template, request
+from location_resolver import LocationResolver
 from monitor import Monitor
 
 app = Flask(__name__)
@@ -9,12 +9,22 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
+    resolver = LocationResolver()
+    new_location_text = request.args.get('location', default=resolver.address, type=str)
+    resolver = LocationResolver(new_location_text)
+    new_location = resolver.location
+
+    radius = request.args.get('radius', default=250, type=int)
+
     input = Monitor()
-    my_map = input.build_map()
+    my_map = input.build_map(coordinates=[new_location.latitude, new_location.longitude], radius=250)
     my_map.save_map(os.path.join(app.root_path, "templates", "my_map.html"))
+
+    # my_map = input.build_map()
+    # my_map.save_map(os.path.join(app.root_path, "templates", "my_map.html"))
     #my_map = input.build_map(coordinates=(34.052234, -118.243685), radius=250)
     #my_map.save_map(os.path.join(app.root_path, "templates", "my_map.html"))
-    return render_template("index.html", location="TBD", radius="TBD",) # render html
+    return render_template("index.html", location=new_location_text, radius=radius) # render html
 
 
 @app.route('/map')
