@@ -13,7 +13,6 @@ class DataCollector:
             self.current_location = [(geocoder.ip('me').latlng[0]), (geocoder.ip('me').latlng[1])]
         else:
             self.current_location = [lat, long]
-        #self.refresh()
 
     def load_data(self):
         """ Get data from API"""
