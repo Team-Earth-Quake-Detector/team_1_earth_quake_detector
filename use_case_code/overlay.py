@@ -4,9 +4,12 @@ import branca.colormap as cm
 import geocoder
 
 
-class Overlay: #Basisklasse für alle overlays
-    def __init__(self):
-        self.current_location = [(geocoder.ip('me').latlng[0]), (geocoder.ip('me').latlng[1])]
+class Overlay:
+    def __init__(self, lat: float = 0, long: float = 0):
+        if lat == 0 and long == 0:
+            self.current_location = [(geocoder.ip('me').latlng[0]), (geocoder.ip('me').latlng[1])]
+        else:
+            self.current_location = [lat, long]
 
     def apply_overlay(self, map):
         pass

@@ -37,7 +37,7 @@ class DataCollector:
             self.earthquake_data.append(dict)
         eql = EarthquakeList(self.earthquakes)
 
-    def filter_radius(self, location=None, radius: int = 15000): # change radius to 250 later
+    def filter_radius(self, location=None, radius: int = 250): # change radius to 250 later
         self.prep_data()
         """ Filter data from API by radius"""
         if location is None:

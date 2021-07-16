@@ -3,9 +3,12 @@ import geocoder
 
 
 class Map:
-    def __init__(self):
+    def __init__(self, lat: float = 0, long: float = 0):
         self.overlays = []
-        self.current_location = [(geocoder.ip('me').latlng[0]), (geocoder.ip('me').latlng[1])]
+        if lat == 0 and long == 0:
+            self.current_location = [(geocoder.ip('me').latlng[0]), (geocoder.ip('me').latlng[1])]
+        else:
+            self.current_location = [lat, long]
 
     def set_up_map(self, location=None):
         """ Customizes OpenStreetMap """
