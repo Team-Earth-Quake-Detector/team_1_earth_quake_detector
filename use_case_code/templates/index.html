@@ -34,8 +34,8 @@
 <body>
     <img src="https://upload.wikimedia.org/wikipedia/commons/7/76/20150501_HSD_Logo_rot_transparent.png"
          alt="HSD Logo"
-         height="195px"
-         width="365px"
+         height="150px"
+         width="281px"
          align="right">
     <meta charset="utf-8" />
 </body>
@@ -52,7 +52,7 @@
             <label for="radius"
                style="font-family:Helvetica;color:black;font-size:15px;margin-left:1.4em;">Radius
             </label>
-            <input type="range" name="radius" id="radius" min="100" max="2000" step="50" value="{{ radius }}" oninput="this.nextElementSibling.value = this.value">
+            <input type="range" name="radius" id="radius" min="100" max="1000" step="50" value="{{ radius }}" oninput="this.nextElementSibling.value = this.value">
             <output>{{ radius }}</output>
             <input type="submit" class="button button1" value="Submit">
         </form>

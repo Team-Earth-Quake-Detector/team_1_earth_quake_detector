@@ -1,5 +1,6 @@
 geocoder
 flask
+flask_socketio
 folium
 branca
 requests

@@ -1,3 +1,7 @@
+from math import sqrt
+
+from flask import request
+
 import folium
 import geocoder
 
@@ -15,8 +19,9 @@ class Map:
         # Set up basic OpenStreetMap
         if location is None:
             location = self.current_location
+        user_provided_radius = request.args.get('radius', default=250, type=int)
         self.map = folium.Map(location=location,
-                             zoom_start=5,
+                             zoom_start=((1 / user_provided_radius) * sqrt(user_provided_radius) * 100),
                              tiles='OpenStreetMap',
                              control_scale=True)
         folium.Marker(location).add_to(self.map)
