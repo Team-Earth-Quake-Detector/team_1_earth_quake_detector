@@ -20,8 +20,9 @@ def index():
     my_map = input.build_map(coordinates=[new_location.latitude, new_location.longitude], radius=radius)
     my_map.save_map(os.path.join(app.root_path, "templates", "my_map.html"))
 
-    return render_template("index", location=new_location_text, radius=radius) # render html
+    refresh = request.args.get('refresh', default=30, type=int)
 
+    return render_template("bootstrap.html", location=new_location_text, radius=radius, refresh=refresh) # render html
 
 @app.route('/map')
 def map():
