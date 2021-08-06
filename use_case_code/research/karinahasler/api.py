@@ -65,6 +65,7 @@ for earthquake in earthquake_data_clean:
     folium.PolyLine(
         lines,
         color="grey",
+        weight=1.5,
         dash_array=10,
         popup=f"{round(earthquake['distance'], 2)} km"
     ).add_to(map_osm)
