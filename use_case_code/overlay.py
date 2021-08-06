@@ -1,5 +1,6 @@
 import folium
 from folium.features import DivIcon
+from folium.plugins import HeatMap
 import branca.colormap as cm
 import geocoder
 
@@ -27,7 +28,11 @@ class EarthquakeOverlay(Overlay):
     def apply_overlay(self, map, location=None):
         if location is None:
             location = self.current_location
+
         colormap = cm.LinearColormap(colors=['orange', 'red'], index=[0, 10], vmin=0, vmax=10)
+
+        circle_markers = folium.FeatureGroup(name='Circle markers')
+        map.add_child(circle_markers)
 
         for earthquake in self.earthquake_data_clean:
             earthquake_location = (earthquake["latitude"], earthquake["longitude"])
@@ -41,15 +46,25 @@ class EarthquakeOverlay(Overlay):
                 color=colormap(earthquake['magnitude']),
                 weight=1,
                 fill_opacity=0.5
-            ).add_to(map)
+            ).add_to(circle_markers)
 
+        magnitude_markers = folium.FeatureGroup(name='Magnitude markers')
+        map.add_child(magnitude_markers)
+
+        for earthquake in self.earthquake_data_clean:
+            earthquake_location = (earthquake["latitude"], earthquake["longitude"])
             folium.Marker(earthquake_location,
                           icon=DivIcon(
                               icon_size=(150, 36),
                               icon_anchor=(0, 0),
                               html='<div style="font-size: 10pt; color: grey">%s</div>' % earthquake['magnitude'])
-                          ).add_to(map)
+                          ).add_to(magnitude_markers)
 
+        connective_lines = folium.FeatureGroup(name='Connective lines')
+        map.add_child(connective_lines)
+
+        for earthquake in self.earthquake_data_clean:
+            earthquake_location = (earthquake["latitude"], earthquake["longitude"])
             lines = []
             lines.append(location)
             lines.append(earthquake_location)
@@ -59,7 +74,11 @@ class EarthquakeOverlay(Overlay):
                 weight=1.5,
                 dash_array=10,
                 popup=f"{round(earthquake['distance'], 2)} km"
-            ).add_to(map)
+            ).add_to(connective_lines)
+
+    def apply_heatmap(self, map):
+        heat_data = [[earthquake["latitude"], earthquake["longitude"]] for earthquake in self.earthquake_data_clean]
+        HeatMap(heat_data, name="Heatmap", show=False).add_to(map)
 
 
 class TectonicOverlay(Overlay):
@@ -68,10 +87,7 @@ class TectonicOverlay(Overlay):
         """Add tectonic plates"""
         url = 'https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/PB2002_boundaries.json'
 
-        folium.GeoJson(
-            url,
-            name='Tectonic plates'
-        ).add_to(map)
+        folium.GeoJson(url, name='Tectonic plates').add_to(map)
 
     def add_to_layer_control(self, map):
         folium.LayerControl().add_to(map)

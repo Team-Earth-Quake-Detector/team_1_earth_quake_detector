@@ -24,9 +24,6 @@ class Monitor:
         if coordinates is not None:
             return self.new_location.filter_radius(coordinates, radius)
 
-        # get new coordinates
-        # input/search fields
-
     def build_map(self, location=None, coordinates=None, radius=None):
         self.map = Map()
 
@@ -35,6 +32,7 @@ class Monitor:
             self.collect_default_data()
             earthquake_overlay = EarthquakeOverlay(self.data_collector.earthquake_data_clean)
             earthquake_overlay.apply_overlay(self.map.map)
+            earthquake_overlay.apply_heatmap(self.map.map)
             tectonic_overlay = TectonicOverlay()
             tectonic_overlay.apply_overlay(self.map.map)
             tectonic_overlay.add_to_layer_control(self.map.map)
@@ -45,8 +43,8 @@ class Monitor:
             self.relocate(location=location, coordinates=coordinates, radius=radius)
             earthquake_overlay = EarthquakeOverlay(self.new_location.earthquake_data_clean)
             earthquake_overlay.apply_overlay(self.map.map, coordinates)
+            earthquake_overlay.apply_heatmap(self.map.map)
             tectonic_overlay = TectonicOverlay()
             tectonic_overlay.apply_overlay(self.map.map)
             tectonic_overlay.add_to_layer_control(self.map.map)
             return self.map
-
