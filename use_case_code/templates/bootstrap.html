@@ -44,6 +44,50 @@
       <br />
   <input class="btn btn-outline-danger p-1.5 m-4" type="submit" value="Submit">
   </form>
+
+  <!-- Time on Site -->
+  <p id="lastRefresh" style="margin-left:1.4em;margin-right:1.4em;">Last page update: Wait.....</p>
+
+  <script>
+    function setTime(){
+      var date = new Date();
+      timestamp = date.getTime();
+    }
+
+    //Call setTime when you make initial call
+    setTime();
+
+    //Set the delay here in ms
+    var updateDelay = 1000;
+
+    var lastRefresh = document.getElementById("lastRefresh");
+
+    function updateLastRefreshTime() {
+      var currentDate = new Date();
+      var currentTime = currentDate.getTime();
+      var timeSince = Math.floor((currentTime - timestamp)/1000);
+      let timeStampDescription = "";
+
+      // year
+      if(timeSince > 31536000){;
+        timeStampDescription = "Last page update: " + Math.floor(timeSince/31536000) + " year(s) ago."
+      // Days
+      } else if(timeSince > 86400){
+        timeStampDescription = "Last page update: " + Math.floor(timeSince/86400) + " day(s) ago."
+      // Hours
+      } else if(timeSince > 3600){
+        timeStampDescription = "Last page update: " + Math.floor(timeSince/3600) + " hour(s )ago."
+      // Minutes
+      } else if(timeSince > 60) {
+        timeStampDescription = "Last page update: " + Math.floor(timeSince/60) + " minute(s) ago."
+      // Seconds
+      } else{
+        timeStampDescription = "Last page update: " + timeSince + " seconds ago."
+      }
+      lastRefresh.innerText = timeStampDescription;
+     }
+     setInterval(updateLastRefreshTime, updateDelay);
+ </script>
   <!-- Map Integration -->
     <iframe class="map", src="/map" width=100% height="500" style="border:1px solid grey;"></iframe>
   </body>
