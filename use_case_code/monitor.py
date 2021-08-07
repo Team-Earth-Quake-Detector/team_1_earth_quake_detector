@@ -65,4 +65,5 @@ class Monitor:
         strongest_filtered_earthquake = earthquake_analytics.get_strongest_filtered_earthquake()
         total_earthquakes_worldwide = earthquake_analytics.get_total_earthquakes_worldwide()
         strongest_earthquake_worldwide = earthquake_analytics.get_strongest_earthquake_worldwide()
+
         return total_filtered_earthquakes, filtered_minor_earthquakes, filtered_moderate_earthquakes, filtered_strong_earthquakes, closest_earthquake, strongest_filtered_earthquake, total_earthquakes_worldwide, strongest_earthquake_worldwide
