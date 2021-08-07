@@ -33,11 +33,18 @@
         </div>
             <br />
         <div>
-            <input type="checkbox" id="checkbox_radius" style="margin-left:1.4em;margin-right:1.4em;" onclick="if (this.checked){ document.getElementById('radius').removeAttribute('disabled');}" >
-                <label for="radius" style="margin-right:1.4em;"><b>Specify the radius for your earthquakes search</b> (in km).
-                </label>
-            <input type="range" name="radius" id="radius" min="100" max="1000" step="50" value="{{ radius }}" oninput="this.nextElementSibling.value = this.value">
+            <label for="radius" style="margin-left:1.4em;margin-right:1.4em;"><b>Specify the radius for your earthquakes search</b> (in km).
+            </label>
+                <input type="range" name="radius" id="radius" min="100" max="1000" step="50" value="{{ radius }}" oninput="this.nextElementSibling.value = this.value">
                 <output>{{ radius }} km.</output>
+            <button class="btn btn-outline-danger btn-sm" type="button" onclick="disableRange()">Disable</button>
+            <p id="radiusDisabled" style="margin-left:1.4em;margin-right:1.4em;"></p>
+            <script>
+               function disableRange() {
+                  document.getElementById("radius").disabled=true;
+                  document.getElementById("radiusDisabled").innerHTML = "Radius is now disabled." ;
+               }
+            </script>
         </div>
             <br />
         <div>
@@ -46,11 +53,11 @@
                 <input type="range" name="refresh" id="refresh" min="10" max="300" step="10" value="{{ refresh }}" oninput="this.nextElementSibling.value = this.value">
                 <output>{{ refresh }} seconds.</output>
             <button class="btn btn-outline-danger btn-sm" type="button" onclick="disableRange()">Disable</button>
-            <p id="Sample" style="margin-left:1.4em;margin-right:1.4em;"></p>
+            <p id="refreshDisabled" style="margin-left:1.4em;margin-right:1.4em;"></p>
             <script>
                function disableRange() {
                   document.getElementById("refresh").disabled=true;
-                  document.getElementById("Sample").innerHTML = "The page refresh function is now disabled." ;
+                  document.getElementById("refreshDisabled").innerHTML = "The page refresh function is now disabled." ;
                }
             </script>
         </div>
