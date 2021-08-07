@@ -1,5 +1,3 @@
-from math import sqrt
-
 from flask import request
 
 import folium

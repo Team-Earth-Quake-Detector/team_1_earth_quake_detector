@@ -1,6 +1,7 @@
 from data_collector import DataCollector
 from map import Map
 from overlay import EarthquakeOverlay, TectonicOverlay
+from earthquake_analytics import EarthquakeAnalytics
 from geopy.geocoders import Nominatim
 
 
@@ -48,3 +49,21 @@ class Monitor:
             tectonic_overlay.apply_overlay(self.map.map)
             tectonic_overlay.add_to_layer_control(self.map.map)
             return self.map
+
+    def perform_earthquake_analytics(self):
+        self.data_collector = DataCollector()
+        self.data_collector.prep_data()
+        self.data_collector.filter_radius()
+
+        earthquake_analytics = EarthquakeAnalytics(self.data_collector.earthquake_data, self.data_collector.earthquake_data_clean)
+
+        total_filtered_earthquakes = earthquake_analytics.get_total_filtered_earthquakes()
+        filtered_minor_earthquakes = earthquake_analytics.get_filtered_minor_earthquakes()
+        filtered_moderate_earthquakes = earthquake_analytics.get_filtered_moderate_earthquakes()
+        filtered_strong_earthquakes = earthquake_analytics.get_filtered_strong_earthquakes()
+        closest_earthquake = earthquake_analytics.get_closest_earthquake()
+        strongest_filtered_earthquake = earthquake_analytics.get_strongest_filtered_earthquake()
+        total_earthquakes_worldwide = earthquake_analytics.get_total_earthquakes_worldwide()
+        strongest_earthquake_worldwide = earthquake_analytics.get_strongest_earthquake_worldwide()
+
+        return total_filtered_earthquakes, filtered_minor_earthquakes, filtered_moderate_earthquakes, filtered_strong_earthquakes, closest_earthquake, strongest_filtered_earthquake, total_earthquakes_worldwide, strongest_earthquake_worldwide
