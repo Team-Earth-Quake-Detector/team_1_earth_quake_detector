@@ -3,6 +3,7 @@ import os
 from flask import Flask, render_template, request
 from location_resolver import LocationResolver
 from monitor import Monitor
+from data_collector import DataCollector
 
 app = Flask(__name__)
 
@@ -19,11 +20,16 @@ def index():
     input = Monitor()
     my_map = input.build_map(coordinates=[new_location.latitude, new_location.longitude], radius=radius)
     my_map.save_map(os.path.join(app.root_path, "templates", "my_map.html"))
-    #earthquake_analytics = input.perform_earthquake_analytics()
+
+    #total = input.test_get_total_filtered_earthquakes(location=[new_location.latitude, new_location.longitude])
+
+    total = input.test_perform_earthquake_analytics(location=[new_location.latitude, new_location.longitude])
+    #analytics = DataCollector()
+    #total = analytics.get_total_filtered_earthquakes()
 
     refresh = request.args.get('refresh', default=300, type=int)
 
-    return render_template("bootstrap.html", location=new_location_text, radius=radius, refresh=refresh) # render html
+    return render_template("bootstrap.html", location=new_location_text, radius=radius, refresh=refresh, total=total) # render html
 
 @app.route('/map')
 def map():

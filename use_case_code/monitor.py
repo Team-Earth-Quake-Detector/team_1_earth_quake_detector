@@ -50,20 +50,64 @@ class Monitor:
             tectonic_overlay.add_to_layer_control(self.map.map)
             return self.map
 
-    def perform_earthquake_analytics(self):
+    def test_get_total_filtered_earthquakes(self, location=None):
+        if location is None:
+            self.data_collector = DataCollector()
+            total_filtered_earthquakes = len(self.data_collector.filter_radius())
+            return total_filtered_earthquakes
+
+        if location is not None:
+            self.new_location = DataCollector()
+            total_filtered_earthquakes = len(self.new_location.filter_radius(location=location))
+            return total_filtered_earthquakes
+
+    def test_perform_earthquake_analytics(self, location=None):
         self.data_collector = DataCollector()
         self.data_collector.prep_data()
         self.data_collector.filter_radius()
-
         earthquake_analytics = EarthquakeAnalytics(self.data_collector.earthquake_data, self.data_collector.earthquake_data_clean)
 
-        total_filtered_earthquakes = earthquake_analytics.get_total_filtered_earthquakes()
-        filtered_minor_earthquakes = earthquake_analytics.get_filtered_minor_earthquakes()
-        filtered_moderate_earthquakes = earthquake_analytics.get_filtered_moderate_earthquakes()
-        filtered_strong_earthquakes = earthquake_analytics.get_filtered_strong_earthquakes()
-        closest_earthquake = earthquake_analytics.get_closest_earthquake()
-        strongest_filtered_earthquake = earthquake_analytics.get_strongest_filtered_earthquake()
-        total_earthquakes_worldwide = earthquake_analytics.get_total_earthquakes_worldwide()
-        strongest_earthquake_worldwide = earthquake_analytics.get_strongest_earthquake_worldwide()
+        total = earthquake_analytics.get_total_filtered_earthquakes(location=location)
 
-        return total_filtered_earthquakes, filtered_minor_earthquakes, filtered_moderate_earthquakes, filtered_strong_earthquakes, closest_earthquake, strongest_filtered_earthquake, total_earthquakes_worldwide, strongest_earthquake_worldwide
+        return total
+
+    def perform_earthquake_analytics(self, location=None, coordinates=None, radius: int = 250):
+        self.data_collector = DataCollector()
+
+
+        if location is None and coordinates is None:
+            self.data_collector.prep_data()
+            self.data_collector.filter_radius()
+            earthquake_analytics = EarthquakeAnalytics(self.data_collector.earthquake_data, self.data_collector.earthquake_data_clean)
+            total_earthquakes_worldwide = earthquake_analytics.get_total_earthquakes_worldwide()
+            strongest_earthquake_worldwide = earthquake_analytics.get_strongest_earthquake_worldwide()
+            return total_earthquakes_worldwide, strongest_earthquake_worldwide
+
+        if location is not None:
+            relocate_location = self.relocate(location=location)
+            earthquake_analytics = EarthquakeAnalytics(relocate_location.earthquake_data, relocate_location.earthquake_data_clean)
+
+            total_filtered_earthquakes = earthquake_analytics.get_total_filtered_earthquakes()
+            filtered_minor_earthquakes = earthquake_analytics.get_filtered_minor_earthquakes()
+            filtered_moderate_earthquakes = earthquake_analytics.get_filtered_moderate_earthquakes()
+            filtered_strong_earthquakes = earthquake_analytics.get_filtered_strong_earthquakes()
+            closest_earthquake = earthquake_analytics.get_closest_earthquake()
+            strongest_filtered_earthquake = earthquake_analytics.get_strongest_filtered_earthquake()
+            total_earthquakes_worldwide = earthquake_analytics.get_total_earthquakes_worldwide()
+            strongest_earthquake_worldwide = earthquake_analytics.get_strongest_earthquake_worldwide()
+            return total_filtered_earthquakes, filtered_minor_earthquakes, filtered_moderate_earthquakes, filtered_strong_earthquakes, closest_earthquake, strongest_filtered_earthquake, total_earthquakes_worldwide, strongest_earthquake_worldwide
+
+        if coordinates is not None:
+            relocate_coordinates = self.relocate(coordinates=coordinates)
+            earthquake_analytics = EarthquakeAnalytics(relocate_coordinates.earthquake_data,
+                                                       relocate_coordinates.earthquake_data_clean)
+
+            total_filtered_earthquakes = earthquake_analytics.get_total_filtered_earthquakes()
+            filtered_minor_earthquakes = earthquake_analytics.get_filtered_minor_earthquakes()
+            filtered_moderate_earthquakes = earthquake_analytics.get_filtered_moderate_earthquakes()
+            filtered_strong_earthquakes = earthquake_analytics.get_filtered_strong_earthquakes()
+            closest_earthquake = earthquake_analytics.get_closest_earthquake()
+            strongest_filtered_earthquake = earthquake_analytics.get_strongest_filtered_earthquake()
+            total_earthquakes_worldwide = earthquake_analytics.get_total_earthquakes_worldwide()
+            strongest_earthquake_worldwide = earthquake_analytics.get_strongest_earthquake_worldwide()
+            return total_filtered_earthquakes, filtered_minor_earthquakes, filtered_moderate_earthquakes, filtered_strong_earthquakes, closest_earthquake, strongest_filtered_earthquake, total_earthquakes_worldwide, strongest_earthquake_worldwide

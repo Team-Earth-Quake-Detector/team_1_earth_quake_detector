@@ -1,18 +1,21 @@
+from data_collector import DataCollector
+
 class EarthquakeAnalytics:
 
     def __init__(self, earthquake_data, earthquake_data_clean):
         self.earthquake_data = earthquake_data
         self.earthquake_data_clean = earthquake_data_clean
 
-    def get_total_filtered_earthquakes(self, user_provided_radius: int = 250):
-        total_filtered_earthquakes = len(self.earthquake_data_clean)
-        if total_filtered_earthquakes == 0:
-            pass
-        elif total_filtered_earthquakes == 1:
-            print(f"There has been {total_filtered_earthquakes} earthquake within a distance of {user_provided_radius} km of your specified location within the last 24 hours.")
-        else:
-            print(f"There have been {total_filtered_earthquakes} earthquakes within a distance of {user_provided_radius} km of your specified location within the last 24 hours.")
-        return total_filtered_earthquakes
+    def get_total_filtered_earthquakes(self, location=None):
+        if location is None:
+            self.data_collector = DataCollector()
+            total_filtered_earthquakes = len(self.data_collector.filter_radius())
+            return total_filtered_earthquakes
+
+        if location is not None:
+            self.new_location = DataCollector()
+            total_filtered_earthquakes = len(self.new_location.filter_radius(location=location))
+            return total_filtered_earthquakes
 
     def get_filtered_minor_earthquakes(self):
         minor_earthquakes = []
