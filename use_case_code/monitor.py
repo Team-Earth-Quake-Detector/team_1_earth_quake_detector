@@ -61,13 +61,13 @@ class Monitor:
             total_filtered_earthquakes = len(self.new_location.filter_radius(location=location))
             return total_filtered_earthquakes
 
-    def test_perform_earthquake_analytics(self, location=None):
+    def test_perform_earthquake_analytics(self, location=None, radius=None):
         self.data_collector = DataCollector()
         self.data_collector.prep_data()
         self.data_collector.filter_radius()
         earthquake_analytics = EarthquakeAnalytics(self.data_collector.earthquake_data, self.data_collector.earthquake_data_clean)
 
-        total = earthquake_analytics.get_total_filtered_earthquakes(location=location)
+        total = earthquake_analytics.get_total_filtered_earthquakes(location=location, radius=radius)
 
         return total
 

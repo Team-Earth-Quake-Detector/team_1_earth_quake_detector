@@ -23,7 +23,7 @@ def index():
 
     #total = input.test_get_total_filtered_earthquakes(location=[new_location.latitude, new_location.longitude])
 
-    total = input.test_perform_earthquake_analytics(location=[new_location.latitude, new_location.longitude])
+    total = input.test_perform_earthquake_analytics(location=[new_location.latitude, new_location.longitude], radius=radius)
     #analytics = DataCollector()
     #total = analytics.get_total_filtered_earthquakes()
 

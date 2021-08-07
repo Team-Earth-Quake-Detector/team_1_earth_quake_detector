@@ -6,7 +6,7 @@ class EarthquakeAnalytics:
         self.earthquake_data = earthquake_data
         self.earthquake_data_clean = earthquake_data_clean
 
-    def get_total_filtered_earthquakes(self, location=None):
+    def get_total_filtered_earthquakes(self, location=None, radius: int = 250):
         if location is None:
             self.data_collector = DataCollector()
             total_filtered_earthquakes = len(self.data_collector.filter_radius())
@@ -14,7 +14,7 @@ class EarthquakeAnalytics:
 
         if location is not None:
             self.new_location = DataCollector()
-            total_filtered_earthquakes = len(self.new_location.filter_radius(location=location))
+            total_filtered_earthquakes = len(self.new_location.filter_radius(location=location, user_provided_radius=radius))
             return total_filtered_earthquakes
 
     def get_filtered_minor_earthquakes(self):
