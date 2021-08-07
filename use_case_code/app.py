@@ -19,6 +19,7 @@ def index():
     input = Monitor()
     my_map = input.build_map(coordinates=[new_location.latitude, new_location.longitude], radius=radius)
     my_map.save_map(os.path.join(app.root_path, "templates", "my_map.html"))
+    #earthquake_analytics = input.perform_earthquake_analytics()
 
     refresh = request.args.get('refresh', default=300, type=int)
 
