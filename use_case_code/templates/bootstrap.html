@@ -100,6 +100,51 @@
      }
      setInterval(updateLastRefreshTime, updateDelay);
  </script>
+  <!-- Earthquake Analytics Dashboard -->
+  <div class="row">
+    <div class="card text-dark bg-light mb-3" style="max-width: 14rem;margin-left: 2.2em;">
+      <div class="card-header">Total</div>
+      <div class="card-body">
+        <h5 class="card-title" style="font-size:20px">{{total}}</h5>
+        <p class="card-text" style="font-size:10px">Earthquakes within a distance of {{ radius }} km of your specified location within the last 24 hours.</p>
+      </div>
+    </div>
+    <div class="card text-white bg-success mb-3" style="max-width: 14rem;margin-left:0.5em;">
+      <div class="card-header">Minor</div>
+      <div class="card-body">
+        <h5 class="card-title" style="font-size:20px">{{minor}}</h5>
+        <p class="card-text" style="font-size:10px">of these earthquakes were a minor earthquake with a magnitude below or equal to 2.5. These types of earthquakes occur frequently and are unlikely to cause damage.</p>
+      </div>
+    </div>
+    <div class="card text-dark bg-warning mb-3" style="max-width: 14rem;margin-left:0.5em;">
+      <div class="card-header">Moderate</div>
+      <div class="card-body">
+        <h5 class="card-title" style="font-size:20px">{{moderate}}</h5>
+        <p class="card-text" style="font-size:10px">of these earthquakes was a moderate earthquake with a magnitude between 2.5 and 6.0. These types of earthquakes occur less often and might cause damage.</p>
+      </div>
+    </div>
+    <div class="card text-white bg-danger mb-3" style="max-width: 14rem;margin-left:0.5em;">
+      <div class="card-header">Strong</div>
+      <div class="card-body">
+        <h5 class="card-title" style="font-size:20px">{{strong}}</h5>
+        <p class="card-text" style="font-size:10px">of these earthquakes was a strong earthquake with a magnitude above 6.0. These types of earthquakes occur rarely and are likely to cause major damage.</p>
+      </div>
+    </div>
+    <div class="card text-dark bg-light mb-3" style="max-width: 14rem;margin-left:0.5em;">
+      <div class="card-header">Closest</div>
+      <div class="card-body">
+        <h5 class="card-title" style="font-size:20px">{{closest}}</h5>
+        <p class="card-text" style="font-size:10px">km away from your specified location was the closest earthquake.</p>
+      </div>
+    </div>
+    <div class="card text-dark bg-light mb-3" style="max-width: 14rem;margin-left:0.5em;">
+      <div class="card-header">Strongest Worldwide</div>
+      <div class="card-body">
+        <h5 class="card-title" style="font-size:20px">{{strongest}}</h5>
+        <p class="card-text" style="font-size:10px">was the magnitude of strongest earthquake worldwide within the last 24 hours.</p>
+      </div>
+    </div>
+  </div>
   <!-- Map Integration -->
     <iframe class="map", src="/map" width=100% height="500" style="border:1px solid grey;"></iframe>
   </body>
