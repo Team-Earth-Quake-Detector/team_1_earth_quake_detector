@@ -44,7 +44,7 @@
             </label>
                 <input type="range" name="refresh" id="refresh" min="10" max="300" step="10" value="{{ refresh }}" oninput="this.nextElementSibling.value = this.value">
                 <output>{{ refresh }} seconds.</output>
-            <button class="btn btn-outline-danger btn-sm" type="button" onclick="disableRange()">Disable Page Refresh</button>
+            <button class="btn btn-secondary btn-sm" type="button" onclick="disableRange()">Disable Page Refresh</button>
             <p id="refreshDisabled" style="margin-left:1.4em;margin-right:1.4em;"></p>
             <script>
                function disableRange() {
