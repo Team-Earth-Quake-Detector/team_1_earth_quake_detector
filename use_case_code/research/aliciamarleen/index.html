@@ -37,3 +37,14 @@
     <iframe class="map", src="/map" width=100% height="600"></iframe>
 </body>
 </html>
+
+
+<p>Disable the above range slider by clicking on the DISABLE button</p>
+<button type="button" onclick="disableRange()">DISABLE</button>
+<p id="Sample"></p>
+<script>
+   function disableRange() {
+      document.getElementById("RANGE1").disabled=true;
+      document.getElementById("Sample").innerHTML = "The range slider is now disabled" ;
+   }
+</script>
