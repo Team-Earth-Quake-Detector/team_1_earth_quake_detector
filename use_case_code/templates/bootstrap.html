@@ -37,7 +37,7 @@
             </label>
                 <input type="range" name="radius" id="radius" min="100" max="1000" step="50" value="{{ radius }}" oninput="this.nextElementSibling.value = this.value">
                 <output>{{ radius }} km.</output>
-            <button class="btn btn-outline-danger btn-sm" type="button" onclick="disableRange()">Disable</button>
+            <button class="btn btn-outline-danger btn-sm" type="button" onclick="disableRange()">Disable Radius</button>
             <p id="radiusDisabled" style="margin-left:1.4em;margin-right:1.4em;"></p>
             <script>
                function disableRange() {
@@ -52,7 +52,7 @@
             </label>
                 <input type="range" name="refresh" id="refresh" min="10" max="300" step="10" value="{{ refresh }}" oninput="this.nextElementSibling.value = this.value">
                 <output>{{ refresh }} seconds.</output>
-            <button class="btn btn-outline-danger btn-sm" type="button" onclick="disableRange()">Disable</button>
+            <button class="btn btn-outline-danger btn-sm" type="button" onclick="disableRange()">Disable Page Refresh</button>
             <p id="refreshDisabled" style="margin-left:1.4em;margin-right:1.4em;"></p>
             <script>
                function disableRange() {
