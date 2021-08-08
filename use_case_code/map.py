@@ -14,7 +14,6 @@ class Map:
 
     def set_up_map(self, location=None):
         """ Customizes OpenStreetMap """
-        # Set up basic OpenStreetMap
         if location is None:
             location = self.current_location
 
@@ -30,5 +29,4 @@ class Map:
         folium.Marker(location).add_to(self.map)
 
     def save_map(self, file_name):
-        self.map.save(file_name) # don't save
-
+        self.map.save(file_name)

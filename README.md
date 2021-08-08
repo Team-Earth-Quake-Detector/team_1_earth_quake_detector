@@ -192,7 +192,7 @@ to process and implement our Earthquake-Monitor project:
   **6. Overlay**
 - Text
 
-
+### Class Architecture
 ___
 ## 5. Summary 
 A summary if the targets have been achieved, and if not - and whatever the reason is - why it wasn't achieved.
