@@ -27,7 +27,7 @@ def index():
     closest = input.perform_earthquake_analytics(location=[new_location.latitude, new_location.longitude], radius=radius)[4]
     strongest = input.perform_earthquake_analytics(location=[new_location.latitude, new_location.longitude], radius=radius)[5]
 
-    refresh = request.args.get('refresh', default=300, type=int)
+    refresh = request.args.get('refresh', default=1000, type=int)
 
     return render_template("bootstrap.html", location=new_location_text, radius=radius, refresh=refresh, total=total, minor=minor, moderate=moderate, strong=strong, closest=closest, strongest=strongest)
 
@@ -35,9 +35,9 @@ def index():
 def map():
     return render_template('my_map.html')
 
-@app.route('/about_us')
-def about_us():
-    return render_template('about_us.html')
+@app.route('/manual')
+def manual():
+    return render_template('manual.html')
 
 if __name__ == "__main__":
     app.run(debug=True)
