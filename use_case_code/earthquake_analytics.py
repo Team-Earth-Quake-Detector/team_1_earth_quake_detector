@@ -41,20 +41,25 @@ class EarthquakeAnalytics:
         filtered_strong_earthquakes = len(strong_earthquakes)
         return filtered_strong_earthquakes
 
-    def get_closest_earthquake(self, location=None, radius: int = 250):
+    def get_closest_filtered_earthquake(self, location=None, radius: int = 250):
         self.new_location = DataCollector()
-        closest_earthquake = min([earthquake['distance'] for earthquake in self.new_location.filter_radius(location=location, user_provided_radius=radius)], default="-")
-        return closest_earthquake
+        closest_filtered_earthquake = min([earthquake['distance'] for earthquake in self.new_location.filter_radius(location=location, user_provided_radius=radius)], default="-")
+        return closest_filtered_earthquake
 
-    def get_strongest_filtered_earthquake(self):
-        strongest_filtered_earthquake = max(earthquake['magnitude'] for earthquake in self.earthquake_data_clean)
-        print(f"The strongest earthquake within your specified region had a magnitude of {strongest_filtered_earthquake}.")
+    def get_strongest_filtered_earthquake(self, location=None, radius: int = 250):
+        self.new_location = DataCollector()
+        strongest_filtered_earthquake = max([earthquake['magnitude'] for earthquake in self.new_location.filter_radius(location=location, user_provided_radius=radius)], default="-")
         return strongest_filtered_earthquake
 
     def get_total_earthquakes_worldwide(self):
-        total_earthquakes_worldwide = len(self.earthquake_data)  # total_earthquakes_worldwide
-        print(f"Within the last 24 hours, {total_earthquakes_worldwide} occurences of earthquakes have been recorded worldwide.")
+        self.data_collector = DataCollector()
+        total_earthquakes_worldwide = len(self.data_collector.prep_data())
         return total_earthquakes_worldwide
+
+    def get_closest_earthquake_worldwide(self):
+        self.data_collector = DataCollector()
+        closest_earthquake_worldwide = min([earthquake['distance'] for earthquake in self.data_collector.prep_data()], default="-")
+        return closest_earthquake_worldwide
 
     def get_strongest_earthquake_worldwide(self):
         self.data_collector = DataCollector()

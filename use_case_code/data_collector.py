@@ -47,7 +47,7 @@ class DataCollector:
             starting_point = location
             earthquake_location = (earthquake["latitude"], earthquake["longitude"])
             distance = geopy.distance.distance(starting_point, earthquake_location).km
-            earthquake["distance"] = distance
+            earthquake["distance"] = round(distance, 2)
             if distance <= user_provided_radius:
                 self.earthquake_data_clean.append(earthquake)
         return self.earthquake_data_clean

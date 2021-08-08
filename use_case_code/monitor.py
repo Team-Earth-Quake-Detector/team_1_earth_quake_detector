@@ -71,7 +71,7 @@ class Monitor:
         minor = earthquake_analytics.get_filtered_minor_earthquakes(location=location, radius=radius)
         moderate = earthquake_analytics.get_filtered_moderate_earthquakes(location=location, radius=radius)
         strong = earthquake_analytics.get_filtered_strong_earthquakes(location=location, radius=radius)
-        closest = earthquake_analytics.get_closest_earthquake(location=location, radius=radius)
+        closest = earthquake_analytics.get_closest_filtered_earthquake(location=location, radius=radius)
         strongest = earthquake_analytics.get_strongest_earthquake_worldwide()
 
         return total, minor, moderate, strong, closest, strongest
