@@ -23,10 +23,7 @@ class EarthquakeOverlay(Overlay):
         super().__init__()
         self.earthquake_data_clean = earthquake_data_clean
 
-    def apply_overlay(self, map, location=None):
-        if location is None:
-            location = self.current_location
-
+    def apply_circle_markers(self, map):
         colormap = cm.LinearColormap(colors=['orange', 'red'], index=[0, 10], vmin=0, vmax=10)
 
         circle_markers = folium.FeatureGroup(name='Circle markers')
@@ -46,6 +43,7 @@ class EarthquakeOverlay(Overlay):
                 fill_opacity=0.5
             ).add_to(circle_markers)
 
+    def apply_magnitude_markers(self, map):
         magnitude_markers = folium.FeatureGroup(name='Magnitude markers')
         map.add_child(magnitude_markers)
 
@@ -57,6 +55,10 @@ class EarthquakeOverlay(Overlay):
                               icon_anchor=(0, 0),
                               html='<div style="font-size: 10pt; color: grey">%s</div>' % earthquake['magnitude'])
                           ).add_to(magnitude_markers)
+
+    def apply_connective_lines(self, map, location=None):
+        if location is None:
+            location = self.current_location
 
         connective_lines = folium.FeatureGroup(name='Connective lines')
         map.add_child(connective_lines)

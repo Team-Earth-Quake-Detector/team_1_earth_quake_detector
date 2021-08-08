@@ -32,7 +32,9 @@ class Monitor:
             self.map.set_up_map()
             self.collect_default_data()
             earthquake_overlay = EarthquakeOverlay(self.data_collector.earthquake_data_clean)
-            earthquake_overlay.apply_overlay(self.map.map)
+            earthquake_overlay.apply_circle_markers(self.map.map)
+            earthquake_overlay.apply_magnitude_markers(self.map.map)
+            earthquake_overlay.apply_connective_lines(self.map.map)
             earthquake_overlay.apply_heatmap(self.map.map)
             tectonic_overlay = TectonicOverlay()
             tectonic_overlay.apply_overlay(self.map.map)
@@ -43,23 +45,14 @@ class Monitor:
             self.map.set_up_map(location=coordinates)
             self.relocate(location=location, coordinates=coordinates, radius=radius)
             earthquake_overlay = EarthquakeOverlay(self.new_location.earthquake_data_clean)
-            earthquake_overlay.apply_overlay(self.map.map, coordinates)
+            earthquake_overlay.apply_circle_markers(self.map.map)
+            earthquake_overlay.apply_magnitude_markers(self.map.map)
+            earthquake_overlay.apply_connective_lines(self.map.map, coordinates)
             earthquake_overlay.apply_heatmap(self.map.map)
             tectonic_overlay = TectonicOverlay()
             tectonic_overlay.apply_overlay(self.map.map)
             tectonic_overlay.add_to_layer_control(self.map.map)
             return self.map
-
-    def test_get_total_filtered_earthquakes(self, location=None):
-        if location is None:
-            self.data_collector = DataCollector()
-            total_filtered_earthquakes = len(self.data_collector.filter_radius())
-            return total_filtered_earthquakes
-
-        if location is not None:
-            self.new_location = DataCollector()
-            total_filtered_earthquakes = len(self.new_location.filter_radius(location=location))
-            return total_filtered_earthquakes
 
     def perform_earthquake_analytics(self, location=None, radius=None):
         self.data_collector = DataCollector()
