@@ -17,7 +17,6 @@ class EarthquakeAnalytics:
         for earthquake in self.new_location.filter_radius(location=location, user_provided_radius=radius):
             if earthquake["magnitude"] <= 2.5:
                 minor_earthquakes.append(earthquake)
-
         filtered_minor_earthquakes = len(minor_earthquakes)
         return filtered_minor_earthquakes
 
@@ -27,7 +26,6 @@ class EarthquakeAnalytics:
         for earthquake in self.new_location.filter_radius(location=location, user_provided_radius=radius):
             if 2.5 < earthquake["magnitude"] <= 6.0:
                 moderate_earthquakes.append(earthquake)
-
         filtered_moderate_earthquakes = len(moderate_earthquakes)
         return filtered_moderate_earthquakes
 
@@ -37,7 +35,6 @@ class EarthquakeAnalytics:
         for earthquake in self.new_location.filter_radius(location=location, user_provided_radius=radius):
             if earthquake["magnitude"] > 6.0:
                 strong_earthquakes.append(earthquake)
-
         filtered_strong_earthquakes = len(strong_earthquakes)
         return filtered_strong_earthquakes
 
@@ -62,7 +59,6 @@ class EarthquakeAnalytics:
         for earthquake in self.new_location.prep_data():
             if earthquake["magnitude"] <= 2.5:
                 minor_earthquakes.append(earthquake)
-
         minor_earthquakes_worldwide = len(minor_earthquakes)
         return minor_earthquakes_worldwide
 
@@ -72,7 +68,6 @@ class EarthquakeAnalytics:
         for earthquake in self.new_location.prep_data():
             if 2.5 < earthquake["magnitude"] <= 6.0:
                 moderate_earthquakes.append(earthquake)
-
         moderate_earthquakes_worldwide = len(moderate_earthquakes)
         return moderate_earthquakes_worldwide
 
@@ -82,7 +77,6 @@ class EarthquakeAnalytics:
         for earthquake in self.new_location.prep_data():
             if earthquake["magnitude"] > 6.0:
                 strong_earthquakes.append(earthquake)
-
         strong_earthquakes_worldwide = len(strong_earthquakes)
         return strong_earthquakes_worldwide
 
