@@ -1,8 +1,6 @@
 import folium
 import geocoder
 
-from use_case_code.research.karinahasler.overlay_test import Overlay
-
 
 class Map:
     def __init__(self):

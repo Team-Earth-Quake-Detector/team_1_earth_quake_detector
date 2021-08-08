@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  </head>
+  <body>
+  <!-- Head Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/7/76/20150501_HSD_Logo_rot_transparent.png" alt="" width="100" height="50"
+               class="d-inline-block align-text-center m-3">
+          Earthquake Detector
+        </a>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/about_us">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/manual">Website Manual</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="https://en.wikipedia.org/wiki/Earthquake">Additional Information</a>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  <!-- Image Carousel -->
+  <main role="main">
+          <br />
+          <br />
+      <section class="jumbotron text-center">
+        <div class="container">
+          <h1 class="jumbotron-heading">Earthquake Detector User Manual</h1>
+          <p class="lead text-muted">We believe our Earthquake Detector is quite intuitive to use.<br/> However, if you would like to see an overview of all the great features and functionalities of this tool, see below.</p>
+          <p>
+            <a href="/" class="btn btn-danger my-2">Jump to Earthquake Detector</a>
+          </p>
+        </div>
+      </section>
+
+      <div class="album py-5 bg-light">
+        <div class="container">
+
+          <div class="row">
+            <div class="col-md-4 d-flex">
+              <div class="card mb-4 box-shadow">
+                <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="/static/Website_Location_test.png" data-holder-rendered="true">
+                <div class="card-body d-flex flex-column">
+                  <p class="card-text">By default, the map will show your current location. To jump to a different location on the map, type in a city name, an address, or coordinates of your destination.<br/><br/> The page will reload once you click on Submit and the map will show all earthquakes that occured within the last 24 hours in the specified radius of the location.</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 d-flex">
+              <div class="card mb-4 box-shadow">
+                <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" src="/static/Website_Radius_test.png" data-holder-rendered="true" style="height: 225px; width: 100%; display: block;">
+                <div class="card-body d-flex flex-column">
+                  <p class="card-text">By default, the radius is set to 250km. To apply a larger or smaller radius just move the thumb on the range slider to the desired setting.<br/><br/> The page will reload once you click on Submit and the map will show all earthquakes that occured within the last 24 hours in the selected radius of the chosen location.</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 d-flex">
+              <div class="card mb-4 box-shadow">
+                <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" src="/static/Website_Refresh_test.png" data-holder-rendered="true" style="height: 225px; width: 100%; display: block;">
+                <div class="card-body d-flex flex-column">
+                  <p class="card-text">By default, the page refresh functionality is disabled. This is due to the fact, that the geolocator API is limited to 1000 API requests per day and without disabling the functionality, the page will reload every few seconds and the 1000 requests will be reached shortly. To enable the feature, just click on Enable Page Refresh and move the thumb on the range slider to the desired setting.<br/><br/> The page will reload once you click on Submit and the automatic page refresh will be performed once the time you defined has passed.</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4 d-flex">
+              <div class="card mb-4 box-shadow">
+                <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" src="/static/Website_Timestamp_test.png" data-holder-rendered="true" style="height: 225px; width: 100%; display: block;">
+                <div class="card-body d-flex flex-column">
+                  <p class="card-text">The last page update information indicates how much time has passed since the last page load. We included this information for your reference for example to estimate how much time is left before the page is reloading according to your page refresh setting.</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 d-flex">
+              <div class="card mb-4 box-shadow">
+                <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" src="/static/Website_Dashboard_test.png" data-holder-rendered="true" style="height: 225px; width: 100%; display: block;">
+                <div class="card-body d-flex flex-column">
+                  <p class="card-text">The dashboard is one of our core elements and provides a fantastic overview of the statistics based on your custom earthquake detector settings. It complements the map below by allowing to view the most important facts at first sight.</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 d-flex">
+              <div class="card mb-4 box-shadow">
+                <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" src="/static/Website_Screenshot_Heatmap_test.png" data-holder-rendered="true" style="height: 225px; width: 100%; display: block;">
+                <div class="card-body d-flex flex-column">
+                  <p class="card-text">Last but definitely not least you find our Google Maps like earthquake map on the bottom of our website. You can customize the maps appearance by clicking on the layer icon. You can switch between different layout options such as a circle or heat map demonstration of the earthquakes.</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+  <!-- FOOTER -->
+      <footer class="container">
+        <p class="float-right"><a href="#">Back to top</a></p>
+        <p>© 2021 HSD Students · <a href="https://github.com/Team-Earth-Quake-Detector/team_1_earth_quake_detector">Git Hub Repository</a> ·
+      </footer>
+</html>

@@ -1,8 +1,7 @@
 from datetime import datetime
 
 from use_case_code.map import Map
-from use_case_code.research.karinahasler.overlay_test import Overlay, EarthquakeOverlay, TectonicOverlay
-from typing import List # iterate over each element
+from use_case_code.research.karinahasler.old.overlay_test import EarthquakeOverlay, TectonicOverlay
 
 
 # List of earthquakes

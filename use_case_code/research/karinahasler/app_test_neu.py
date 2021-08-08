@@ -1,8 +1,8 @@
 import os
 
 from flask import Flask, render_template, request
-from location_resolver import LocationResolver
-from monitor import Monitor
+from location_resolver_test_neu import LocationResolver
+from monitor_test_neu import Monitor
 
 app = Flask(__name__)
 
@@ -18,7 +18,7 @@ def index():
 
     input = Monitor()
     my_map = input.build_map(coordinates=[new_location.latitude, new_location.longitude], radius=radius)
-    my_map.save_map(os.path.join(app.root_path, "templates", "my_map.html"))
+    my_map.save_map(os.path.join(app.root_path, "templates", "my_map_test.html"))
 
     total_filtered = input.perform_earthquake_analytics(location=[new_location.latitude, new_location.longitude], radius=radius)[0]
     minor_filtered = input.perform_earthquake_analytics(location=[new_location.latitude, new_location.longitude], radius=radius)[1]
@@ -29,24 +29,24 @@ def index():
 
     refresh = request.args.get('refresh', default=1000, type=int)
 
-    return render_template("bootstrap.html", location=new_location_text, radius=radius, refresh=refresh, total_filtered=total_filtered,
+    return render_template("bootstrap_test.html", location=new_location_text, radius=radius, refresh=refresh, total_filtered=total_filtered,
                            minor_filtered=minor_filtered, moderate_filtered=moderate_filtered, strong_filtered=strong_filtered,
                            closest_filtered=closest_filtered, strongest_worldwide=strongest_worldwide)
 
 
 @app.route('/map')
 def map():
-    return render_template('my_map.html')
+    return render_template('my_map_test.html')
 
 
 @app.route('/manual')
 def manual():
-    return render_template('manual.html')
+    return render_template('manual_test.html')
 
 
 @app.route('/about_us')
 def about_us():
-    return render_template('about_us.html')
+    return render_template('about_us_test.html')
 
 
 if __name__ == "__main__":

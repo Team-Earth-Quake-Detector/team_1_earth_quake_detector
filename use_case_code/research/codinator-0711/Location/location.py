@@ -18,7 +18,7 @@ folium.CircleMarker(location=my_adress, radius=100, popup = "Köln").add_to(my_m
 #Add Marker
 folium.Marker(my_adress, popup = "Köln").add_to(my_map1)
 
-my_map1.save("my_map.html")
+my_map1.save("my_map_test.html")
 
 
 print(response)

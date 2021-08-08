@@ -3,7 +3,7 @@ from datetime import datetime
 import geopy.distance
 import requests
 
-from use_case_code.research.karinahasler.earthquake_test import EarthquakeList
+from use_case_code.research.karinahasler.old.earthquake_test import EarthquakeList
 
 
 class DataCollector:

@@ -2,9 +2,9 @@ import os
 
 from flask import Flask, render_template
 
-from use_case_code.research.karinahasler.data_collector_test import DataCollector
-from use_case_code.research.karinahasler.map_test import Map
-from use_case_code.research.karinahasler.overlay_test import EarthquakeOverlay, TectonicOverlay
+from use_case_code.research.karinahasler.old.data_collector_test import DataCollector
+from use_case_code.research.karinahasler.old.map_test import Map
+from use_case_code.research.karinahasler.old.overlay_test import EarthquakeOverlay, TectonicOverlay
 
 app = Flask(__name__)
 
@@ -19,8 +19,8 @@ def index():
     tcov = TectonicOverlay()
     tcov.apply_overlay(my_map.map)
     tcov.add_to_layer_control(my_map.map)
-    my_map.save_map(os.path.join(app.root_path, "templates", "my_map.html"))
-    return render_template("my_map.html") # render html
+    my_map.save_map(os.path.join(app.root_path, "templates", "my_map_test.html"))
+    return render_template("my_map_test.html") # render html
     #return my_map._repr_html_() # Extract map only -> Beautiful Soap
 
 
