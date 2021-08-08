@@ -51,7 +51,3 @@ class DataCollector:
             if distance <= user_provided_radius:
                 self.earthquake_data_clean.append(earthquake)
         return self.earthquake_data_clean
-
-    def get_total_filtered_earthquakes(self):
-        total_filtered_earthquakes = len(self.filter_radius())
-        return total_filtered_earthquakes
