@@ -91,3 +91,4 @@ class TectonicOverlay(Overlay):
 
     def add_to_layer_control(self, map):
         folium.LayerControl().add_to(map)
+
