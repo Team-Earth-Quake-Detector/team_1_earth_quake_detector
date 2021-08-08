@@ -13,7 +13,7 @@ class DataCollector:
             self.current_location = [lat, long]
 
     def load_data(self):
-        """ Get data from API"""
+        """ Get data from USGS API"""
         url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson"
         response = requests.get(url)
         self.earthquakes = response.json()['features']
