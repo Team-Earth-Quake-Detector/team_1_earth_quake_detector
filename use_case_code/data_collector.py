@@ -4,8 +4,6 @@ import geopy.distance
 import requests
 import geocoder
 
-from earthquake import EarthquakeList
-
 
 class DataCollector:
     def __init__(self, lat: float = 0, long: float = 0):
@@ -34,7 +32,6 @@ class DataCollector:
                     "distance": ""
                     }
             self.earthquake_data.append(dict)
-        eql = EarthquakeList(self.earthquakes)
         return self.earthquake_data
 
     def filter_radius(self, location=None, user_provided_radius: int = 250):
@@ -47,7 +44,7 @@ class DataCollector:
             starting_point = location
             earthquake_location = (earthquake["latitude"], earthquake["longitude"])
             distance = geopy.distance.distance(starting_point, earthquake_location).km
-            earthquake["distance"] = round(distance, 2)
+            earthquake["distance"] = round(distance, 0)
             if distance <= user_provided_radius:
                 self.earthquake_data_clean.append(earthquake)
         return self.earthquake_data_clean

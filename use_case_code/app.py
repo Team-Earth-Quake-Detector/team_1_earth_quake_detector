@@ -20,16 +20,18 @@ def index():
     my_map = input.build_map(coordinates=[new_location.latitude, new_location.longitude], radius=radius)
     my_map.save_map(os.path.join(app.root_path, "templates", "my_map.html"))
 
-    total = input.perform_earthquake_analytics(location=[new_location.latitude, new_location.longitude], radius=radius)[0]
-    minor = input.perform_earthquake_analytics(location=[new_location.latitude, new_location.longitude], radius=radius)[1]
-    moderate = input.perform_earthquake_analytics(location=[new_location.latitude, new_location.longitude], radius=radius)[2]
-    strong = input.perform_earthquake_analytics(location=[new_location.latitude, new_location.longitude], radius=radius)[3]
-    closest = input.perform_earthquake_analytics(location=[new_location.latitude, new_location.longitude], radius=radius)[4]
-    strongest = input.perform_earthquake_analytics(location=[new_location.latitude, new_location.longitude], radius=radius)[5]
+    total_filtered = input.perform_earthquake_analytics(location=[new_location.latitude, new_location.longitude], radius=radius)[0]
+    minor_filtered = input.perform_earthquake_analytics(location=[new_location.latitude, new_location.longitude], radius=radius)[1]
+    moderate_filtered = input.perform_earthquake_analytics(location=[new_location.latitude, new_location.longitude], radius=radius)[2]
+    strong_filtered = input.perform_earthquake_analytics(location=[new_location.latitude, new_location.longitude], radius=radius)[3]
+    closest_filtered = input.perform_earthquake_analytics(location=[new_location.latitude, new_location.longitude], radius=radius)[4]
+    strongest_worldwide = input.perform_earthquake_analytics(location=[new_location.latitude, new_location.longitude], radius=radius)[11]
 
     refresh = request.args.get('refresh', default=1000, type=int)
 
-    return render_template("bootstrap.html", location=new_location_text, radius=radius, refresh=refresh, total=total, minor=minor, moderate=moderate, strong=strong, closest=closest, strongest=strongest)
+    return render_template("bootstrap.html", location=new_location_text, radius=radius, refresh=refresh, total_filtered=total_filtered,
+                           minor_filtered=minor_filtered, moderate_filtered=moderate_filtered, strong_filtered=strong_filtered,
+                           closest_filtered=closest_filtered, strongest_worldwide=strongest_worldwide)
 
 @app.route('/map')
 def map():

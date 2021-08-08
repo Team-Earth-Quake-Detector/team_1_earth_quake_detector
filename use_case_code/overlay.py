@@ -12,12 +12,6 @@ class Overlay:
         else:
             self.current_location = [lat, long]
 
-    def apply_overlay(self, map):
-        pass
-
-    def add_to_layer_control(self, map):
-        pass
-
 
 class EarthquakeOverlay(Overlay):
 
@@ -73,7 +67,7 @@ class EarthquakeOverlay(Overlay):
                 color="grey",
                 weight=1.5,
                 dash_array=10,
-                popup=f"{round(earthquake['distance'], 2)} km"
+                popup=f"{earthquake['distance']} km"
             ).add_to(connective_lines)
 
     def apply_heatmap(self, map):
@@ -91,4 +85,3 @@ class TectonicOverlay(Overlay):
 
     def add_to_layer_control(self, map):
         folium.LayerControl().add_to(map)
-

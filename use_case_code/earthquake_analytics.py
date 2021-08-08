@@ -1,7 +1,7 @@
 from data_collector import DataCollector
 
-class EarthquakeAnalytics:
 
+class EarthquakeAnalytics:
     def __init__(self, earthquake_data, earthquake_data_clean):
         self.earthquake_data = earthquake_data
         self.earthquake_data_clean = earthquake_data_clean
@@ -55,6 +55,36 @@ class EarthquakeAnalytics:
         self.data_collector = DataCollector()
         total_earthquakes_worldwide = len(self.data_collector.prep_data())
         return total_earthquakes_worldwide
+
+    def get_minor_earthquakes_worldwide(self):
+        minor_earthquakes = []
+        self.data_collector = DataCollector()
+        for earthquake in self.new_location.prep_data():
+            if earthquake["magnitude"] <= 2.5:
+                minor_earthquakes.append(earthquake)
+
+        minor_earthquakes_worldwide = len(minor_earthquakes)
+        return minor_earthquakes_worldwide
+
+    def get_moderate_earthquakes_worldwide(self):
+        moderate_earthquakes = []
+        self.data_collector = DataCollector()
+        for earthquake in self.new_location.prep_data():
+            if 2.5 < earthquake["magnitude"] <= 6.0:
+                moderate_earthquakes.append(earthquake)
+
+        moderate_earthquakes_worldwide = len(moderate_earthquakes)
+        return moderate_earthquakes_worldwide
+
+    def get_strong_earthquakes_worldwide(self):
+        strong_earthquakes = []
+        self.data_collector = DataCollector()
+        for earthquake in self.new_location.prep_data():
+            if earthquake["magnitude"] > 6.0:
+                strong_earthquakes.append(earthquake)
+
+        strong_earthquakes_worldwide = len(strong_earthquakes)
+        return strong_earthquakes_worldwide
 
     def get_closest_earthquake_worldwide(self):
         self.data_collector = DataCollector()

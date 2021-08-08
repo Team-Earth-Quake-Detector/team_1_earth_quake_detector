@@ -67,11 +67,18 @@ class Monitor:
         self.data_collector.filter_radius()
         earthquake_analytics = EarthquakeAnalytics(self.data_collector.earthquake_data, self.data_collector.earthquake_data_clean)
 
-        total = earthquake_analytics.get_total_filtered_earthquakes(location=location, radius=radius)
-        minor = earthquake_analytics.get_filtered_minor_earthquakes(location=location, radius=radius)
-        moderate = earthquake_analytics.get_filtered_moderate_earthquakes(location=location, radius=radius)
-        strong = earthquake_analytics.get_filtered_strong_earthquakes(location=location, radius=radius)
-        closest = earthquake_analytics.get_closest_filtered_earthquake(location=location, radius=radius)
-        strongest = earthquake_analytics.get_strongest_earthquake_worldwide()
+        total_filtered = earthquake_analytics.get_total_filtered_earthquakes(location=location, radius=radius)
+        minor_filtered = earthquake_analytics.get_filtered_minor_earthquakes(location=location, radius=radius)
+        moderate_filtered = earthquake_analytics.get_filtered_moderate_earthquakes(location=location, radius=radius)
+        strong_filtered = earthquake_analytics.get_filtered_strong_earthquakes(location=location, radius=radius)
+        closest_filtered = earthquake_analytics.get_closest_filtered_earthquake(location=location, radius=radius)
+        strongest_filtered = earthquake_analytics.get_strongest_filtered_earthquake(location=location, radius=radius)
+        total_worldwide = earthquake_analytics.get_total_earthquakes_worldwide()
+        minor_worldwide = earthquake_analytics.get_minor_earthquakes_worldwide()
+        moderate_worldwide = earthquake_analytics.get_moderate_earthquakes_worldwide()
+        strong_worldwide = earthquake_analytics.get_strong_earthquakes_worldwide()
+        closest_worldwide = earthquake_analytics.get_closest_earthquake_worldwide()
+        strongest_worldwide = earthquake_analytics.get_strongest_earthquake_worldwide()
 
-        return total, minor, moderate, strong, closest, strongest
+        return total_filtered, minor_filtered, moderate_filtered, strong_filtered, closest_filtered, strongest_filtered, \
+               total_worldwide, minor_worldwide, moderate_worldwide, strong_worldwide, closest_worldwide, strongest_worldwide
