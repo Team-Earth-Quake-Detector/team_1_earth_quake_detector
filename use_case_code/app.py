@@ -27,7 +27,7 @@ def index():
     closest = input.perform_earthquake_analytics(location=[new_location.latitude, new_location.longitude], radius=radius)[4]
     strongest = input.perform_earthquake_analytics(location=[new_location.latitude, new_location.longitude], radius=radius)[5]
 
-    refresh = request.args.get('refresh', default=300, type=int)
+    refresh = request.args.get('refresh', default=1000, type=int)
 
     return render_template("bootstrap.html", location=new_location_text, radius=radius, refresh=refresh, total=total, minor=minor, moderate=moderate, strong=strong, closest=closest, strongest=strongest)
 
