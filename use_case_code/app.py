@@ -33,14 +33,16 @@ def index():
                            minor_filtered=minor_filtered, moderate_filtered=moderate_filtered, strong_filtered=strong_filtered,
                            closest_filtered=closest_filtered, strongest_worldwide=strongest_worldwide)
 
+
 @app.route('/map')
 def map():
     return render_template('my_map.html')
+
 
 @app.route('/manual')
 def manual():
     return render_template('manual.html')
 
+
 if __name__ == "__main__":
     app.run(debug=True)
-
