@@ -1,10 +1,38 @@
 - Alicia Hamann [741182]
 - Karina Hasler [738211]
 - Gabriel Sacher [862446]
+- Thomas Zeutschler 
 ___
-
 # 001 - Earthquake Detector
 ### *Realtime detection and visualization of earthquake occurrences in predefined region (map segment) over a certain time.*
+___
+# Table of content
+1. Goals
+2. Business Description
+    - 2.1 Processing of real-time data 
+    - 2.2 Geo data calculations and visualization with OpenStreetMaps
+    - 2.3 Web frontend development & Web-service backend development
+    - 2.4 Searchbar for different user defined configurations
+3. Methodological approach - Teams Data Science Process
+4. Details of the Approach
+5. Details of the work
+    - 5.1 Processing of real-time data
+    - 5.2 Geo data calculations
+    - 5.3 Geo data visualization with OpenStreetMaps
+    - 5.4 Web frontend development & Web-service backend development
+    - 5.5 Searchbar for different user defined configurations
+6. Class Definition
+    - 6.1 Class 1
+    - 6.2 Class 2
+    - 6.3 Class 3
+    - 6.4 Class 4
+    - 6.5 Class Architecture
+7. Summary
+    - 7.1 Findings
+    - 7.2 Achievments
+    - 7.3 User Manual?
+8. Future Development
+___
 
 ## 1. Goals
 
