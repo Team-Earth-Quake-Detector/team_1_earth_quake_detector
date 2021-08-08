@@ -54,14 +54,14 @@
         <div>
             <label for="refresh" style="margin-left:1.4em;margin-right:1.4em;"><b>Specify the update frequency</b> (in seconds).
             </label>
-                <input class="form-range thumb-danger w-25 align-middle m-3" type="range" name="refresh" id="refresh" min="10" max="300" step="10" value="{{ refresh }}" oninput="this.nextElementSibling.value = this.value">
+                <input class="form-range thumb-danger w-25 align-middle m-3" type="range" name="refresh" id="refresh" min="10" max="1000" step="10" value="{{ refresh }}" oninput="this.nextElementSibling.value = this.value" disabled>
                 <output>{{ refresh }} seconds.</output>
-            <button class="btn btn-secondary btn-sm" type="button" onclick="disableRange()">Disable Page Refresh</button>
-            <p id="refreshDisabled" style="margin-left:1.4em;margin-right:1.4em;"></p>
+            <button class="btn btn-secondary btn-sm" type="button" onclick="enableRange()">Enable Page Refresh</button>
+            <p id="refreshEnabled" style="margin-left:1.4em;margin-right:1.4em;"></p>
             <script>
-               function disableRange() {
-                  document.getElementById("refresh").disabled=true;
-                  document.getElementById("refreshDisabled").innerHTML = "The page refresh function is now disabled." ;
+               function enableRange() {
+                  document.getElementById("refresh").disabled=false;
+                  document.getElementById("refreshEnabled").innerHTML = "The page refresh function is now enabled." ;
                }
             </script>
         </div>
