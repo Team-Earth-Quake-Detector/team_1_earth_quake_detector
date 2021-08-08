@@ -47,28 +47,24 @@ ___
 
 Description and your understanding of the business question or problem, analytical question and/or technical problem associated with the use case.
 
-- #### What are the challenges that need to be mastered?
-1. Processing of real-time data 
-2. Geo data calculations and visualization with OpenStreetMaps
-3. Web frontend development & Web-service backend development
-4. Searchbar for different user defined configurations 
+#### What are the challenges that need to be mastered?
     
-- #### 1. Processing of real-time data
+- #### 2.1. Processing of real-time data
   - Find suitable database with detailed, consistent & real-time earthquake data for the entire world
   - Set up an API for the automatic download of data
   - Data preparation : extract relevant data & transform it into a usable structure
   
-- #### 2. Geo data calculations
+- #### 2.2 Geo data calculations
   - Calculate the distance from current location to selected earthquake
   
-- #### 3. Geo data visualization with OpenStreetMaps
+- #### 2.3 Geo data visualization with OpenStreetMaps
   - Visualize the earthquakes on a map
       
         - Adapt circle radius and color depending on the magnitude
         - Show the current location on a map
         - Popup with timestamp, magnitude and distance
 
-- #### 4. Web frontend development & web-service backend development
+- #### 2.4 Web frontend development & web-service backend development
   - Starts a web server, opens a web page in the default browser that provides the following features:
     
         - A nice logo and layout. Use the HSD logo or create your own. 
@@ -77,7 +73,7 @@ Description and your understanding of the business question or problem, analytic
         - On overlay that draws the location of all earthquakes of the last 24 hours into the actual map, represented by a circle contains the strength (Richter scala) of the earth quake and a label with the timestamp of the earth quake.
           the web page should be update evers
   
-- #### 5. Searchbar for different user defined configurations 
+- #### 2.5 Searchbar for different user defined configurations 
   - Three arguments for configuration: 
   
         - A location either as an address or a city, region or country name or longitude and latitude positioning (default value: Current location of the computer)
@@ -93,7 +89,7 @@ Description and your understanding of the business question or problem, analytic
         - quakemonitor.py --long 51.246839 --lat 6.7916647 --radius 100
 ___
 
-## 3. Methodological approach
+## 3. Methodological approach - Teams Data Science Process
 
 The methodological approach chosen to process and implement the use case.
 For analytical uses cases it is wise to follow a structured approach like Microsoft's Team Database Science Process (TDSP), which is the legitimate successor of the CrispDM methodology.
@@ -114,7 +110,7 @@ Team Data Science Process (TDSP) is an agile, iterative, data science methodolog
 4. **Tools and utilities recommended for project execution**
 ___
 
-## 4. Details
+## 4. Details of the approach
 
 *Most important*
 
@@ -128,8 +124,8 @@ to process and implement our Earthquake-Monitor project:
 ![static/images/ProjectBoard_EarthquakeMonitor.png](static/images/ProjectBoard_EarthquakeMonitor.png)
 ![static/images/Legend_ProjectBord.png](static/images/Legend_ProjectBord.png)
 
-### Work:
-  **1. Processing of real-time data** 
+## 5. Details of the work:
+  **5.1 Processing of real-time data** 
 - In order to develop a real-time updating map, we needed to included an API from the United States 
        Geological Surves (USGS) website.
 - The API delivers our data, which contains all Earthquakes all over the world which took place in the last 24 hours.  
@@ -150,7 +146,7 @@ to process and implement our Earthquake-Monitor project:
     | ... | ... | ... | ... | ...
 
 
-  **2. Geo data calculations**
+  **5.2 Geo data calculations**
   
 - With the help of the location (longitude & latitude) of each earthquake and the current or inserted location from the user,
     we were able to append some geo data calculations:
@@ -168,7 +164,7 @@ to process and implement our Earthquake-Monitor project:
   > Whit this method, we can represent the closed earthquake to the user on our website.
 
 
-  **3. Geo data visualization with OpenStreetMaps**
+  **5.3 Geo data visualization with OpenStreetMaps**
 - We created a map with the folium package, to visualize the earthquakes and someother cool features and add-ons.
     > 
     > ***Earthquake Overlay:***
@@ -182,11 +178,11 @@ to process and implement our Earthquake-Monitor project:
     > - This overlay adds the tectonic plates to the map. The user can enable or disable the tectonic plates by ticking or unticking the box in the layer control     > on the top right of the map.
   
 
-  **4. Web frontend development & Web-service backend development**
+  **5.4 Web frontend development & Web-service backend development**
 - To setup a interactive and intuitive website, we used the flask package.
 
 
-  **5. Searchbar for different user defined configurations** 
+  **5.5 Searchbar for different user defined configurations** 
 - In Order to make our website even more interactive and andvanced, we included inputfields.
 > **Location:**
 > Text
@@ -195,39 +191,43 @@ to process and implement our Earthquake-Monitor project:
 > Text
 
 
-### Class Definition**
+## 6. Class Definition**
 
-  **1. App**
+  **6.1 App**
 - Text
 
-
-  **2. Monitor**
+  **6.2 Monitor**
 - Text
 
-
-  **3. DataCollector**
+  **6.3 DataCollector**
 - Text
 
-
- **4. Earthquake**
+  **6.4 Earthquake Analytics**
 - Text
 
-
-  **5. Map**
+  **6.5 Map**
 - Text
 
-
-  **6. Overlay**
+  **6.6 Overlay**
 - Text
 
-### Class Architecture
+  **6.7 Location**
+- Text
+
+  **6.8 Location Resolver**
+- Text
+
+  **6.9 Class Architecture**
 ___
-## 5. Summary 
+## 7. Summary 
 A summary if the targets have been achieved, and if not - and whatever the reason is - why it wasn't achieved.
-- findings
-- concrete achievements
+
+    - 7.1 Findings
+    - 7.2.Achievements
+    - 7.3 User Manual
 ___ 
-## 6. Future Development
+## 8. Future Development
 What are the next steps that could be done in order to keep process in the project.
--- Forecase
--- Create mobile app
+
+        -- Forecase
+        -- Create mobile app
