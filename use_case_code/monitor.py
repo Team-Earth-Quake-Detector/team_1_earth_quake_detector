@@ -75,5 +75,5 @@ class Monitor:
         place_of_strongest_worldwide = earthquake_analytics.get_place_of_strongest_earthquake_worldwide()
 
         return total_filtered, minor_filtered, moderate_filtered, strong_filtered, closest_filtered, place_of_closest_filtered,\
-               strongest_filtered, total_worldwide, minor_worldwide, moderate_worldwide, strong_worldwide, strongest_worldwide,\
+               strongest_filtered, total_worldwide, minor_worldwide, moderate_worldwide, strong_worldwide, strongest_worldwide, \
                place_of_strongest_worldwide
