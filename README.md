@@ -71,7 +71,7 @@ Description and your understanding of the business question or problem, analytic
         - A Google-like search field at the top with a search button to update the visualization. The field should be prefilled with the current location. Pressing the search button will read the location from the search field and refresh the page.
         - Below the search field a screen-filling map is shown with the selected location in the center, and a zoom-in factor appropriate to cover a circle with actual search radius.
         - On overlay that draws the location of all earthquakes of the last 24 hours into the actual map, represented by a circle contains the strength (Richter scala) of the earth quake and a label with the timestamp of the earth quake.
-          the web page should be update evers
+          the web page should be updated in a defined interval
   
 - ### 2.5 Searchbar for different user defined configurations 
   - Three arguments for configuration:
@@ -92,8 +92,8 @@ ___
 ## 3. Methodological approach - Teams Data Science Process
 
 The methodological approach chosen to process and implement the use case.
-For analytical uses cases it is wise to follow a structured approach like Microsoft's Team Database Science Process (TDSP), which is the legitimate successor of the CrispDM methodology.
-Team Data Science Process (TDSP) is an agile, iterative, data science methodology to improve collaboration and team learning. It is supported through a lifecycle definition, standard project structure, artifact templates, and tools for productive data science.
+For analytical uses cases it is wise to follow a structured approach like Microsoft's Team Database Science Process (TDSP), which is the legitimate successor of the CRISP-DM methodology.
+Team Data Science Process (TDSP) is an agile and iterative data science methodology to improve collaboration and team learning. It is supported through a lifecycle definition, standard project structure, artifact templates, and tools for productive data science.
 
 **Key Components of the TDSP:**
 1. **Data Science lifecycle definition**
@@ -112,18 +112,18 @@ ___
 
 ## 4. Details of the approach
 
-As we mentioned earlier, we followed the Team Database Science Process (TDSP). 
-Therefore we created a project management board to ensure a structured approach 
-to process and implement our Earthquake-Monitor project:
+As we mentioned previously, we followed the Team Database Science Process (TDSP). 
+Therefore, we created a project management board to ensure a structured approach 
+to process and implement our Earthquake-Detector project:
 
 ![static/images/ProjectBoard_EarthquakeMonitor.png](static/images/ProjectBoard_EarthquakeMonitor.png)
 ![static/images/Legend_ProjectBord.png](static/images/Legend_ProjectBord.png)
 
 ## 5. Details of the work
 ### 5.1 Processing of real-time data
-- In order to develop a real-time updating map, we needed to included an API from the United States 
+- In order to develop a real-time earthquake map, we needed to included an API from the United States 
        Geological Surves (USGS) website.
-- The API delivers our data, which contains all Earthquakes all over the world which took place in the last 24 hours.  
+- The API delivers our data, which contains all earthquakes from all over the world which occurred within the last 24 hours.  
   
     > If you want to get further information about the USGS, click here:
         https://www.usgs.gov/
@@ -133,7 +133,7 @@ to process and implement our Earthquake-Monitor project:
 - Data Preparation:
   
     For Data Preparation, we extract relevant data from the USGS API & transform it into a usable structure.
-    The relevant data contains different features,which are represented in the table below:
+    The relevant data contains different features, which are represented in the table below:
   
     | Earthquake ID |  Longitude  | Latitude | Time | Magnitude |   
     | ---:| ---: | ---: | ---: | ---:
@@ -146,34 +146,34 @@ to process and implement our Earthquake-Monitor project:
 - With the help of the location (longitude & latitude) of each earthquake and the current or inserted location from the user,
     we were able to append some geo data calculations:
   > ***Filter radius:***
-  > With this method, we can only show earthquaked wich are in the given/inserted radius of the user. 
-  > If the user does not filter by the radius, we set a default value of ???
+  > With this method, we can filter earthquakes that occurred within the user specified radius. 
+  > If the user does not enter a different radius, we set a default value of 250 km.
   > 
   > ***Distance:***
-  > With this method, we can calculate the distance between the given location of the user and each earthquake in kilometer
+  > With this method, we can calculate the distance between the user specified location and each earthquake in kilometer.
   >
   > ***Number of earthquakes:***
-  > With this method, we can count the number of earthquakes in the given radius and represent the amount of earthquakes on our website
+  > With this method, we can count the number of earthquakes in the given radius and display the amount of earthquakes on our website.
   > 
   > ***Closest Earthquake***
-  > Whit this method, we can represent the closed earthquake to the user on our website.
+  > With this method, we can report the closest earthquake to the user specified location on our website.
 
 
 ### 5.3 Geo data visualization with OpenStreetMaps
-- We created a map with the folium package, to visualize the earthquakes and someother cool features and add-ons.
+- We created a map with the folium package to visualize the earthquakes and to implement some other cool features and add-ons.
     > 
     > ***Earthquake Overlay:***
-    > - This overlay adds the earthquakes from the API to the folium map and represents them though circles in different sizes and colours, depending on the magnitude of each earthquake.
-    > - It sets a marker to the current location of the user as default or to the inserted location of the user.
-    > - It also draws a line from the current location to the earthquakes in the radius, to make it  user friendlier to find the nearest earthquakes.
-    > - If the user hovers over a earthquake, some detailled information about the earthquake, like timestamp, magnitude and distance pop up.
+    > - This overlay adds the earthquakes from the API to the folium map and depicts them through circles in different sizes and colours, depending on the magnitude of the respective earthquake.
+    > - It sets a marker to the current location of the user per default or according to the user specified location.
+    > - It is also possible to insert lines from the current location to the earthquakes making it easier for the user to find the nearest earthquake.
+    > - If the user hovers over an earthquake, additional information about the earthquake, like timestamp, magnitude and distance appear.
 
 
     > ***Tectonic Overlay:***
     > - This overlay adds the tectonic plates to the map. The user can enable or disable the tectonic plates by ticking or unticking the box in the layer control     > on the top right of the map.
   
 ### 5.4 Web frontend development & Web-service backend development
-- To setup a interactive and intuitive website, we used the flask package. See 6.8 for details on how flask works.
+- To set up a interactive and intuitive website, we used the flask package. See 6.8 for details on how flask works.
 - In total, our website consists of the following three html pages:
 1. Home - index.html
 2. About Us - about_us.html
@@ -185,11 +185,13 @@ to process and implement our Earthquake-Monitor project:
     > - The index.html file represents our home page and is the core part of our website.
     > - On this page, the earthquake detector is located with all its features.
     > - A dashboard shows some interesting statistics relating to the user's search, such as how many earthquakes occurred in that region, what was their magnitude, where was the closest earthquake and what magnitude had the strongest earthquake worldwide. 
-    > - Also, the map showing the earthquakes within the specified radius of the chosen location is integrated on this page.
+    > - Also, the map showing the earthquakes within the specified radius of the chosen location is integrated on the bottom of this page.
     >
+   > 
     > **Challenge:**
-    > - We had some issues to integrate the map into our website as a new map html file was generated every time the code run. We hence had to find a solution that allowed for the integrated file to be dynamic .
+    > - We had some issues to integrate the map into our website as a new map html file is generated every time the code runs. We hence had to find a solution that allows for the integrated file to be dynamic.
     > 
+   > 
     > **Tips & Tricks:**
     > - We solved the above mentioned issue by using an iframe to integrate the map html file. In general, iframes are used to display content from another source, such as videos or advertisements via hyperlink or html reference in our case.
   
@@ -201,12 +203,14 @@ to process and implement our Earthquake-Monitor project:
     > - For each team member, the respective Github account is linked.
     > - By clicking on the button "Jump to Earthquake Detector" the user is redirected to the home page.   
     >
+   > 
     > **Challenge:**
     > - We wanted a nice looking layout without spending too much time on it.
     > 
+   > 
     > **Tips & Tricks:**
     > - The internet is full of great open source html templates for all kind of purposes. Especially for common sites such as about us pages there are numerous creative templates available. 
-    > - We recommend to use bootstrap for building html website content. Bootstrap offers example code for all kinds of content elements and is relatively easy to implement and work with.
+    > - We recommend to use bootstrap for building html website content. Bootstrap offers example code for all kinds of content elements and is relatively easy to implement and to work with.
     > - Check out https://getbootstrap.com/docs/5.1/getting-started/introduction/ 
 
     ![img.png](use_case_code/static/Website_Manual.png)
@@ -216,9 +220,11 @@ to process and implement our Earthquake-Monitor project:
     > - On this page, we explain the main features of the earthquake detector and how it is intended to be used.
     > - Screenshots are used for reference.
     >
+   > 
     > **Challenge:**
     > - We wanted the boxes (in bootstrap called cards) to be of the same seize in terms of weight and height despite the different text lengths.
     > 
+   > 
     > **Tips & Tricks:**
     > - Bootstrap makes layouting in html quite easy as it doesn't require you to create a separate css stylesheet. 
     > - Style attributes are added right into the class description.
