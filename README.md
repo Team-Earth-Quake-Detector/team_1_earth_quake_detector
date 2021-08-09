@@ -323,6 +323,7 @@ to process and implement our Earthquake-Monitor project:
     - *about_us*: Render about_us.html to include About Us page on web application.
 
   
+
 ### 6.9 Class Architecture
 ![static/images/class_architecture.png](static/images/class_architecture.png)
 
