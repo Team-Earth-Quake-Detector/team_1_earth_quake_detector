@@ -97,3 +97,16 @@ class EarthquakeAnalytics:
         self.data_collector = DataCollector()
         strongest_earthquake_worldwide = max([earthquake['magnitude'] for earthquake in self.data_collector.prep_data()], default="-")
         return strongest_earthquake_worldwide
+
+    def get_place_of_strongest_earthquake_worldwide(self):
+        self.data_collector = DataCollector()
+        earthquake_data = self.data_collector.prep_data()
+        magnitudes = []
+        for i in range(len(earthquake_data)):
+            magnitudes.append(earthquake_data[i]["magnitude"])
+        if len(earthquake_data) != 0:
+            index_of_earthquake_with_maximum_magnitude = magnitudes.index(max(magnitudes))
+            place_of_maximum_magnitude = earthquake_data[index_of_earthquake_with_maximum_magnitude]["place"]
+            return place_of_maximum_magnitude
+        else:
+            return "-"

@@ -50,9 +50,9 @@ class EarthquakeAnalytics:
         for i in range(len(earthquake_data_clean)):
             distances.append(earthquake_data_clean[i]["distance"])
         if len(earthquake_data_clean) != 0:
-            index_of_earthquake_with_minimum_distance = distances.index(min(distances))
-            place_of_minimum_distance = earthquake_data_clean[index_of_earthquake_with_minimum_distance]["place"]
-            return place_of_minimum_distance
+            index_of_closest_filtered_earthquake = distances.index(min(distances))
+            place_of_closest_filtered_earthquake = earthquake_data_clean[index_of_closest_filtered_earthquake]["place"]
+            return place_of_closest_filtered_earthquake
         else:
             return "-"
 
@@ -105,8 +105,8 @@ class EarthquakeAnalytics:
         for i in range(len(earthquake_data)):
             magnitudes.append(earthquake_data[i]["magnitude"])
         if len(earthquake_data) != 0:
-            index_of_earthquake_with_maximum_magnitude = magnitudes.index(max(magnitudes))
-            place_of_maximum_magnitude = earthquake_data[index_of_earthquake_with_maximum_magnitude]["place"]
-            return place_of_maximum_magnitude
+            index_of_strongest_earthquake_worldwide = magnitudes.index(max(magnitudes))
+            place_of_strongest_earthquake_worldwide = earthquake_data[index_of_strongest_earthquake_worldwide]["place"]
+            return place_of_strongest_earthquake_worldwide
         else:
             return "-"

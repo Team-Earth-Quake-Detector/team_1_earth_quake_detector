@@ -27,12 +27,14 @@ def index():
     closest_filtered = input.perform_earthquake_analytics(location=[new_location.latitude, new_location.longitude], radius=radius)[4]
     place_of_closest_filtered = input.perform_earthquake_analytics(location=[new_location.latitude, new_location.longitude], radius=radius)[5]
     strongest_worldwide = input.perform_earthquake_analytics(location=[new_location.latitude, new_location.longitude], radius=radius)[11]
+    place_of_strongest_worldwide = input.perform_earthquake_analytics(location=[new_location.latitude, new_location.longitude], radius=radius)[12]
 
     refresh = request.args.get('refresh', default=1000, type=int)
 
     return render_template("bootstrap_test.html", location=new_location_text, radius=radius, refresh=refresh, total_filtered=total_filtered,
                            minor_filtered=minor_filtered, moderate_filtered=moderate_filtered, strong_filtered=strong_filtered,
-                           closest_filtered=closest_filtered, place_of_closest_filtered=place_of_closest_filtered, strongest_worldwide=strongest_worldwide)
+                           closest_filtered=closest_filtered, place_of_closest_filtered=place_of_closest_filtered,
+                           strongest_worldwide=strongest_worldwide, place_of_strongest_worldwide=place_of_strongest_worldwide)
 
 
 @app.route('/map')
