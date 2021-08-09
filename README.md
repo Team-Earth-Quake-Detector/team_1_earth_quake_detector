@@ -179,10 +179,12 @@ to process and implement our Earthquake-Monitor project:
 2. About Us - about_us.html
 3. Website Manual - manual.html
 
+    ![img.png](use_case_code/static/Website_Home.png)
     > 
     > ***1. Index.html***
     > - The index.html file represents our home page and is the core part of our website.
     > - On this page, the earthquake detector is located with all its features.
+    > - A dashboard shows some interesting statistics relating to the user's search, such as how many earthquakes occurred in that region, what was their magnitude, where was the closest earthquake and what magnitude had the strongest earthquake worldwide. 
     > - Also, the map showing the earthquakes within the specified radius of the chosen location is integrated on this page.
     >
     > **Challenge:**
@@ -191,6 +193,7 @@ to process and implement our Earthquake-Monitor project:
     > **Tips & Tricks:**
     > - We solved the above mentioned issue by using an iframe to integrate the map html file. In general, iframes are used to display content from another source, such as videos or advertisements via hyperlink or html reference in our case.
   
+    ![img.png](use_case_code/static/Website_About_Us.png)
     >
     > ***2. about_us.html***
     > - The about_us.html file represents our about us page that can be reached via our navigation bar.
@@ -206,6 +209,7 @@ to process and implement our Earthquake-Monitor project:
     > - We recommend to use bootstrap for building html website content. Bootstrap offers example code for all kinds of content elements and is relatively easy to implement and work with.
     > - Check out https://getbootstrap.com/docs/5.1/getting-started/introduction/ 
 
+    ![img.png](use_case_code/static/Website_Manual.png)
     >
     > ***3. manual.html***
     > - The manual.html file represents our website user manual that can be reached via our navigation bar.
@@ -232,7 +236,7 @@ to process and implement our Earthquake-Monitor project:
     > - Input: Value from range (min: 100; max:1000; step:50)
     > - Output: Map shows earthquakes that occurred within in the last 24 hours within this radius of the chosen location.
     
-    > **Radius**
+    > **Update Frequency**
     > - Default: 1000 seconds
     > - Input: Value from range (min: 10; max:1000; step:10)
     > - Output: Page reloads automatically after the defined time has passed.
