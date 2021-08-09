@@ -22,7 +22,7 @@ ___
   * [5.3 Geo data visualization with OpenStreetMaps](#53-geo-data-visualization-with-openstreetmaps)
   * [5.4 Web frontend development & Web-service backend development](#54-web-frontend-development---web-service-backend-development)
   * [5.5 Searchbar for different user defined configurations](#55-searchbar-for-different-user-defined-configurations)
-- [6. Class Definition**](#6-class-definition--)
+- [6. Class Definition](#6-class-definition--)
   * [6.1 DataCollector](#61-datacollector)
   * [6.2 Map](#62-map)
   * [6.3 Overlay](#63-overlay)
@@ -185,7 +185,7 @@ to process and implement our Earthquake-Monitor project:
 > Text
 
 
-## 6. Class Definition**
+## 6. Class Definition
 
 ### 6.1 DataCollector
 - **Purpose**: Access USGS earthquake data and prepare data for further use.
