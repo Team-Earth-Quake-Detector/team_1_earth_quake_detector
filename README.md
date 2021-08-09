@@ -8,7 +8,7 @@ ___
 ___
 # Table of content
 - [1. Goals](#1-goals)
-- [2. Description:](#2-description-)
+- [2. Description](#2-description-)
   * [2.1. Processing of real-time data](#21-processing-of-real-time-data)
   * [2.2 Geo data calculations](#22-geo-data-calculations)
   * [2.3 Geo data visualization with OpenStreetMaps](#23-geo-data-visualization-with-openstreetmaps)
@@ -16,7 +16,7 @@ ___
   * [2.5 Searchbar for different user defined configurations](#25-searchbar-for-different-user-defined-configurations)
 - [3. Methodological approach - Teams Data Science Process](#3-methodological-approach---teams-data-science-process)
 - [4. Details of the approach](#4-details-of-the-approach)
-- [5. Details of the work:](#5-details-of-the-work-)
+- [5. Details of the work](#5-details-of-the-work-)
   * [5.1 Processing of real-time data](#51-processing-of-real-time-data)
   * [5.2 Geo data calculations](#52-geo-data-calculations)
   * [5.3 Geo data visualization with OpenStreetMaps](#53-geo-data-visualization-with-openstreetmaps)
@@ -44,7 +44,7 @@ ___
 - **What was intended to achieve?**
   - Provide an intuitive and user-friendly tool for the visualization of earthquakes all over the world
   
-## 2. Description:
+## 2. Description
 Description and your understanding of the business question or problem, analytical question and/or technical problem associated with the use case.
 
 **What are the challenges that need to be mastered?**
@@ -119,7 +119,7 @@ to process and implement our Earthquake-Monitor project:
 ![static/images/ProjectBoard_EarthquakeMonitor.png](static/images/ProjectBoard_EarthquakeMonitor.png)
 ![static/images/Legend_ProjectBord.png](static/images/Legend_ProjectBord.png)
 
-## 5. Details of the work:
+## 5. Details of the work
 ### 5.1 Processing of real-time data
 - In order to develop a real-time updating map, we needed to included an API from the United States 
        Geological Surves (USGS) website.
@@ -322,7 +322,7 @@ to process and implement our Earthquake-Monitor project:
     - *manual*: Render manual.html to include a website manual.
     - *about_us*: Render about_us.html to include About Us page on web application.
 
-  
+
 
 ### 6.9 Class Architecture
 ![static/images/class_architecture.png](static/images/class_architecture.png)
