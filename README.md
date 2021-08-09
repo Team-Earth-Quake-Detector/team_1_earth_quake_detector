@@ -173,17 +173,69 @@ to process and implement our Earthquake-Monitor project:
     > - This overlay adds the tectonic plates to the map. The user can enable or disable the tectonic plates by ticking or unticking the box in the layer control     > on the top right of the map.
   
 ### 5.4 Web frontend development & Web-service backend development
-- To setup a interactive and intuitive website, we used the flask package.
+- To setup a interactive and intuitive website, we used the flask package. See 6.8 for details on how flask works.
+- In total, our website consists of the following three html pages:
+1. Home - index.html
+2. About Us - about_us.html
+3. Website Manual - manual.html
 
+    > 
+    > ***1. Index.html***
+    > - The index.html file represents our home page and is the core part of our website.
+    > - On this page, the earthquake detector is located with all its features.
+    > - Also, the map showing the earthquakes within the specified radius of the chosen location is integrated on this page.
+    >
+    > **Challenge:**
+    > - We had some issues to integrate the map into our website as a new map html file was generated every time the code run. We hence had to find a solution that allowed for the integrated file to be dynamic .
+    > 
+    > **Tips & Tricks:**
+    > - We solved the above mentioned issue by using an iframe to integrate the map html file. In general, iframes are used to display content from another source, such as videos or advertisements via hyperlink or html reference in our case.
+  
+    >
+    > ***2. about_us.html***
+    > - The about_us.html file represents our about us page that can be reached via our navigation bar.
+    > - On this page, the team is introduced as well as their responsibilities within the project.
+    > - For each team member, the respective Github account is linked.
+    > - By clicking on the button "Jump to Earthquake Detector" the user is redirected to the home page.   
+    >
+    > **Challenge:**
+    > - We wanted a nice looking layout without spending too much time on it.
+    > 
+    > **Tips & Tricks:**
+    > - The internet is full of great open source html templates for all kind of purposes. Especially for common sites such as about us pages there are numerous creative templates available. 
+    > - We recommend to use bootstrap for building html website content. Bootstrap offers example code for all kinds of content elements and is relatively easy to implement and work with.
+    > - Check out https://getbootstrap.com/docs/5.1/getting-started/introduction/ 
+
+    >
+    > ***3. manual.html***
+    > - The manual.html file represents our website user manual that can be reached via our navigation bar.
+    > - On this page, we explain the main features of the earthquake detector and how it is intended to be used.
+    > - Screenshots are used for reference.
+    >
+    > **Challenge:**
+    > - We wanted the boxes (in bootstrap called cards) to be of the same seize in terms of weight and height despite the different text lengths.
+    > 
+    > **Tips & Tricks:**
+    > - Bootstrap makes layouting in html quite easy as it doesn't require you to create a separate css stylesheet. 
+    > - Style attributes are added right into the class description.
+    > - For the cards to have the same size, you have to add "d-flex" and "flex-column" to the class card-body -> class="card-body d-flex flex-column"
 
 ### 5.5 Searchbar for different user defined configurations
-- In Order to make our website even more interactive and andvanced, we included inputfields.
-> **Location:**
-> Text
-> 
-> **Radius**
-> Text
-
+- In Order to make our website even more interactive and advanced, we included input fields that determine the search parameter.
+    > **Location:**
+    > - Default: Current location based on user's IP address
+    > - Input: City name, coordinates, or specific address
+    > - Output: Map zooms in to chosen location and shows earthquakes that occurred within in the last 24 hours within the specified radius. 
+    
+    > **Radius**
+    > - Default: 250 km
+    > - Input: Value from range (min: 100; max:1000; step:50)
+    > - Output: Map shows earthquakes that occurred within in the last 24 hours within this radius of the chosen location.
+    
+    > **Radius**
+    > - Default: 1000 seconds
+    > - Input: Value from range (min: 10; max:1000; step:10)
+    > - Output: Page reloads automatically after the defined time has passed.
 
 ## 6. Class Definition
 
