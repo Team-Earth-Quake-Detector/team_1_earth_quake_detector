@@ -6,7 +6,6 @@ import geocoder
 
 class Map:
     def __init__(self, lat: float = 0, long: float = 0):
-        self.overlays = []
         if lat == 0 and long == 0:
             self.current_location = [(geocoder.ip('me').latlng[0]), (geocoder.ip('me').latlng[1])]
         else:
