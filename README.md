@@ -200,6 +200,14 @@ to process and implement our Earthquake-Monitor project:
     - *geopy.distance*: Calculate distance between the user’s location and the individual earthquakes.
     - *requests*: Set up API to access USGS earthquake data of the last 24 hours (all earth-quakes regardless of magnitude. This presetting can effortlessly be changed by se-lecting another GeoJSON summary format at the USGS website: https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php).
     - *geocoder*: Access the user’s current location.
+- **Functions**:
+
+| Function | Input parameters | Description | Return |
+| ---------------|----------------|---------------|----------------|
+| __init__ | **lat** (default = 0), **long** (default = 0) | Uses the user’s current location if no values for longitude and latitude are provided for further data preparation. | - |
+| load_data | - | Accesses USGS earthquake data and transfers response to *earthquakes* variable. | - |
+| prep_data | - | Loads data with *load_data* function. Extracts relevant earthquake features (id, longitude, latitude, place, time, magnitude) and transfer data to an individual dictionary per earthquake. After that appends earthquake dictionaries to *earthquake_data* list. | earthquake_data |
+| filter_radius | **location** (default = None), **user_provided_radius** (default = 250) | Prepares data with *prep_data* function. Uses the user’s current location if no specific location is provided. Calculates the distance between this location and every earthquake in *earthquake_data* list and adds the distance (in km) to the earthquake’s dictionary in *earthquake_data* list. If the calculated distance is smaller than the radius provided by the user, the earthquake is added to *earthquake_data_clean* list. | earthquake_data_clean |
 
 
   **6.2 Map**
@@ -218,11 +226,13 @@ to process and implement our Earthquake-Monitor project:
     - *folium.Plugins HeatMap*: Implement a heatmap of earthquake occurrences within the last 24 hours.
     - *branca.colormap*: Dynamically adjust the circle marker’s size according to the earthquake’s magnitude.
     - *geocoder*: Access the user’s current location.
+- **Functions**:
 
 
   **6.4 EarthquakeAnalytics**
 - **Purpose**: Analyse earthquake occurrences and extract relevant KPIs to be included in the dashboard.
 - **Requirements**: -
+- **Functions**:
 
 
   **6.5 Location**
@@ -243,6 +253,7 @@ to process and implement our Earthquake-Monitor project:
 - **Purpose**: Merge functions from different classes to provide a compact and centralized input for flask.
 - **Requirements**:
   - *geopy.geocoders Nomatim*: Transform longitude and latitude values in address names and vice versa.
+- **Functions**:
 
 
   **6.8 App**
