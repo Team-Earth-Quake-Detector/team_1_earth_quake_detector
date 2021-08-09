@@ -187,11 +187,11 @@ to process and implement our Earthquake-Detector project:
     > - A dashboard shows some interesting statistics relating to the user's search, such as how many earthquakes occurred in that region, what was their magnitude, where was the closest earthquake and what magnitude had the strongest earthquake worldwide. 
     > - Also, the map showing the earthquakes within the specified radius of the chosen location is integrated on the bottom of this page.
     >
-   > 
+   
     > **Challenge:**
     > - We had some issues to integrate the map into our website as a new map html file is generated every time the code runs. We hence had to find a solution that allows for the integrated file to be dynamic.
     > 
-   > 
+   
     > **Tips & Tricks:**
     > - We solved the above mentioned issue by using an iframe to integrate the map html file. In general, iframes are used to display content from another source, such as videos or advertisements via hyperlink or html reference in our case.
   
@@ -203,11 +203,11 @@ to process and implement our Earthquake-Detector project:
     > - For each team member, the respective Github account is linked.
     > - By clicking on the button "Jump to Earthquake Detector" the user is redirected to the home page.   
     >
-   > 
+   
     > **Challenge:**
     > - We wanted a nice looking layout without spending too much time on it.
     > 
-   > 
+   
     > **Tips & Tricks:**
     > - The internet is full of great open source html templates for all kind of purposes. Especially for common sites such as about us pages there are numerous creative templates available. 
     > - We recommend to use bootstrap for building html website content. Bootstrap offers example code for all kinds of content elements and is relatively easy to implement and to work with.
@@ -220,11 +220,11 @@ to process and implement our Earthquake-Detector project:
     > - On this page, we explain the main features of the earthquake detector and how it is intended to be used.
     > - Screenshots are used for reference.
     >
-   > 
+   
     > **Challenge:**
     > - We wanted the boxes (in bootstrap called cards) to be of the same seize in terms of weight and height despite the different text lengths.
     > 
-   > 
+   
     > **Tips & Tricks:**
     > - Bootstrap makes layouting in html quite easy as it doesn't require you to create a separate css stylesheet. 
     > - Style attributes are added right into the class description.
