@@ -330,13 +330,14 @@ to process and implement our Earthquake-Monitor project:
 ___
 ## 7. Summary 
 A summary if the targets have been achieved, and if not - and whatever the reason is - why it wasn't achieved.
-
-    - 7.1 Findings
-    - 7.2.Achievements
-    - 7.3 User Manual
+    
+- 7.1 Findings
+- 7.2.Achievements
+- 7.3 User Manual
 ___ 
 ## 8. Future Development
 What are the next steps that could be done in order to keep process in the project.
 
-        -- Forecase
-        -- Create mobile app
+
+- Forecase 
+- Create mobile app
