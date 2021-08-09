@@ -12,7 +12,6 @@ class Map:
             self.current_location = [lat, long]
 
     def set_up_map(self, location=None):
-        """ Customizes OpenStreetMap """
         if location is None:
             location = self.current_location
 

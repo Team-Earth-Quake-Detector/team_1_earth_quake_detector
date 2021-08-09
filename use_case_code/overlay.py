@@ -80,7 +80,6 @@ class EarthquakeOverlay(Overlay):
 class TectonicOverlay(Overlay):
 
     def apply_overlay(self, map):
-        """Add tectonic plates"""
         url = 'https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/PB2002_boundaries.json'
 
         folium.GeoJson(url, name='Tectonic plates').add_to(map)

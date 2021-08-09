@@ -4,9 +4,6 @@ from geopy.geocoders import Nominatim
 
 
 class LocationResolver:
-    """
-    Resolves a location by a given city or location name
-    """
     def __init__(self, address: str = ""):
         g = geocoder.osm(address)
         geo_data = g.osm

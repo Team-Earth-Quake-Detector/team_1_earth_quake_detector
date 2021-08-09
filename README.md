@@ -193,31 +193,76 @@ to process and implement our Earthquake-Monitor project:
 
 ## 6. Class Definition**
 
-  **6.1 App**
-- Text
+  **6.1 DataCollector**
+- **Purpose**: Access USGS earthquake data and prepare data for further use.
+- **Requirements**:
+    - *datetime*: Process earthquake timestamp.
+    - *geopy.distance*: Calculate distance between the user’s location and the individual earthquakes.
+    - *requests*: Set up API to access USGS earthquake data of the last 24 hours (all earth-quakes regardless of magnitude. This presetting can effortlessly be changed by se-lecting another GeoJSON summary format at the USGS website: https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php).
+    - *geocoder*: Access the user’s current location.
 
-  **6.2 Monitor**
-- Text
 
-  **6.3 DataCollector**
-- Text
+  **6.2 Map**
+- **Purpose**: Set up a basic map to be displayed on the web application.
+- **Requirements**:
+    - *request*: Access the radius provided by the user on the web application for dynamic zoom-in factor.
+    - *folium*: Visualize data on interactive map and add features.
+    - *geocoder*: Access the user’s current location.
 
-  **6.4 Earthquake Analytics**
-- Text
 
-  **6.5 Map**
-- Text
+  **6.3 Overlay**
+- **Purpose**: Add overlays for geo data visualization on the basic map of class Map.
+- **Requirements**:
+    - *folium*: Visualize data on interactive map and add features.
+    - *folium.Features DivIcon*: Show magnitude markers on the map.
+    - *folium.Plugins HeatMap*: Implement a heatmap of earthquake occurrences within the last 24 hours.
+    - *branca.colormap*: Dynamically adjust the circle marker’s size according to the earthquake’s magnitude.
+    - *geocoder*: Access the user’s current location.
 
-  **6.6 Overlay**
-- Text
 
-  **6.7 Location**
-- Text
+  **6.4 EarthquakeAnalytics**
+- **Purpose**: Analyse earthquake occurrences and extract relevant KPIs to be included in the dashboard.
+- **Requirements**: -
 
-  **6.8 Location Resolver**
-- Text
+
+  **6.5 Location**
+- **Purpose**: Join a longitude and a latitude value in a format that allows for further use in relevant functions.
+- **Requirements**: -
+- **Functions**: -
+
+
+  **6.6 LocationResolver**
+- **Purpose**: Resolve a location by a given city or location name.
+- **Requirements**:
+  - *geocoder*: Access the user’s current location.
+  - *geopy.geocoders Nomatim*: Transform longitude and latitude values in address names and vice versa.
+- **Functions**:
+
+
+  **6.7 Monitor**
+- **Purpose**: Merge functions from different classes to provide a compact and centralized input for flask.
+- **Requirements**:
+  - *geopy.geocoders Nomatim*: Transform longitude and latitude values in address names and vice versa.
+
+
+  **6.8 App**
+- **Purpose**: Build a flask application to display templates on the webserver.
+- **Requirements**:
+  - *os*: Save map html file in templates directory.
+  - *flask Flask*: Build a flask application.
+  - *flask render_template*: Render html templates on the webserver.
+  - *flask request*: Access user provided information (location, radius, update frequency) to adapt map html file.
+- **app_routes**:
+    - */*: Render index.html with customized map and bootstrapped web application layout.
+    - *map*: Render map.html to include map on web application.
+    - *manual*: Render manual.html to include a website manual.
+    - *about_us*: Render about_us.html to include About Us page on web application.
+
+
 
   **6.9 Class Architecture**
+![static/images/class_architecture.png](static/images/class_architecture.png)
+
 ___
 ## 7. Summary 
 A summary if the targets have been achieved, and if not - and whatever the reason is - why it wasn't achieved.

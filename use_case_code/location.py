@@ -2,9 +2,6 @@ __author__ = "Thomas Zeutschler"
 
 
 class Location:
-    """
-    Wraps a location made of latitude and longitude.
-    """
     def __init__(self, latitude: float, longitude: float):
         self.latitude = latitude
         self.longitude = longitude
