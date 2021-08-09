@@ -27,6 +27,7 @@ class DataCollector:
             dict = {"id": element["id"],
                     "longitude": element["geometry"]["coordinates"][0],
                     "latitude": element["geometry"]["coordinates"][1],
+                    "place": element["properties"]["place"],
                     "time": time,
                     "magnitude": element["properties"]["mag"],
                     "distance": ""

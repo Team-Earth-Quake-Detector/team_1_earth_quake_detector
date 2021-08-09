@@ -81,7 +81,7 @@ folium.GeoJson(
 # Add layer control
 folium.LayerControl().add_to(map_osm)
 
-map_osm.save("earthquake_analytics_test.html")
+#map_osm.save("earthquake_analytics_test.html")
 
 #file_path = r"/templates/earthquake_map.html"
 #map_osm.save(file_path) # Save as html file

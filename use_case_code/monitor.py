@@ -65,13 +65,13 @@ class Monitor:
         moderate_filtered = earthquake_analytics.get_filtered_moderate_earthquakes(location=location, radius=radius)
         strong_filtered = earthquake_analytics.get_filtered_strong_earthquakes(location=location, radius=radius)
         closest_filtered = earthquake_analytics.get_closest_filtered_earthquake(location=location, radius=radius)
+        place_of_closest_filtered = earthquake_analytics.get_place_of_closest_filtered_earthquake(location=location, radius=radius)
         strongest_filtered = earthquake_analytics.get_strongest_filtered_earthquake(location=location, radius=radius)
         total_worldwide = earthquake_analytics.get_total_earthquakes_worldwide()
         minor_worldwide = earthquake_analytics.get_minor_earthquakes_worldwide()
         moderate_worldwide = earthquake_analytics.get_moderate_earthquakes_worldwide()
         strong_worldwide = earthquake_analytics.get_strong_earthquakes_worldwide()
-        closest_worldwide = earthquake_analytics.get_closest_earthquake_worldwide()
         strongest_worldwide = earthquake_analytics.get_strongest_earthquake_worldwide()
 
-        return total_filtered, minor_filtered, moderate_filtered, strong_filtered, closest_filtered, strongest_filtered, \
-               total_worldwide, minor_worldwide, moderate_worldwide, strong_worldwide, closest_worldwide, strongest_worldwide
+        return total_filtered, minor_filtered, moderate_filtered, strong_filtered, closest_filtered, place_of_closest_filtered,\
+               strongest_filtered, total_worldwide, minor_worldwide, moderate_worldwide, strong_worldwide, strongest_worldwide

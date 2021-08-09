@@ -43,6 +43,19 @@ class EarthquakeAnalytics:
         closest_filtered_earthquake = min([earthquake['distance'] for earthquake in self.new_location.filter_radius(location=location, user_provided_radius=radius)], default="-")
         return closest_filtered_earthquake
 
+    def get_place_of_closest_filtered_earthquake(self, location=None, radius: int = 250):
+        self.new_location = DataCollector()
+        earthquake_data_clean = self.new_location.filter_radius(location=location, user_provided_radius=radius)
+        distances = []
+        for i in range(len(earthquake_data_clean)):
+            distances.append(earthquake_data_clean[i]["distance"])
+        if len(earthquake_data_clean) != 0:
+            index_of_earthquake_with_minimum_distance = distances.index(min(distances))
+            place_of_minimum_distance = earthquake_data_clean[index_of_earthquake_with_minimum_distance]["place"]
+            return place_of_minimum_distance
+        else:
+            return "-"
+
     def get_strongest_filtered_earthquake(self, location=None, radius: int = 250):
         self.new_location = DataCollector()
         strongest_filtered_earthquake = max([earthquake['magnitude'] for earthquake in self.new_location.filter_radius(location=location, user_provided_radius=radius)], default="-")
@@ -79,11 +92,6 @@ class EarthquakeAnalytics:
                 strong_earthquakes.append(earthquake)
         strong_earthquakes_worldwide = len(strong_earthquakes)
         return strong_earthquakes_worldwide
-
-    def get_closest_earthquake_worldwide(self):
-        self.data_collector = DataCollector()
-        closest_earthquake_worldwide = min([earthquake['distance'] for earthquake in self.data_collector.prep_data()], default="-")
-        return closest_earthquake_worldwide
 
     def get_strongest_earthquake_worldwide(self):
         self.data_collector = DataCollector()

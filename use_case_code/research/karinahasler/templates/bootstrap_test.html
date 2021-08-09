@@ -134,7 +134,7 @@
       </div>
       <div class="card-body">
         <h5 class="card-title" style="font-size:20px">{{minor_filtered}}</h5>
-        <p class="card-text" style="font-size:10px">of these earthquakes were a minor earthquake with a magnitude below or equal to 2.5. These types of earthquakes occur frequently and are unlikely to cause damage.</p>
+        <p class="card-text" style="font-size:10px">of these {{ total_filtered }} earthquakes classified as minor earthquakes with a magnitude below or equal to 2.5. These types of earthquakes occur frequently and are unlikely to cause damage.</p>
       </div>
     </div>
     <div class="card text-dark bg-warning mb-3" style="max-width: 13rem;margin-left:0.8em;">
@@ -144,7 +144,7 @@
       </div>
       <div class="card-body">
         <h5 class="card-title" style="font-size:20px">{{moderate_filtered}}</h5>
-        <p class="card-text" style="font-size:10px">of these earthquakes was a moderate earthquake with a magnitude between 2.5 and 6.0. These types of earthquakes occur less often and might cause damage.</p>
+        <p class="card-text" style="font-size:10px">of these {{ total_filtered }} earthquakes classified as moderate earthquakes with a magnitude between 2.5 and 6.0. These types of earthquakes occur less often and might cause damage.</p>
       </div>
     </div>
     <div class="card text-white bg-danger mb-3" style="max-width: 13rem;margin-left:0.8em;">
@@ -154,7 +154,7 @@
       </div>
       <div class="card-body">
         <h5 class="card-title" style="font-size:20px">{{strong_filtered}}</h5>
-        <p class="card-text" style="font-size:10px">of these earthquakes was a strong earthquake with a magnitude above 6.0. These types of earthquakes occur rarely and are likely to cause major damage.</p>
+        <p class="card-text" style="font-size:10px">of these {{ total_filtered }} earthquakes classified as strong earthquakes with a magnitude above 6.0. These types of earthquakes occur rarely and are likely to cause major damage.</p>
       </div>
     </div>
     <div class="card text-dark bg-light mb-3" style="max-width: 13rem;margin-left:0.8em;">
@@ -164,7 +164,7 @@
       </div>
       <div class="card-body">
         <h5 class="card-title" style="font-size:20px">{{closest_filtered}}</h5>
-        <p class="card-text" style="font-size:10px">km away from your specified location was the closest earthquake.</p>
+        <p class="card-text" style="font-size:10px">Distance in km from the chosen location to the closest earthquake that occurred at {{ place_of_closest_filtered }}.</p>
       </div>
     </div>
     <div class="card text-dark bg-light mb-3" style="width: 13rem;margin-left:0.8em;">
@@ -174,7 +174,7 @@
       </div>
       <div class="card-body">
         <h5 class="card-title" style="font-size:20px">{{strongest_worldwide}}</h5>
-        <p class="card-text" style="font-size:10px">was the magnitude of strongest earthquake worldwide within the last 24 hours.</p>
+        <p class="card-text" style="font-size:10px">Magnitude of strongest earthquake worldwide within the last 24 hours.</p>
       </div>
     </div>
   </div>

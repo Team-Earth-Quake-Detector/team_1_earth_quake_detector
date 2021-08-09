@@ -23,7 +23,7 @@ class DataCollector:
         self.earthquakes = response.json()['features']
 
     def prep_data(self):
-        """ Extract relevant features: id, longitude, latitude, time, magnitude"""
+        """ Extract relevant features: id, longitude, latitude, place, time, magnitude"""
         self.load_data()
         self.earthquake_data = []
         for element in self.earthquakes:
@@ -31,6 +31,7 @@ class DataCollector:
             dict = {"id": element["id"],
                     "longitude": element["geometry"]["coordinates"][0],
                     "latitude": element["geometry"]["coordinates"][1],
+                    "place": element["properties"]["place"],
                     "time": time,
                     "magnitude": element["properties"]["mag"],
                     "distance": ""
@@ -48,7 +49,7 @@ class DataCollector:
             starting_point = location
             earthquake_location = (earthquake["latitude"], earthquake["longitude"])
             distance = geopy.distance.distance(starting_point, earthquake_location).km
-            earthquake["distance"] = round(distance, 0)
+            earthquake["distance"] = round(distance, 2)
             if distance <= user_provided_radius:
                 self.earthquake_data_clean.append(earthquake)
         return self.earthquake_data_clean
