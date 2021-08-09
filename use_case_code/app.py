@@ -29,7 +29,7 @@ def index():
 
     refresh = request.args.get('refresh', default=1000, type=int)
 
-    return render_template("bootstrap.html", location=new_location_text, radius=radius, refresh=refresh, total_filtered=total_filtered,
+    return render_template("index.html", location=new_location_text, radius=radius, refresh=refresh, total_filtered=total_filtered,
                            minor_filtered=minor_filtered, moderate_filtered=moderate_filtered, strong_filtered=strong_filtered,
                            closest_filtered=closest_filtered, strongest_worldwide=strongest_worldwide)
 
