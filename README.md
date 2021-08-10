@@ -401,26 +401,99 @@ becomes a to do or not. The stucture of our kanban board looked as follows:
 ___
 ## 7. Summary 
 A summary if the targets have been achieved, and if not - and whatever the reason is - why it wasn't achieved.
+
+### 7.1 Achievements
+Our primary goal was to build a realtime detection and visualization of earthquake occurrences within the last 24 hours in predefined region.
+Therefore we developed an intuitive and user-friendly website tool for the visualization of earthquakes all over the world.
+
+#### 7.1.1 Required achievements
+
+We managed to reach all the **required achievements** of our project:
+- We found a suitable database with detailed, consistent & real-time earthquake data for the entire world and setted up an APIfor the automatic download of data.
+- We extracted the relevant data & transform it into a usable structure. 
+- We were able to calculate the distance from current location to selected earthquake.
+- And we managed to visualize the earthquakes on a map with the required features like:
+
+        - Circle radius and color depending on the magnitude
+        - Show the current location on a map
+        - Popup with timestamp and magnitude
+- We started a web server, which opens a web page in the default browser that provides the following features:
     
-- 7.1 Findings
-- 7.2.Achievements
-- 7.3 User Manual
-___ 
-## 8. Future Development
-What are the next steps that could be done in order to keep process in the project.
+        - A nice logo and layout. Use the HSD logo or create your own. 
+        - A Google-like search field at the top with a search button to update the visualization. The field should be prefilled with the current location. Pressing the search button will read the location from the search field and refresh the page.
+        - Below the search field a screen-filling map is shown with the selected location in the center, and a zoom-in factor appropriate to cover a circle with actual search radius.
+        - On overlay that draws the location of all earthquakes of the last 24 hours into the actual map, represented by a circle contains the strength (Richter scala) of the earth quake and a label with the timestamp of the earth quake.
+          the web page should be updated in a defined interval
+  
+- We implemented a Searchbar for different user defined configurations and three arguments for configuration:
 
+        - A location either as an address or a city, region or country name or longitude and latitude positioning (default value: Current location of the computer)
+        - A radius for the radius around the location in kilometers (default value: 250km)
+        - An update frequency in seconds (default 30 sec)
 
-### 8.1 Forecast
-### 8.2 Create mobile app
-### 8.3 Upgrade dashboard
-The current dashboard shows six KPIs:
+#### 7.1.2 Additional achievements
+
+But we also managed to implement some additional features, to reach some **additional achvievements**:
+- We implemented an **Earthquake Analytics Dashboard** with 6 KPIs on our website:
   - Total number of earthquakes of the last 24 hours within user provided radius of user provided location
   - Number of minor earthquakes of the last 24 hours within user provided radius of user provided location
   - Number of moderate earthquakes of the last 24 hours within user provided radius of user provided location
   - Number of strong earthquakes of the last 24 hours within user provided radius of user provided location
   - Distance from user provided location to closest earthquake of the last 24 hours
-  - Magnitude of strongest earthquake worldwide of the last 24 hours 
-    
+  - Magnitude of strongest earthquake worldwide of the last 24 hours
+
+
+- We improved our **Website**
+  - We added counter for the time which passed since the latest page update.
+  - We added a About-Us-Page that can be reached via our navigation bar, where we introduced our team 
+  as well as their responsibilities within the project. 
+  - We added a Website-Manual-Page thet can be reached via our navigation bar, where we explain the 
+  main features of the earthquake detector and how it is intended to be used.
+
+
+- We improved our **Map**:
+  - We added a layer control to the map so the users can select the different overlays
+  - We implemented a heatmap layer, which is also a nice way to represent earthquakes on a map.
+  - We added tectonic plate layer, to give the user a better understanding about the geological occurrence of earthquakes.
+  - We added connective lines between the current location of the user and location of the earthquake, to make it easier
+to find the next earthquake.
+
+
+- We also improved our website performance dramatically. Our website, like you are using it today needed around 3-5 minutes to load.
+But through the time and our work, we managed to drecrease the loding time to 5-10 seconds, which made it much more user-friendly to use.
+### 7.2 Findings
+- In the beginning it was difficult to start. We had a big task to do with many different questions to solve.
+But the methododical approach of Teams Data Science Process helped a lot for the structure of project.
+Whe were able to split the big task into smaller tasks that where handy and solverable for each of us. 
+In addition to that,our project board always showed us, what we already did and what has to be finished next, in
+order to keep progress in our project.
+- We also learned how important the issues, tasks and the canban board on our GitHub was, to structured tasks and show 
+responsibilities for each task. It also made communication easier between the project members.
+
+To sum things up, all team-members are proud and happy to finish our project. All our requierements and 
+the project's success criteria are met. Furthermore we had enough time and skills to implement more features and make 
+our project even greater. All in all the project was a huge success regarding our development and coding knowledge 
+as well as group work on IT projects. Through the work on GitHub, the Team Data Science Process and the Kanban-Board, we
+gained valuable knowledge and skills for our future jobs. Nevertheless, there were also some difficulties and challenges during
+the project but we always kept on track and found a solution.
+
+___ 
+## 8. Future Development
+Thus we fully meet the requirements and success criteria of the business case, there is always a way
+to improve and optimize  our tool. 
+
+What are  next steps that could be done in order to keep process in the project?
+
+### 8.1 Forecast
+With further analytics and the help of statistical and mathematical calculations, like regression or classification
+we could develop a Earthquake-Forcasting-Tool. This tool could warn our users, whenever there is the chance oder the danger
+that an earthquake is likly to occure around the users location. This little tool could help to make our world a little bit
+safe for us humans.
+### 8.2 Create mobile app
+Earthquakes to go. It would be a nice tool to check all the recent earthquakes with your smartphone, without the need of a laptop or computer.
+Therefore we could develop a Earthquakes-App to see all earthquakes whenever you want and whereever you are.
+### 8.3 Upgrade dashboard
+The current dashboard shows six KPIs(see above)
 To make the dashboard even more sophisticated, it would be possible to calculate all KPIs on a global scale (worldwide) 
 and on a local scale (within user provided radius of user provided location). This gives interesting additional insights 
 for interested users. Concerning layout and frontend development, it would be interesting to search for a layout that 
