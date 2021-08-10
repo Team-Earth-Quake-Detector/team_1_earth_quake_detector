@@ -111,7 +111,17 @@ Team Data Science Process (TDSP) is an agile and iterative data science methodol
 
  
 3. **Infrastructure  and resources recommended for the project**
+
+TDSP provides recommendations for managing shared analytics and storage infrastructure such as:
+   - cloud file systems for storing datasets
+   - databases
+   - big data (SQL or Spark) clusters
+   - machine learning service
+The storage infrastructure, where raw and processed datasets are stored, may be in the cloud or on-premises.This infrastructure enables reproducible analysis. It also avoids duplication, which may lead to inconsistencies and unnecessary infrastructure costs. Tools are provided to provision the shared resources, track them, and allow each team member to connect to those resources securely. It is also a good practice to have project members create a consistent compute environment. Different team members can then replicate and validate experiments.
+
 4. **Tools and utilities recommended for project execution**
+
+Introducing processes in most organizations is challenging. Tools provided to implement the data science process and lifecycle help lower the barriers to and increase the consistency of their adoption. TDSP provides an initial set of tools and scripts to jump-start adoption of TDSP within a team. It also helps automate some of the common tasks in the data science lifecycle such as data exploration and baseline modeling. There is a well-defined structure provided for individuals to contribute shared tools and utilities into their team's shared code repository. These resources can then be leveraged by other projects within the team or the organization.
 ___
 
 ## 4. Details of the approach
