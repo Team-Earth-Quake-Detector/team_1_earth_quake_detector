@@ -181,7 +181,7 @@ becomes a to do or not. The stucture of our kanban board looked as follows:
     > - This overlay adds the tectonic plates to the map. The user can enable or disable the tectonic plates by ticking or unticking the box in the layer control     > on the top right of the map.
   
 ### 5.4 Web frontend development & Web-service backend development
-- To set up a interactive and intuitive website, we used the flask package. See 6.8 for details on how flask works.
+- To set up an interactive and intuitive website, we used the flask package. See 6.8 for details on how flask works.
 - In total, our website consists of the following three html pages:
 1. Home - index.html
 2. About Us - about_us.html
