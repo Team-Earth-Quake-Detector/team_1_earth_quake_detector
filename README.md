@@ -251,7 +251,7 @@ becomes a to do or not. The stucture of our kanban board looked as follows:
     > - Output: Map shows earthquakes that occurred within the last 24 hours within this radius of the chosen location.
     
     > **Update Frequency**
-    > - Default: 1000 seconds
+    > - Default: 1000 seconds (In task 30 sec were stated. However, we felt that it is quite annoying if the pages refreshes every 30 seconds and so we decided for a default value of 1000 sec -> 16.6 min)
     > - Input: Value from range (min: 10; max:1000; step:10)
     > - Output: Page reloads automatically after the defined time has passed.
 
