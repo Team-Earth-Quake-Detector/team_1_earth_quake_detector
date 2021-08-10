@@ -20,14 +20,15 @@ def index():
     my_map = input.build_map(coordinates=[new_location.latitude, new_location.longitude], radius=radius)
     my_map.save_map(os.path.join(app.root_path, "templates", "my_map.html"))
 
-    total_filtered = input.perform_earthquake_analytics(location=[new_location.latitude, new_location.longitude], radius=radius)[0]
-    minor_filtered = input.perform_earthquake_analytics(location=[new_location.latitude, new_location.longitude], radius=radius)[1]
-    moderate_filtered = input.perform_earthquake_analytics(location=[new_location.latitude, new_location.longitude], radius=radius)[2]
-    strong_filtered = input.perform_earthquake_analytics(location=[new_location.latitude, new_location.longitude], radius=radius)[3]
-    closest_filtered = input.perform_earthquake_analytics(location=[new_location.latitude, new_location.longitude], radius=radius)[4]
-    place_of_closest_filtered = input.perform_earthquake_analytics(location=[new_location.latitude, new_location.longitude], radius=radius)[5]
-    strongest_worldwide = input.perform_earthquake_analytics(location=[new_location.latitude, new_location.longitude], radius=radius)[11]
-    place_of_strongest_worldwide = input.perform_earthquake_analytics(location=[new_location.latitude, new_location.longitude], radius=radius)[12]
+    earthquake_analytics = input.perform_earthquake_analytics(location=[new_location.latitude, new_location.longitude], radius=radius)
+    total_filtered = earthquake_analytics[0]
+    minor_filtered = earthquake_analytics[1]
+    moderate_filtered = earthquake_analytics[2]
+    strong_filtered = earthquake_analytics[3]
+    closest_filtered = earthquake_analytics[4]
+    place_of_closest_filtered = earthquake_analytics[5]
+    strongest_worldwide = earthquake_analytics[11]
+    place_of_strongest_worldwide = earthquake_analytics[12]
 
     refresh = request.args.get('refresh', default=1000, type=int)
 

@@ -7,14 +7,14 @@ from geopy.geocoders import Nominatim
 
 class Monitor:
     def __init__(self):
-        pass
+        self.data_collector = DataCollector()
+        self.new_location = DataCollector()
+
 
     def collect_default_data(self):
-        self.data_collector = DataCollector()
         self.data_collector.filter_radius()
 
     def relocate(self, location=None, coordinates=None, radius: int = 250):
-        self.new_location = DataCollector()
         if location is not None:
             geolocator = Nominatim(user_agent="team_1_earthquake_detector")
             location_latitude = geolocator.geocode(location).latitude
@@ -55,7 +55,6 @@ class Monitor:
             return self.map
 
     def perform_earthquake_analytics(self, location=None, radius=None):
-        self.data_collector = DataCollector()
         self.data_collector.prep_data()
         self.data_collector.filter_radius()
         earthquake_analytics = EarthquakeAnalytics(self.data_collector.earthquake_data, self.data_collector.earthquake_data_clean)
