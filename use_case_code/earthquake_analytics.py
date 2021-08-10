@@ -1,4 +1,5 @@
 from data_collector import DataCollector
+import geocoder
 
 
 class EarthquakeAnalytics:
@@ -36,12 +37,12 @@ class EarthquakeAnalytics:
         filtered_strong_earthquakes = len(strong_earthquakes)
         return filtered_strong_earthquakes
 
-    def get_closest_filtered_earthquake(self, location=None, radius: int = 250):
-        closest_filtered_earthquake = min([earthquake['distance'] for earthquake in self.new_location.filter_radius(location=location, user_provided_radius=radius)], default="-")
+    def get_closest_filtered_earthquake(self, location=None):
+        closest_filtered_earthquake = min([earthquake['distance'] for earthquake in self.new_location.filter_radius(location=location, user_provided_radius=15000)], default="-")
         return closest_filtered_earthquake
 
-    def get_place_of_closest_filtered_earthquake(self, location=None, radius: int = 250):
-        earthquake_data_clean = self.new_location.filter_radius(location=location, user_provided_radius=radius)
+    def get_place_of_closest_filtered_earthquake(self, location=None):
+        earthquake_data_clean = self.new_location.filter_radius(location=location, user_provided_radius=15000)
         distances = []
         for i in range(len(earthquake_data_clean)):
             distances.append(earthquake_data_clean[i]["distance"])
