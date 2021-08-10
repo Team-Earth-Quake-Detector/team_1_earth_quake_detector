@@ -128,7 +128,7 @@ The storage infrastructure, where raw and processed datasets are stored, may be 
 
 4. **Tools and utilities recommended for project execution**
 
-Introducing processes in most organizations is challenging. Tools provided to implement the data science process and lifecycle help lower the barriers to and increase the consistency of their adoption. TDSP provides an initial set of tools and scripts to jump-start adoption of TDSP within a team. It also helps automate some of the common tasks in the data science lifecycle such as data exploration and baseline modeling. There is a well-defined structure provided for individuals to contribute shared tools and utilities into their team's shared code repository. These resources can then be leveraged by other projects within the team or the organization.
+Introducing processes in most organizations is challenging. Tools provided to implement the data science process and lifecycle help lower the barriers to and increase the consistency of their adoption. TDSP provides an initial set of tools and scripts to jump-start adoption of TDSP within a team. It also helps automate the common tasks in the data science lifecycle such as data exploration and baseline modeling. There is a well-defined structure provided for individuals to contribute shared tools and utilities into their team's shared code repository. These resources can then be leveraged by other projects within the team or the organization.
 ___
 
 ## 4. Details of the approach
@@ -144,7 +144,7 @@ To ensure overall success of our project, we set up a kanban board in our GitHub
 every task to be fulfilled in the working process. This allowed us to keep track of the to-dos, the work in progress and 
 tasks we had already achieved. Additionally, we created a backlog category called "place for ideas". We discussed the 
 suggestions and brainstorming ideas included in this category in our weekly meetings and decided as a team, if the idea 
-becomes a to do or not. The structure of our kanban board looked as follows:
+becomes a to-do or not. The structure of our kanban board looked as follows:
 
 ![static/images/kanban_board.png](static/images/kanban_board.png)
 
@@ -224,14 +224,14 @@ becomes a to do or not. The structure of our kanban board looked as follows:
     > 
    
     > **Tips & Tricks:**
-    > - We solved the above mentioned issue by using an iframe to integrate the map html file. In general, iframes are used to display content from another source, such as videos or advertisements via hyperlink or html reference in our case.
+    > - We solved the above-mentioned issue by using an iframe to integrate the map html file. In general, iframes are used to display content from another source, such as videos or advertisements via hyperlink or html reference in our case.
   
     ![img.png](use_case_code/static/Website_About_Us.png)
     >
     > ***2. about_us.html***
     > - The about_us.html file represents our about us page that can be reached via our navigation bar.
     > - On this page, the team is introduced as well as their responsibilities within the project.
-    > - For each team member, the respective Github account is linked.
+    > - For each team member, the respective GitHub account is linked.
     > - By clicking on the button "Jump to Earthquake Detector" the user is redirected to the home page.   
     >
    
@@ -262,7 +262,7 @@ becomes a to do or not. The structure of our kanban board looked as follows:
     > - For the cards to have the same size, you have to add "d-flex" and "flex-column" to the class card-body -> class="card-body d-flex flex-column".
 
 ### 5.5 Searchbar for different user defined configurations
-- In order to make our website even more interactive and advanced, we included input fields that determine the search parameter.
+- In order to make our website even more interactive and advanced, we also included input fields that determine the search parameter.
     > **Location:**
     > - Default: Current location based on user's IP address
     > - Input: City name, coordinates, or specific address
@@ -396,7 +396,7 @@ becomes a to do or not. The structure of our kanban board looked as follows:
 
 | Function | Input parameters | Description | Return |
 | ---------------|----------------|---------------|----------------|
-| collect_default_data | - | Sets up a *DataCollector* object and applys the *filter_radius* function. | - |
+| collect_default_data | - | Sets up a *DataCollector* object and applies the *filter_radius* function. | - |
 | relocate | **location** (default = None), **coordinates** (default = None), **radius** (default = 250) | Applies the *filter_radius* function according to a user provided address. If a string with a location is provided, this location is transformed into longitude and latitude values before applying the *filter_radius* function. If coordinates are provided, the *filter_radius* function is applied with these coordinates. | earthquake_data_clean |
 | build_map | **location** (default = None), **coordinates** (default = None), **radius** (default = None) | Builds a map to be displayed on the web application. If neither a location nor coordinates are provided (default when webserver is started), the map is built around the user’s current location. If either a location or coordinates are provided (manually entered by the user is the search field), the map is built around this address. In both cases, a base map is built and features (circle markers, magnitude markers, connective lines, a heatmap, tectonic plates and layer control) are added to the map. | map |
 | perform_earthquake_analytics | **location** (default = None), **radius** (default = None) | Sets up a *DataCollector* object and performs all functions of class *EarthquakeAnalytics*. | total_filtered, minor_filtered, moderate_filtered, strong_filtered, closest_filtered, place_of_closest_filtered, strongest_filtered, total_worldwide, minor_worldwide, moderate_worldwide, strong_worldwide, strongest_worldwide, place_of_strongest_worldwide |
@@ -463,8 +463,8 @@ But we also managed **additional achievements** by implementing further helpful 
   - Number of minor earthquakes of the last 24 hours within user provided radius around user provided location.
   - Number of moderate earthquakes of the last 24 hours within user provided radius around user provided location.
   - Number of strong earthquakes of the last 24 hours within user provided radius around user provided location.
-  - Distance from user provided location to closest earthquake of the last 24 hours.
-  - Magnitude of strongest earthquake worldwide of the last 24 hours.
+  - Distance from user provided location to the closest earthquake of the last 24 hours.
+  - Magnitude of the strongest earthquake worldwide of the last 24 hours.
 
 
 - We improved our **Website**:
@@ -487,7 +487,7 @@ to find the next earthquake.
   - Our website, like you are using it today needed around 3-5 minutes to load.
 However, we managed to decrease the loading time to only 5-10 seconds by optimizing our code structure and parallelization, which made the website much more user-friendly.
 ### 7.2 Findings
-- In the beginning, it was difficult to find a starting point. We had a big task in front of us with many different issues to solve.
+- In the beginning, it was difficult to find a starting point. We had a big task in front of us with many issues to solve.
 However, the methodological approach of Teams Data Science Process helped a lot for the structure of the project.
 We were able to split the big task into smaller tasks that where handy and solverable for each of us. 
 In addition to that, our project board always showed us what we already did and what has to be finished next, in
@@ -495,12 +495,12 @@ order to keep progress in our project.
 - We also learned how important the issues, tasks, and the kanban board on GitHub is to structured tasks and assign 
 responsibilities for each task. It also made communication easier between the project members.
 
-To sum things up, all team members are proud and happy to finish the project. All our requierements and 
+To sum things up, all team members are proud and happy to finish the project. All our requirements and 
 the project's success criteria are met. Furthermore, we had enough time and sufficient skills to implement even more features and make 
 our project even greater. All in all, the project was a huge success regarding our development and coding knowledge 
 as well as group work on IT projects. Through the work on GitHub, the Team Data Science Process, and the Kanban-Board, we
 gained valuable knowledge and skills for our future jobs. Nevertheless, there were also some difficulties and challenges during
-the project but we always kept on track and found a solution.
+the project, but we always kept on track and found a solution.
 
 ___ 
 ## 8. Future Development
@@ -511,7 +511,7 @@ What are  next steps that could be done in order to keep progress in the project
 
 ### 8.1 Forecast
 With further data analytics and the help of statistical and mathematical modeling like regression or classification
-we could develop an **Earthquake-Forecasting-Tool**. This tool could warn our users, whenever an earthquake is likely to occur in the defined area. This little tool could help to make our world a little bit
+we could develop an **Earthquake-Forecasting-Tool**. This tool could warn our users, whenever an earthquake is likely to occur in the defined area. This little tool could help to make our world a little
 safer for us humans.
 ### 8.2 Create mobile app
 Earthquake information to go. It would be a nice tool to check all the recent earthquakes with your smartphone, without the need of a laptop or computer.
