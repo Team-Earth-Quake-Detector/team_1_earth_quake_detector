@@ -1,5 +1,4 @@
 from data_collector import DataCollector
-import geocoder
 
 
 class EarthquakeAnalytics:
