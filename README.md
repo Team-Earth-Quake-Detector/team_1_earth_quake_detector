@@ -265,7 +265,7 @@ becomes a to do or not. The stucture of our kanban board looked as follows:
 - **Requirements**:
     - *datetime*: Process earthquake timestamp.
     - *geopy.distance*: Calculate distance between the user’s location and the individual earthquakes.
-    - *requests*: Set up API to access USGS earthquake data of the last 24 hours (all earth-quakes regardless of magnitude. This presetting can effortlessly be changed by se-lecting another GeoJSON summary format at the USGS website: https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php).
+    - *requests*: Set up API to access USGS earthquake data of the last 24 hours (all earthquakes regardless of magnitude. This presetting can effortlessly be changed by selecting another GeoJSON summary format at the USGS website: https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php).
     - *geocoder*: Access the user’s current location.
 - **Functions**:
 
@@ -294,7 +294,7 @@ becomes a to do or not. The stucture of our kanban board looked as follows:
 
 
 ### 6.3 Overlay
-- **Purpose**: Add overlays for geo data visualization on the basic map of class Map.
+- **Purpose**: Add overlays for geo data visualization on the basic map of class *Map*.
 - **Requirements**:
     - *folium*: Visualize data on interactive map and add features.
     - *folium.Features DivIcon*: Show magnitude markers on the map.
@@ -313,8 +313,8 @@ becomes a to do or not. The stucture of our kanban board looked as follows:
 | Function | Input parameters | Description | Return |
 | ---------------|----------------|---------------|----------------|
 | __init__ | **earthquake_data_clean** | Inherit __init__ configurations from superclass Overlay and initialize *earthquake_data_clean* variable. | - |
-| apply_circle_markers | **map** | Adds a circle marker for every earthquake in earthquake_data_clean to the map. The circle markers are added to the map as a feature group that allows the user to show or hide the circle markers via layer control. By default, the circle markers are shown on the map. The circle marker’s size and color are dynamically adjusted according to the earthquake’s magnitude. By hovering over the circle marker, the user gets information about the earthquake’s time and magnitude. | - |
-| apply_magnitude_markers | **map** | Adds a magnitude marker for every earthquake in earthquake_data_clean to the map. The magnitude markers are added to the map as a feature group that allows the user to show or hide the magnitude markers via layer control. By default, the magnitude markers are shown on the map. | - |
+| apply_circle_markers | **map** | Adds a circle marker for every earthquake in *earthquake_data_clean* to the map. The circle markers are added to the map as a feature group that allows the user to show or hide the circle markers via layer control. By default, the circle markers are shown on the map. The circle marker’s size and color are dynamically adjusted according to the earthquake’s magnitude. By hovering over the circle marker, the user gets information about the earthquake’s time and magnitude. | - |
+| apply_magnitude_markers | **map** | Adds a magnitude marker for every earthquake in *earthquake_data_clean* to the map. The magnitude markers are added to the map as a feature group that allows the user to show or hide the magnitude markers via layer control. By default, the magnitude markers are shown on the map. | - |
 | apply_connective_lines | **map**, **location** (default = None) | Adds a connective line between every earthquake in *earthquake_data_clean* and the user provided location to the map. The connective line are added to the map as a feature group that allows the user to show or hide the connective line via layer control. By default, the connective lines are shown on the map. | - |
 | apply_heatmap | **map** | Adds a heatmap of the earthquake occurrence of the last 24 hours within the user provided radius of the user provided location. The heatmap can be shown or hidden via layer control. By default, the heatmap is not shown on the map. | - |
 
@@ -376,10 +376,10 @@ becomes a to do or not. The stucture of our kanban board looked as follows:
 
 | Function | Input parameters | Description | Return |
 | ---------------|----------------|---------------|----------------|
-| collect_default_data | - | Sets up a DataCollector object and applys the *filter_radius* function. | - |
-| relocate | **location** (default = None), **coordinates** (default = None), **radius** (default = 250) | Applies the filter_radius function according to a user provided address. If a string with a location is provided, this location is transformed into longitude and latitude values before applying the filter_radius function. If coordinates are provided, the filter_radius function is applied with these coordinates. | earthquake_data_clean |
+| collect_default_data | - | Sets up a *DataCollector* object and applys the *filter_radius* function. | - |
+| relocate | **location** (default = None), **coordinates** (default = None), **radius** (default = 250) | Applies the *filter_radius* function according to a user provided address. If a string with a location is provided, this location is transformed into longitude and latitude values before applying the *filter_radius* function. If coordinates are provided, the *filter_radius* function is applied with these coordinates. | earthquake_data_clean |
 | build_map | **location** (default = None), **coordinates** (default = None), **radius** (default = None) | Builds a map to be displayed on the web application. If neither a location nor coordinates are provided (default when webserver is started), the map is built around the user’s current location. If either a location or coordinates are provided (manually entered by the user is the search field), the map is built around this address. In both cases, a base map is built and features (circle markers, magnitude markers, connective lines, a heatmap, tectonic plates and layer control) are added to the map. | map |
-| perform_earthquake_analytics | **location** (default = None), **radius** (default = None) | Sets up a DataCollector object and performs all functions of class EarthquakeAnalytics. | total_filtered, minor_filtered, moderate_filtered, strong_filtered, closest_filtered, place_of_closest_filtered, strongest_filtered, total_worldwide, minor_worldwide, moderate_worldwide, strong_worldwide, strongest_worldwide, place_of_strongest_worldwide |
+| perform_earthquake_analytics | **location** (default = None), **radius** (default = None) | Sets up a *DataCollector* object and performs all functions of class *EarthquakeAnalytics*. | total_filtered, minor_filtered, moderate_filtered, strong_filtered, closest_filtered, place_of_closest_filtered, strongest_filtered, total_worldwide, minor_worldwide, moderate_worldwide, strong_worldwide, strongest_worldwide, place_of_strongest_worldwide |
 
 
 ### 6.8 App
@@ -390,14 +390,16 @@ becomes a to do or not. The stucture of our kanban board looked as follows:
   - *flask render_template*: Render html templates on the webserver.
   - *flask request*: Access user provided information (location, radius, update frequency) to adapt map html file.
 - **app_routes**:
-    - */*: Render index.html with customized map and bootstrapped web application layout.
-    - *map*: Render map.html to include map on web application.
-    - *manual*: Render manual.html to include a website manual.
-    - *about_us*: Render about_us.html to include About Us page on web application.
+    - */*: Render *index.html* with customized map and bootstrapped web application layout.
+    - *map*: Render *map.html* to include map on web application.
+    - *manual*: Render *manual.html* to include a website manual.
+    - *about_us*: Render *about_us.html* to include About Us page on web application.
 
 
 
 ### 6.9 Class Architecture
+The following graph shows how our classes are connected to one another.
+
 ![static/images/class_architecture.png](static/images/class_architecture.png)
 
 ___
@@ -411,9 +413,9 @@ Therefore we developed an intuitive and user-friendly website tool for the visua
 #### 7.1.1 Required achievements
 
 We managed to reach all the **required achievements** of our project:
-- We found a suitable database with detailed, consistent & real-time earthquake data for the entire world and setted up an APIfor the automatic download of data.
-- We extracted the relevant data & transform it into a usable structure. 
-- We were able to calculate the distance from current location to selected earthquake.
+- We found a suitable database with detailed, consistent & real-time earthquake data for the entire world and set up an API for the automatic download of data.
+- We extracted the relevant data & transformed it into a usable structure. 
+- We were able to calculate the distance from the user's current or chosen location to the selected earthquakes.
 - And we managed to visualize the earthquakes on a map with the required features like:
 
         - Circle radius and color depending on the magnitude
@@ -424,14 +426,14 @@ We managed to reach all the **required achievements** of our project:
         - A nice logo and layout. Use the HSD logo or create your own. 
         - A Google-like search field at the top with a search button to update the visualization. The field should be prefilled with the current location. Pressing the search button will read the location from the search field and refresh the page.
         - Below the search field a screen-filling map is shown with the selected location in the center, and a zoom-in factor appropriate to cover a circle with actual search radius.
-        - On overlay that draws the location of all earthquakes of the last 24 hours into the actual map, represented by a circle contains the strength (Richter scala) of the earth quake and a label with the timestamp of the earth quake.
-          the web page should be updated in a defined interval
+        - On overlay that draws the location of all earthquakes of the last 24 hours into the actual map, represented by a circle containing the strength (Richter scala) of the earthquake and a label with the timestamp of the earthquake.
+        - The web page should be updated in a defined interval.
   
 - We implemented a Searchbar for different user defined configurations and three arguments for configuration:
 
         - A location either as an address or a city, region or country name or longitude and latitude positioning (default value: Current location of the computer)
         - A radius for the radius around the location in kilometers (default value: 250km)
-        - An update frequency in seconds (default 30 sec)
+        - An update frequency in seconds (default 30 seconds)
 
 #### 7.1.2 Additional achievements
 
@@ -446,7 +448,7 @@ But we also managed to implement some additional features, to reach some **addit
 
 
 - We improved our **Website**
-  - We added counter for the time which passed since the latest page update.
+  - We added a counter for the time which passed since the latest page update.
   - We added a About-Us-Page that can be reached via our navigation bar, where we introduced our team 
   as well as their responsibilities within the project. 
   - We added a Website-Manual-Page thet can be reached via our navigation bar, where we explain the 
@@ -465,11 +467,11 @@ to find the next earthquake.
 But through the time and our work, we managed to drecrease the loding time to 5-10 seconds, which made it much more user-friendly to use.
 ### 7.2 Findings
 - In the beginning it was difficult to start. We had a big task to do with many different questions to solve.
-But the methododical approach of Teams Data Science Process helped a lot for the structure of project.
-Whe were able to split the big task into smaller tasks that where handy and solverable for each of us. 
-In addition to that,our project board always showed us, what we already did and what has to be finished next, in
+However, the methodological approach of Teams Data Science Process helped a lot for the structure of project.
+We were able to split the big task into smaller tasks that where handy and solverable for each of us. 
+In addition to that, our project board always showed us what we already did and what has to be finished next, in
 order to keep progress in our project.
-- We also learned how important the issues, tasks and the canban board on our GitHub was, to structured tasks and show 
+- We also learned how important the issues, tasks and the kanban board on our GitHub is to structured tasks and show 
 responsibilities for each task. It also made communication easier between the project members.
 
 To sum things up, all team-members are proud and happy to finish our project. All our requierements and 
@@ -481,13 +483,13 @@ the project but we always kept on track and found a solution.
 
 ___ 
 ## 8. Future Development
-Thus we fully meet the requirements and success criteria of the business case, there is always a way
+Although we fully meet the requirements and success criteria of the business case, there is always a way
 to improve and optimize  our tool. 
 
 What are  next steps that could be done in order to keep process in the project?
 
 ### 8.1 Forecast
-With further analytics and the help of statistical and mathematical calculations, like regression or classification
+With further analytics and the help of statistical and mathematical calculations like regression or classification
 we could develop a Earthquake-Forcasting-Tool. This tool could warn our users, whenever there is the chance oder the danger
 that an earthquake is likly to occure around the users location. This little tool could help to make our world a little bit
 safe for us humans.
@@ -495,9 +497,9 @@ safe for us humans.
 Earthquakes to go. It would be a nice tool to check all the recent earthquakes with your smartphone, without the need of a laptop or computer.
 Therefore we could develop a Earthquakes-App to see all earthquakes whenever you want and whereever you are.
 ### 8.3 Upgrade dashboard
-The current dashboard shows six KPIs(see above)
+The current dashboard shows six KPIs (see above).
 To make the dashboard even more sophisticated, it would be possible to calculate all KPIs on a global scale (worldwide) 
-and on a local scale (within user provided radius of user provided location). This gives interesting additional insights 
-for interested users. Concerning layout and frontend development, it would be interesting to search for a layout that 
-includes a tab for the global KPIs and a tab for the local KPIs to that the user can individually choose the preferred 
-layout.
+and on a local scale (within user provided radius of user provided location). The respective functions are already implemented 
+in our *EarthquakeAnalytics* class. This would give interesting additional insights for interested users. Concerning layout 
+and frontend development, it would be advisable to search for a layout that  includes a tab for the global KPIs and a tab 
+for the local KPIs to that the user can individually choose the preferred layout.
