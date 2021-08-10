@@ -1,6 +1,6 @@
-## 6. Class Definition
+## Class Definition
 
-### 6.1 DataCollector
+### 1. DataCollector
 - **Purpose**: Access USGS earthquake data and prepare data for further use.
 - **Requirements**:
     - *datetime*: Process earthquake timestamp.
@@ -17,7 +17,7 @@
 | filter_radius | **location** (default = None), **user_provided_radius** (default = 250) | Prepares data with *prep_data* function. Uses the user’s current location if no specific location is provided. Calculates the distance between this location and every earthquake in *earthquake_data* list and adds the distance (in km) to the earthquake’s dictionary in *earthquake_data* list. If the calculated distance is smaller than the radius provided by the user, the earthquake is added to *earthquake_data_clean* list. | earthquake_data_clean |
 
 
-### 6.2 Map
+### 2. Map
 - **Purpose**: Set up a basic map to be displayed on the web application.
 - **Requirements**:
     - *request*: Access the radius provided by the user on the web application for dynamic zoom-in factor.
@@ -33,7 +33,7 @@
 
 
 
-### 6.3 Overlay
+### 3. Overlay
 - **Purpose**: Add overlays for geo data visualization on the basic map of class Map.
 - **Requirements**:
     - *folium*: Visualize data on interactive map and add features.
@@ -66,7 +66,7 @@
 | add_to_layer_control | **map** | Adds layer control functionality in the top right corner of the map. | - |
 
 
-### 6.4 EarthquakeAnalytics
+### 4. EarthquakeAnalytics
 - **Purpose**: Analyse earthquake occurrences and extract relevant KPIs to be included in the dashboard.
 - **Requirements**: -
 - **Functions**:
@@ -89,13 +89,13 @@
 | get_place_of_strongest_earthquake_worldwide | - | Get the place of the strongest earthquake of the last 24 hours worldwide. The place information is included in the USGS API. | place_of_strongest_earthquake_worldwide |
 
 
-### 6.5 Location
+### 5. Location
 - **Purpose**: Join a longitude and a latitude value in a format that allows for further use in relevant functions.
 - **Requirements**: -
 - **Functions**: -
 
 
-### 6.6 LocationResolver
+### 6. LocationResolver
 - **Purpose**: Resolve a location by a given city or location name.
 - **Requirements**:
   - *geocoder*: Access the user’s current location.
@@ -108,7 +108,7 @@
 | get_current_location | - | Accesses the user’s current IP address and extracts longitude and latitude values. These longitude and latitude values are then transformed in address names. | current_location |
 
 
-### 6.7 Monitor 
+### 7. Monitor 
 - **Purpose**: Merge functions from different classes to provide a compact and centralized input for flask.
 - **Requirements**:
   - *geopy.geocoders Nomatim*: Transform longitude and latitude values in address names and vice versa.
@@ -122,7 +122,7 @@
 | perform_earthquake_analytics | **location** (default = None), **radius** (default = None) | Sets up a DataCollector object and performs all functions of class EarthquakeAnalytics. | total_filtered, minor_filtered, moderate_filtered, strong_filtered, closest_filtered, place_of_closest_filtered, strongest_filtered, total_worldwide, minor_worldwide, moderate_worldwide, strong_worldwide, strongest_worldwide, place_of_strongest_worldwide |
 
 
-### 6.8 App
+### 8. App
 - **Purpose**: Build a flask application to display templates on the webserver.
 - **Requirements**:
   - *os*: Save map html file in templates directory.
@@ -137,5 +137,5 @@
 
 
 
-### 6.9 Class Architecture
+## Class Architecture
 ![static/images/class_architecture.png](static/images/class_architecture.png)
