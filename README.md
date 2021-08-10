@@ -45,6 +45,7 @@ ___
   - Provide an intuitive and user-friendly tool for the visualization of earthquakes all over the world
   
 ## 2. Description
+
 Description and your understanding of the business question or problem, analytical question and/or technical problem associated with the use case.
 
 **What are the challenges that need to be mastered?**
