@@ -243,7 +243,7 @@ becomes a to do or not. The stucture of our kanban board looked as follows:
     > **Location:**
     > - Default: Current location based on user's IP address
     > - Input: City name, coordinates, or specific address
-    > - Output: Map zooms in to chosen location and shows earthquakes that occurred within in the last 24 hours within the specified radius. 
+    > - Output: Map zooms in to chosen location and shows earthquakes that occurred within the last 24 hours within the specified radius. 
     
     > **Radius**
     > - Default: 250 km
