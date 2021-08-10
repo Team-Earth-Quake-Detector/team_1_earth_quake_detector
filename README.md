@@ -248,7 +248,7 @@ becomes a to do or not. The stucture of our kanban board looked as follows:
     > **Radius**
     > - Default: 250 km
     > - Input: Value from range (min: 100; max:1000; step:50)
-    > - Output: Map shows earthquakes that occurred within in the last 24 hours within this radius of the chosen location.
+    > - Output: Map shows earthquakes that occurred within the last 24 hours within this radius of the chosen location.
     
     > **Update Frequency**
     > - Default: 1000 seconds
