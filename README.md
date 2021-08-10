@@ -230,7 +230,7 @@ becomes a to do or not. The stucture of our kanban board looked as follows:
     >
    
     > **Challenge:**
-    > - We wanted the boxes (in bootstrap called cards) to be of the same seize in terms of weight and height despite the different text lengths.
+    > - We wanted the boxes (in bootstrap called cards) to be of the same seize in terms of width and height despite the different text lengths.
     > 
    
     > **Tips & Tricks:**
