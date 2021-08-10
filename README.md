@@ -62,7 +62,7 @@ Description and your understanding of the business question or problem, analytic
       
         - Adapt circle radius and color depending on the magnitude
         - Show the current location on a map
-        - Popup with timestamp, magnitude and distance
+        - Popup with timestamp and magnitude
 
 - ### 2.4 Web frontend development & web-service backend development
   - Starts a web server, opens a web page in the default browser that provides the following features:
@@ -119,10 +119,18 @@ to process and implement our Earthquake-Detector project:
 ![static/images/ProjectBoard_EarthquakeMonitor.png](static/images/ProjectBoard_EarthquakeMonitor.png)
 ![static/images/Legend_ProjectBord.png](static/images/Legend_ProjectBord.png)
 
+To ensure overall success of our project, we set up a kanban board in our GitHub repository and created a new issue for 
+every task to be fulfilled in the working process. This allowed us to keep track of the to-dos, the work in progress and 
+tasks we had already achieved. Additionally, we created a backlog category called "place for ideas". We discussed the 
+suggestions and brainstorming ideas included in this category in our weekly meetings and decided as a team, if the idea 
+becomes a to do or not. The stucture of our kanban board looked as follows:
+
+![static/images/kanban_board.png](static/images/kanban_board.png)
+
 ## 5. Details of the work
 ### 5.1 Processing of real-time data
 - In order to develop a real-time earthquake map, we needed to included an API from the United States 
-       Geological Surves (USGS) website.
+       Geological Survey (USGS) website.
 - The API delivers our data, which contains all earthquakes from all over the world which occurred within the last 24 hours.  
   
     > If you want to get further information about the USGS, click here:
@@ -135,10 +143,10 @@ to process and implement our Earthquake-Detector project:
     For Data Preparation, we extract relevant data from the USGS API & transform it into a usable structure.
     The relevant data contains different features, which are represented in the table below:
   
-    | Earthquake ID |  Longitude  | Latitude | Time | Magnitude |   
-    | ---:| ---: | ---: | ---: | ---:
-    | 00811746 | -119.4843 | 38.5368,1 | 1625824908214 | 2,0
-    | ... | ... | ... | ... | ...
+    | Earthquake ID |  Longitude  | Latitude | Place | Time | Magnitude |   
+    | ---:| ---: | ---: | ---: | ---: | ---:
+    | 00811746 | -119.4843 | 38.5368,1 | Macquarie Island region | 1625824908214 | 2,0
+    | ... | ... | ... | ... | ... | ...
 
 
 ### 5.2 Geo data calculations
