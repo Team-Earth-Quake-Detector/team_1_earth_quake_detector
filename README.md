@@ -8,7 +8,7 @@ ___
 ___
 # Table of content
 - [1. Goals](#1-goals)
-- [2. Description](#2-description-)
+- [2. Description](#2-description)
   * [2.1. Processing of real-time data](#21-processing-of-real-time-data)
   * [2.2 Geo data calculations](#22-geo-data-calculations)
   * [2.3 Geo data visualization with OpenStreetMaps](#23-geo-data-visualization-with-openstreetmaps)
@@ -16,13 +16,13 @@ ___
   * [2.5 Searchbar for different user defined configurations](#25-searchbar-for-different-user-defined-configurations)
 - [3. Methodological approach - Teams Data Science Process](#3-methodological-approach---teams-data-science-process)
 - [4. Details of the approach](#4-details-of-the-approach)
-- [5. Details of the work](#5-details-of-the-work-)
+- [5. Details of the work](#5-details-of-the-work)
   * [5.1 Processing of real-time data](#51-processing-of-real-time-data)
   * [5.2 Geo data calculations](#52-geo-data-calculations)
   * [5.3 Geo data visualization with OpenStreetMaps](#53-geo-data-visualization-with-openstreetmaps)
   * [5.4 Web frontend development & Web-service backend development](#54-web-frontend-development---web-service-backend-development)
   * [5.5 Searchbar for different user defined configurations](#55-searchbar-for-different-user-defined-configurations)
-- [6. Class Definition](#6-class-definition--)
+- [6. Class Definition](#6-class-definition)
   * [6.1 DataCollector](#61-datacollector)
   * [6.2 Map](#62-map)
   * [6.3 Overlay](#63-overlay)
@@ -33,7 +33,14 @@ ___
   * [6.8 App](#68-app)
   * [6.9 Class Architecture](#69-class-architecture)
 - [7. Summary](#7-summary)
+  * [7.1 Achievements](#71-achievements)
+    + [7.1.1 Required achievements](#711-required-achievements)
+    + [7.1.2 Additional achievements](#712-additional-achievements)
+  * [7.2 Findings](#72-findings)
 - [8. Future Development](#8-future-development)
+  * [8.1 Forecast](#81-forecast)
+  * [8.2 Create mobile app](#82-create-mobile-app)
+  * [8.3 Dashboard upgrade](#83-dashboard-upgrade)
 ___
 
 ## 1. Goals
