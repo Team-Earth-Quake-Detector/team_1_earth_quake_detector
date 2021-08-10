@@ -46,14 +46,14 @@ ___
   
 ## 2. Description
 
-Description and your understanding of the business question or problem, analytical question and/or technical problem associated with the use case.
+In the following, we are going to describe our understanding of the business question or problem, analytical question and/or technical problem associated with the use case.
 
 **What are the challenges that need to be mastered?**
 
 - ### 2.1. Processing of real-time data
   - Find suitable database with detailed, consistent & real-time earthquake data for the entire world
   - Set up an API for the automatic download of data
-  - Data preparation : extract relevant data & transform it into a usable structure
+  - Data preparation : Extract relevant data & transform it into a usable structure
   
 - ### 2.2 Geo data calculations
   - Calculate the distance from current location to selected earthquake
@@ -66,20 +66,20 @@ Description and your understanding of the business question or problem, analytic
         - Popup with timestamp and magnitude
 
 - ### 2.4 Web frontend development & web-service backend development
-  - Starts a web server, opens a web page in the default browser that provides the following features:
+  - Start a web server and open a web page in the default browser that provides the following features:
     
         - A nice logo and layout. Use the HSD logo or create your own. 
         - A Google-like search field at the top with a search button to update the visualization. The field should be prefilled with the current location. Pressing the search button will read the location from the search field and refresh the page.
         - Below the search field a screen-filling map is shown with the selected location in the center, and a zoom-in factor appropriate to cover a circle with actual search radius.
-        - On overlay that draws the location of all earthquakes of the last 24 hours into the actual map, represented by a circle contains the strength (Richter scala) of the earth quake and a label with the timestamp of the earth quake.
-          the web page should be updated in a defined interval
+        - On overlay that draws the location of all earthquakes of the last 24 hours into the actual map, represented by a circle containing the strength (Richter scala) of the earthquake and a label with the timestamp of the earthquake.
+        - The web page should be updated in a defined interval.
   
 - ### 2.5 Searchbar for different user defined configurations 
   - Three arguments for configuration:
 
         - A location either as an address or a city, region or country name or longitude and latitude positioning (default value: Current location of the computer)
         - A radius for the radius around the location in kilometers (default value: 250km)
-        - An update frequency in seconds (default 30 sec)
+        - An update frequency in seconds (default 30 seconds)
     
   - Samples for valid calls:
 
