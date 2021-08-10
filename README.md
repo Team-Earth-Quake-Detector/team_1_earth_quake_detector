@@ -52,11 +52,11 @@ In the following, we are going to describe our understanding of the business que
 
 - ### 2.1. Processing of real-time data
   - Find suitable database with detailed, consistent & real-time earthquake data for the entire world
-  - Set up an API for the automatic download of data
+  - Set up an API for the automatic data download
   - Data preparation : Extract relevant data & transform it into a usable structure
   
 - ### 2.2 Geo data calculations
-  - Calculate the distance from current location to selected earthquake
+  - Calculate the distance from current location to respective earthquake
   
 - ### 2.3 Geo data visualization with OpenStreetMaps
   - Visualize the earthquakes on a map
@@ -78,7 +78,7 @@ In the following, we are going to describe our understanding of the business que
   - Three arguments for configuration:
 
         - A location either as an address or a city, region or country name or longitude and latitude positioning (default value: Current location of the computer)
-        - A radius for the radius around the location in kilometers (default value: 250km)
+        - A numerical value for the radius around the location in kilometers (default value: 250km)
         - An update frequency in seconds (default 30 seconds)
     
   - Samples for valid calls:
@@ -92,8 +92,8 @@ ___
 
 ## 3. Methodological approach - Teams Data Science Process
 
-The methodological approach chosen to process and implement the use case.
-For analytical uses cases it is wise to follow a structured approach like Microsoft's Team Database Science Process (TDSP), which is the legitimate successor of the CRISP-DM methodology.
+A methodological approach is chosen to process and implement the use case.
+For analytical use cases it is wise to follow a structured approach like Microsoft's Team Database Science Process (TDSP), which is the legitimate successor of the CRISP-DM methodology.
 Team Data Science Process (TDSP) is an agile and iterative data science methodology to improve collaboration and team learning. It is supported through a lifecycle definition, standard project structure, artifact templates, and tools for productive data science.
 
 **Key Components of the TDSP:**
@@ -103,17 +103,20 @@ Team Data Science Process (TDSP) is an agile and iterative data science methodol
     - Modeling (Feature Engineering: Feature selection, Transforming and Binding)
     - Deployment (Performance, Monitoring)
 2. **Standardized project structure**
-    - Template for folder structure 
-   ![img.png](static/images/file_structure.png)
-      - This is the general project directory structure for Team Data Science Process developed by Microsoft. 
-      - It also contains templates for various documents that are recommended as part of executing a data science project when using TDSP.
+    - Template for folder structure
+    - This is the general project directory structure for Team Data Science Process developed by Microsoft. 
+    - It also contains templates for various documents that are recommended as part of executing a data science project when using TDSP.
+
+    ![img.png](static/images/file_structure.png)
+
+ 
 3. **Infrastructure  and resources recommended for the project**
 4. **Tools and utilities recommended for project execution**
 ___
 
 ## 4. Details of the approach
 
-As we mentioned previously, we followed the Team Database Science Process (TDSP). 
+As we mentioned before, we followed the Team Database Science Process (TDSP). 
 Therefore, we created a project management board to ensure a structured approach 
 to process and implement our Earthquake-Detector project:
 
@@ -124,15 +127,15 @@ To ensure overall success of our project, we set up a kanban board in our GitHub
 every task to be fulfilled in the working process. This allowed us to keep track of the to-dos, the work in progress and 
 tasks we had already achieved. Additionally, we created a backlog category called "place for ideas". We discussed the 
 suggestions and brainstorming ideas included in this category in our weekly meetings and decided as a team, if the idea 
-becomes a to do or not. The stucture of our kanban board looked as follows:
+becomes a to do or not. The structure of our kanban board looked as follows:
 
 ![static/images/kanban_board.png](static/images/kanban_board.png)
 
 ## 5. Details of the work
 ### 5.1 Processing of real-time data
-- In order to develop a real-time earthquake map, we needed to included an API from the United States 
+- In order to develop a real-time earthquake map, we needed to integrate an API from the United States 
        Geological Survey (USGS) website.
-- The API delivers our data, which contains all earthquakes from all over the world which occurred within the last 24 hours. 
+- The API delivers our data, which contains all earthquakes from all over the world that occurred within the last 24 hours. 
   The USGS website offers many configuration options concerning time period (in our case 24 hours) and magnitude (in our case all earthquakes regardless of magnitude). 
   These configurations can easily be changed if desired.
   
@@ -143,7 +146,7 @@ becomes a to do or not. The stucture of our kanban board looked as follows:
         https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson
 - Data Preparation:
   
-    For Data Preparation, we extract relevant data from the USGS API and transform it into a usable structure.
+    For Data Preparation, we extract the relevant data from the USGS API and transform it into a usable structure.
     The relevant data per earthquake contains different features, which are represented in the table below:
   
     | Earthquake ID |  Longitude  | Latitude | Place | Time | Magnitude |   
@@ -174,12 +177,12 @@ becomes a to do or not. The stucture of our kanban board looked as follows:
 - We created a map with the folium package to visualize the earthquakes and to implement some other cool features and add-ons.
     > 
     > ***Earthquake Overlay:***
-    > - This overlay adds the earthquakes from the API to the folium map and depicts them through circles in different sizes and colours, depending on the magnitude of the respective earthquake.
+    > - This overlay adds the earthquakes from the API to the folium map and depicts them through circles in different sizes and colors, depending on the magnitude of the respective earthquake.
     > - It sets a marker to the current location of the user per default or according to the user specified location.
     > - It is also possible to insert lines from the current location to the earthquakes making it easier for the user to find the nearest earthquake. By clicking on the line, the user sees a popup with the distance between the chosen location and the respective earthquake in km.
     > - If the user hovers over an earthquake, additional information about the earthquake (timestamp and magnitude) appear.
 
-
+    >
     > ***Tectonic Overlay:***
     > - This overlay adds the tectonic plates to the map. The user can enable or disable the tectonic plates by ticking or unticking the box in the layer control in the top right corner of the map.
   
@@ -242,7 +245,7 @@ becomes a to do or not. The stucture of our kanban board looked as follows:
     > - For the cards to have the same size, you have to add "d-flex" and "flex-column" to the class card-body -> class="card-body d-flex flex-column".
 
 ### 5.5 Searchbar for different user defined configurations
-- In Order to make our website even more interactive and advanced, we included input fields that determine the search parameter.
+- In order to make our website even more interactive and advanced, we included input fields that determine the search parameter.
     > **Location:**
     > - Default: Current location based on user's IP address
     > - Input: City name, coordinates, or specific address
@@ -254,7 +257,7 @@ becomes a to do or not. The stucture of our kanban board looked as follows:
     > - Output: Map shows earthquakes that occurred within the last 24 hours within this radius of the chosen location.
     
     > **Update Frequency**
-    > - Default: 1000 seconds (In task 30 seconds were stated. However, this did not make sense in our specific case as the USGS data is only updated every 60 seconds. Additionally, we felt that it is quite annoying if the pages refreshes every 30 seconds which is why we decided for a default value of 1000 sec -> 16.6 min.)
+    > - Default: 1000 seconds (In task 30 seconds were stated. However, this did not make sense in our specific case as the USGS data is only updated every 60 seconds. Additionally, we felt that it is quite annoying if the page refreshes every 30 seconds which is why we decided for a default value of 1000 sec -> 16.6 min.)
     > - Input: Value from range (min: 10; max:1000; step:10)
     > - Output: Page reloads automatically after the defined time has passed. By default, the page refresh is disabled and can manually be enabled by the user.
 
@@ -408,17 +411,17 @@ A summary if the targets have been achieved, and if not - and whatever the reaso
 
 ### 7.1 Achievements
 Our primary goal was to build a realtime detection and visualization of earthquake occurrences within the last 24 hours in predefined region.
-Therefore we developed an intuitive and user-friendly website tool for the visualization of earthquakes all over the world.
+Therefore, we developed an intuitive and user-friendly website tool for the visualization of earthquakes all over the world.
 
 #### 7.1.1 Required achievements
 
 We managed to reach all the **required achievements** of our project:
 - We found a suitable database with detailed, consistent & real-time earthquake data for the entire world and set up an API for the automatic download of data.
 - We extracted the relevant data & transformed it into a usable structure. 
-- We were able to calculate the distance from the user's current or chosen location to the selected earthquakes.
-- And we managed to visualize the earthquakes on a map with the required features like:
+- We were able to calculate the distance from the user's current or chosen location to the respective earthquakes.
+- And we managed to visualize the earthquakes on a map with the following required features:
 
-        - Circle radius and color depending on the magnitude
+        - Circle radius and color depending on the magnitude (heatmap)
         - Show the current location on a map
         - Popup with timestamp and magnitude
 - We started a web server, which opens a web page in the default browser that provides the following features:
@@ -429,29 +432,29 @@ We managed to reach all the **required achievements** of our project:
         - On overlay that draws the location of all earthquakes of the last 24 hours into the actual map, represented by a circle containing the strength (Richter scala) of the earthquake and a label with the timestamp of the earthquake.
         - The web page should be updated in a defined interval.
   
-- We implemented a Searchbar for different user defined configurations and three arguments for configuration:
+- We implemented a searchbar for user defined configurations with the following three custom arguments:
 
         - A location either as an address or a city, region or country name or longitude and latitude positioning (default value: Current location of the computer)
         - A radius for the radius around the location in kilometers (default value: 250km)
-        - An update frequency in seconds (default 30 seconds)
+        - An update frequency in seconds (default 1000 seconds)
 
 #### 7.1.2 Additional achievements
 
-But we also managed to implement some additional features, to reach some **additional achvievements**:
+But we also managed **additional achievements** by implementing further helpful features:
 - We implemented an **Earthquake Analytics Dashboard** with 6 KPIs on our website:
-  - Total number of earthquakes of the last 24 hours within user provided radius of user provided location
-  - Number of minor earthquakes of the last 24 hours within user provided radius of user provided location
-  - Number of moderate earthquakes of the last 24 hours within user provided radius of user provided location
-  - Number of strong earthquakes of the last 24 hours within user provided radius of user provided location
-  - Distance from user provided location to closest earthquake of the last 24 hours
-  - Magnitude of strongest earthquake worldwide of the last 24 hours
+  - Total number of earthquakes of the last 24 hours within user provided radius around user provided location.
+  - Number of minor earthquakes of the last 24 hours within user provided radius around user provided location.
+  - Number of moderate earthquakes of the last 24 hours within user provided radius around user provided location.
+  - Number of strong earthquakes of the last 24 hours within user provided radius around user provided location.
+  - Distance from user provided location to closest earthquake of the last 24 hours.
+  - Magnitude of strongest earthquake worldwide of the last 24 hours.
 
 
-- We improved our **Website**
-  - We added a counter for the time which passed since the latest page update.
-  - We added a About-Us-Page that can be reached via our navigation bar, where we introduced our team 
+- We improved our **Website**:
+  - We added a counter for the time that has passed since the latest page refresh.
+  - We added an About-Us-Page that can be reached via our navigation bar, where we introduce our team 
   as well as their responsibilities within the project. 
-  - We added a Website-Manual-Page thet can be reached via our navigation bar, where we explain the 
+  - We added a Website-Manual-Page that can be reached via our navigation bar, where we explain the 
   main features of the earthquake detector and how it is intended to be used.
 
 
@@ -463,21 +466,22 @@ But we also managed to implement some additional features, to reach some **addit
 to find the next earthquake.
 
 
-- We also improved our website performance dramatically. Our website, like you are using it today needed around 3-5 minutes to load.
-But through the time and our work, we managed to drecrease the loding time to 5-10 seconds, which made it much more user-friendly to use.
+- We also improved our **Website Performance** dramatically:
+  - Our website, like you are using it today needed around 3-5 minutes to load.
+However, we managed to decrease the loading time to only 5-10 seconds by optimizing our code structure and parallelization, which made the website much more user-friendly.
 ### 7.2 Findings
-- In the beginning it was difficult to start. We had a big task to do with many different questions to solve.
-However, the methodological approach of Teams Data Science Process helped a lot for the structure of project.
+- In the beginning, it was difficult to find a starting point. We had a big task in front of us with many different issues to solve.
+However, the methodological approach of Teams Data Science Process helped a lot for the structure of the project.
 We were able to split the big task into smaller tasks that where handy and solverable for each of us. 
 In addition to that, our project board always showed us what we already did and what has to be finished next, in
 order to keep progress in our project.
-- We also learned how important the issues, tasks and the kanban board on our GitHub is to structured tasks and show 
+- We also learned how important the issues, tasks, and the kanban board on GitHub is to structured tasks and assign 
 responsibilities for each task. It also made communication easier between the project members.
 
-To sum things up, all team-members are proud and happy to finish our project. All our requierements and 
-the project's success criteria are met. Furthermore we had enough time and skills to implement more features and make 
-our project even greater. All in all the project was a huge success regarding our development and coding knowledge 
-as well as group work on IT projects. Through the work on GitHub, the Team Data Science Process and the Kanban-Board, we
+To sum things up, all team members are proud and happy to finish the project. All our requierements and 
+the project's success criteria are met. Furthermore, we had enough time and sufficient skills to implement even more features and make 
+our project even greater. All in all, the project was a huge success regarding our development and coding knowledge 
+as well as group work on IT projects. Through the work on GitHub, the Team Data Science Process, and the Kanban-Board, we
 gained valuable knowledge and skills for our future jobs. Nevertheless, there were also some difficulties and challenges during
 the project but we always kept on track and found a solution.
 
@@ -486,20 +490,19 @@ ___
 Although we fully meet the requirements and success criteria of the business case, there is always a way
 to improve and optimize  our tool. 
 
-What are  next steps that could be done in order to keep process in the project?
+What are  next steps that could be done in order to keep progress in the project?
 
 ### 8.1 Forecast
-With further analytics and the help of statistical and mathematical calculations like regression or classification
-we could develop a Earthquake-Forcasting-Tool. This tool could warn our users, whenever there is the chance oder the danger
-that an earthquake is likly to occure around the users location. This little tool could help to make our world a little bit
-safe for us humans.
+With further data analytics and the help of statistical and mathematical modeling like regression or classification
+we could develop an **Earthquake-Forecasting-Tool**. This tool could warn our users, whenever an earthquake is likely to occur in the defined area. This little tool could help to make our world a little bit
+safer for us humans.
 ### 8.2 Create mobile app
-Earthquakes to go. It would be a nice tool to check all the recent earthquakes with your smartphone, without the need of a laptop or computer.
-Therefore we could develop a Earthquakes-App to see all earthquakes whenever you want and whereever you are.
-### 8.3 Upgrade dashboard
+Earthquake information to go. It would be a nice tool to check all the recent earthquakes with your smartphone, without the need of a laptop or computer.
+Therefore, we could develop an Earthquake-App to see all earthquakes anywhere at any time.
+### 8.3 Dashboard upgrade
 The current dashboard shows six KPIs (see above).
-To make the dashboard even more sophisticated, it would be possible to calculate all KPIs on a global scale (worldwide) 
-and on a local scale (within user provided radius of user provided location). The respective functions are already implemented 
+To make the dashboard even more sophisticated, it is possible to calculate all KPIs on a global scale (worldwide) 
+and on a local scale (within user provided radius around user provided location). The respective functions are already implemented 
 in our *EarthquakeAnalytics* class. This would give interesting additional insights for interested users. Concerning layout 
 and frontend development, it would be advisable to search for a layout that  includes a tab for the global KPIs and a tab 
-for the local KPIs to that the user can individually choose the preferred layout.
+for the local KPIs so that the user can individually choose the preferred option.
