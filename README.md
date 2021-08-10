@@ -132,7 +132,9 @@ becomes a to do or not. The stucture of our kanban board looked as follows:
 ### 5.1 Processing of real-time data
 - In order to develop a real-time earthquake map, we needed to included an API from the United States 
        Geological Survey (USGS) website.
-- The API delivers our data, which contains all earthquakes from all over the world which occurred within the last 24 hours.  
+- The API delivers our data, which contains all earthquakes from all over the world which occurred within the last 24 hours. 
+  The USGS website offers many configuration options concerning time period (in our case 24 hours) and magnitude (in our case all earthquakes regardless of magnitude). 
+  These configurations can easily be changed if desired.
   
     > If you want to get further information about the USGS, click here:
         https://www.usgs.gov/
@@ -141,8 +143,8 @@ becomes a to do or not. The stucture of our kanban board looked as follows:
         https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson
 - Data Preparation:
   
-    For Data Preparation, we extract relevant data from the USGS API & transform it into a usable structure.
-    The relevant data contains different features, which are represented in the table below:
+    For Data Preparation, we extract relevant data from the USGS API and transform it into a usable structure.
+    The relevant data per earthquake contains different features, which are represented in the table below:
   
     | Earthquake ID |  Longitude  | Latitude | Place | Time | Magnitude |   
     | ---:| ---: | ---: | ---: | ---: | ---:
@@ -174,12 +176,12 @@ becomes a to do or not. The stucture of our kanban board looked as follows:
     > ***Earthquake Overlay:***
     > - This overlay adds the earthquakes from the API to the folium map and depicts them through circles in different sizes and colours, depending on the magnitude of the respective earthquake.
     > - It sets a marker to the current location of the user per default or according to the user specified location.
-    > - It is also possible to insert lines from the current location to the earthquakes making it easier for the user to find the nearest earthquake.
-    > - If the user hovers over an earthquake, additional information about the earthquake, like timestamp, magnitude and distance appear.
+    > - It is also possible to insert lines from the current location to the earthquakes making it easier for the user to find the nearest earthquake. By clicking on the line, the user sees a popup with the distance between the chosen location and the respective earthquake in km.
+    > - If the user hovers over an earthquake, additional information about the earthquake (timestamp and magnitude) appear.
 
 
     > ***Tectonic Overlay:***
-    > - This overlay adds the tectonic plates to the map. The user can enable or disable the tectonic plates by ticking or unticking the box in the layer control     > on the top right of the map.
+    > - This overlay adds the tectonic plates to the map. The user can enable or disable the tectonic plates by ticking or unticking the box in the layer control in the top right corner of the map.
   
 ### 5.4 Web frontend development & Web-service backend development
 - To set up an interactive and intuitive website, we used the flask package. See 6.8 for details on how flask works.
@@ -237,7 +239,7 @@ becomes a to do or not. The stucture of our kanban board looked as follows:
     > **Tips & Tricks:**
     > - Bootstrap makes layouting in html quite easy as it doesn't require you to create a separate css stylesheet. 
     > - Style attributes are added right into the class description.
-    > - For the cards to have the same size, you have to add "d-flex" and "flex-column" to the class card-body -> class="card-body d-flex flex-column"
+    > - For the cards to have the same size, you have to add "d-flex" and "flex-column" to the class card-body -> class="card-body d-flex flex-column".
 
 ### 5.5 Searchbar for different user defined configurations
 - In Order to make our website even more interactive and advanced, we included input fields that determine the search parameter.
@@ -252,9 +254,9 @@ becomes a to do or not. The stucture of our kanban board looked as follows:
     > - Output: Map shows earthquakes that occurred within the last 24 hours within this radius of the chosen location.
     
     > **Update Frequency**
-    > - Default: 1000 seconds (In task 30 sec were stated. However, we felt that it is quite annoying if the pages refreshes every 30 seconds and so we decided for a default value of 1000 sec -> 16.6 min)
+    > - Default: 1000 seconds (In task 30 seconds were stated. However, this did not make sense in our specific case as the USGS data is only updated every 60 seconds. Additionally, we felt that it is quite annoying if the pages refreshes every 30 seconds which is why we decided for a default value of 1000 sec -> 16.6 min.)
     > - Input: Value from range (min: 10; max:1000; step:10)
-    > - Output: Page reloads automatically after the defined time has passed.
+    > - Output: Page reloads automatically after the defined time has passed. By default, the page refresh is disabled and can manually be enabled by the user.
 
 ## 6. Class Definition
 
