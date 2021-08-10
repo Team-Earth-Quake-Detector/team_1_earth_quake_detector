@@ -409,5 +409,19 @@ ___
 What are the next steps that could be done in order to keep process in the project.
 
 
-- Forecase 
-- Create mobile app
+### 8.1 Forecast
+### 8.2 Create mobile app
+### 8.3 Upgrade dashboard
+The current dashboard shows six KPIs:
+  - Total number of earthquakes of the last 24 hours within user provided radius of user provided location
+  - Number of minor earthquakes of the last 24 hours within user provided radius of user provided location
+  - Number of moderate earthquakes of the last 24 hours within user provided radius of user provided location
+  - Number of strong earthquakes of the last 24 hours within user provided radius of user provided location
+  - Distance from user provided location to closest earthquake of the last 24 hours
+  - Magnitude of strongest earthquake worldwide of the last 24 hours 
+    
+To make the dashboard even more sophisticated, it would be possible to calculate all KPIs on a global scale (worldwide) 
+and on a local scale (within user provided radius of user provided location). This gives interesting additional insights 
+for interested users. Concerning layout and frontend development, it would be interesting to search for a layout that 
+includes a tab for the global KPIs and a tab for the local KPIs to that the user can individually choose the preferred 
+layout.
