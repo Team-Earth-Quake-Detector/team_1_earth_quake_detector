@@ -135,7 +135,3 @@
     - *manual*: Render manual.html to include a website manual.
     - *about_us*: Render about_us.html to include About Us page on web application.
 
-
-
-## Class Architecture
-![use_case_code/static/images/class_architecture.png](use_case_code/static/images/class_architecture.png)
