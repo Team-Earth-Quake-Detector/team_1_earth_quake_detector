@@ -138,4 +138,4 @@
 
 
 ## Class Architecture
-![team_1_earth_quake_detector/use_case_code/static/images/class_architecture.png](team_1_earth_quake_detector/use_case_code/static/images/class_architecture.png)
+![use_case_code/static/images/class_architecture.png](use_case_code/static/images/class_architecture.png)
