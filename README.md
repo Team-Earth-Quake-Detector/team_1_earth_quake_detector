@@ -114,7 +114,7 @@ Team Data Science Process (TDSP) is an agile and iterative data science methodol
     - This is the general project directory structure for Team Data Science Process developed by Microsoft. 
     - It also contains templates for various documents that are recommended as part of executing a data science project when using TDSP.
 
-    ![img.png](static/images/file_structure.png)
+    ![img.png](use_case_code/static/images/file_structure.png)
 
  
 3. **Infrastructure  and resources recommended for the project**
@@ -138,8 +138,8 @@ As we mentioned before, we followed the Team Database Science Process (TDSP).
 Therefore, we created a project management board to ensure a structured approach 
 to process and implement our Earthquake-Detector project:
 
-![static/images/ProjectBoard_EarthquakeMonitor.png](static/images/ProjectBoard_EarthquakeMonitor.png)
-![static/images/Legend_ProjectBord.png](static/images/Legend_ProjectBord.png)
+![static/images/ProjectBoard_EarthquakeMonitor.png](use_case_code/static/images/ProjectBoard_EarthquakeMonitor.png)
+![static/images/Legend_ProjectBord.png](use_case_code/static/images/Legend_ProjectBord.png)
 
 To ensure overall success of our project, we set up a kanban board in our GitHub repository and created a new issue for 
 every task to be fulfilled in the working process. This allowed us to keep track of the to-dos, the work in progress and 
@@ -147,7 +147,7 @@ tasks we had already achieved. Additionally, we created a backlog category calle
 suggestions and brainstorming ideas included in this category in our weekly meetings and decided as a team, if the idea 
 becomes a to-do or not. The structure of our kanban board looked as follows:
 
-![static/images/kanban_board.png](static/images/kanban_board.png)
+![static/images/kanban_board.png](use_case_code/static/images/kanban_board.png)
 
 ## 5. Details of the work
 ### 5.1 Processing of real-time data
@@ -211,7 +211,7 @@ becomes a to-do or not. The structure of our kanban board looked as follows:
 2. About Us - about_us.html
 3. Website Manual - manual.html
 
-    ![img.png](use_case_code/static/Website_Home.png)
+    ![img.png](use_case_code/static/images/Website_Home.png)
     > 
     > ***1. Index.html***
     > - The index.html file represents our home page and is the core part of our website.
@@ -227,7 +227,7 @@ becomes a to-do or not. The structure of our kanban board looked as follows:
     > **Tips & Tricks:**
     > - We solved the above-mentioned issue by using an iframe to integrate the map html file. In general, iframes are used to display content from another source, such as videos or advertisements via hyperlink or html reference in our case.
   
-    ![img.png](use_case_code/static/Website_About_Us.png)
+    ![img.png](use_case_code/static/images/Website_About_Us.png)
     >
     > ***2. about_us.html***
     > - The about_us.html file represents our about us page that can be reached via our navigation bar.
@@ -245,7 +245,7 @@ becomes a to-do or not. The structure of our kanban board looked as follows:
     > - We recommend to use bootstrap for building html website content. Bootstrap offers example code for all kinds of content elements and is relatively easy to implement and to work with.
     > - Check out https://getbootstrap.com/docs/5.1/getting-started/introduction/ 
 
-    ![img.png](use_case_code/static/Website_Manual.png)
+    ![img.png](use_case_code/static/images/Website_Manual.png)
     >
     > ***3. manual.html***
     > - The manual.html file represents our website user manual that can be reached via our navigation bar.
@@ -421,7 +421,7 @@ becomes a to-do or not. The structure of our kanban board looked as follows:
 ### 6.9 Class Architecture
 The following graph shows how our classes are connected to one another.
 
-![static/images/class_architecture.png](static/images/class_architecture.png)
+![static/images/class_architecture.png](use_case_code/static/images/class_architecture.png)
 
 ___
 ## 7. Summary 
