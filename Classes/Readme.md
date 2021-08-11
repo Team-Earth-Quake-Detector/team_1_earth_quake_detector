@@ -138,4 +138,4 @@
 
 
 ## Class Architecture
-![static/images/class_architecture.png](static/images/class_architecture.png)
+![static/images/class_architecture.png](use_case_code/static/images/class_architecture.png)
